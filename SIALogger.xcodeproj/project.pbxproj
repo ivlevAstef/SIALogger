@@ -1,0 +1,315 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A54673B31CED954900B90192 /* SIACrashlyticsLoggerOuput.m in Sources */ = {isa = PBXBuildFile; fileRef = A54673A81CED954800B90192 /* SIACrashlyticsLoggerOuput.m */; };
+		A54673B41CED954900B90192 /* SIAConsoleOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = A54673AA1CED954800B90192 /* SIAConsoleOutput.m */; };
+		A54673B51CED954900B90192 /* SIADocumentsFileOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = A54673AC1CED954900B90192 /* SIADocumentsFileOutput.m */; };
+		A54673B61CED954900B90192 /* SIALogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A54673B11CED954900B90192 /* SIALogger.m */; };
+		A5FF46141CEDBB4A005D9F45 /* SIALogger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A54673B71CED9A2200B90192 /* SIALogger.h */; };
+		A5FF46151CEDBB4A005D9F45 /* SIALogLevels.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A54673B21CED954900B90192 /* SIALogLevels.h */; };
+		A5FF46161CEDBB4A005D9F45 /* SIALogChecks.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A54673AE1CED954900B90192 /* SIALogChecks.h */; };
+		A5FF46171CEDBB4A005D9F45 /* SIALogContracts.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A54673AF1CED954900B90192 /* SIALogContracts.h */; };
+		A5FF461D1CEDBB93005D9F45 /* SIAILoggerOutput.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A54673AD1CED954900B90192 /* SIAILoggerOutput.h */; };
+		A5FF461E1CEDBB93005D9F45 /* SIAConsoleOutput.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A54673A91CED954800B90192 /* SIAConsoleOutput.h */; };
+		A5FF461F1CEDBB93005D9F45 /* SIADocumentsFileOutput.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A54673AB1CED954800B90192 /* SIADocumentsFileOutput.h */; };
+		A5FF46201CEDBB93005D9F45 /* SIACrashlyticsLoggerOuput.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A54673A71CED954800B90192 /* SIACrashlyticsLoggerOuput.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		849DC8441AEE15F40057D216 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				A5FF46141CEDBB4A005D9F45 /* SIALogger.h in CopyFiles */,
+				A5FF46151CEDBB4A005D9F45 /* SIALogLevels.h in CopyFiles */,
+				A5FF46161CEDBB4A005D9F45 /* SIALogChecks.h in CopyFiles */,
+				A5FF46171CEDBB4A005D9F45 /* SIALogContracts.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5FF461C1CEDBB5D005D9F45 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)/LoggerOutput";
+			dstSubfolderSpec = 16;
+			files = (
+				A5FF461D1CEDBB93005D9F45 /* SIAILoggerOutput.h in CopyFiles */,
+				A5FF461E1CEDBB93005D9F45 /* SIAConsoleOutput.h in CopyFiles */,
+				A5FF461F1CEDBB93005D9F45 /* SIADocumentsFileOutput.h in CopyFiles */,
+				A5FF46201CEDBB93005D9F45 /* SIACrashlyticsLoggerOuput.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		849DC8461AEE15F40057D216 /* libSIALogger.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSIALogger.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A54673A71CED954800B90192 /* SIACrashlyticsLoggerOuput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIACrashlyticsLoggerOuput.h; sourceTree = "<group>"; };
+		A54673A81CED954800B90192 /* SIACrashlyticsLoggerOuput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIACrashlyticsLoggerOuput.m; sourceTree = "<group>"; };
+		A54673A91CED954800B90192 /* SIAConsoleOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAConsoleOutput.h; sourceTree = "<group>"; };
+		A54673AA1CED954800B90192 /* SIAConsoleOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAConsoleOutput.m; sourceTree = "<group>"; };
+		A54673AB1CED954800B90192 /* SIADocumentsFileOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIADocumentsFileOutput.h; sourceTree = "<group>"; };
+		A54673AC1CED954900B90192 /* SIADocumentsFileOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIADocumentsFileOutput.m; sourceTree = "<group>"; };
+		A54673AD1CED954900B90192 /* SIAILoggerOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAILoggerOutput.h; sourceTree = "<group>"; };
+		A54673AE1CED954900B90192 /* SIALogChecks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALogChecks.h; sourceTree = "<group>"; };
+		A54673AF1CED954900B90192 /* SIALogContracts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALogContracts.h; sourceTree = "<group>"; };
+		A54673B11CED954900B90192 /* SIALogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIALogger.m; sourceTree = "<group>"; };
+		A54673B21CED954900B90192 /* SIALogLevels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALogLevels.h; sourceTree = "<group>"; };
+		A54673B71CED9A2200B90192 /* SIALogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALogger.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		849DC8431AEE15F40057D216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		849DC83D1AEE15F40057D216 = {
+			isa = PBXGroup;
+			children = (
+				A54673A51CED954800B90192 /* Classes */,
+				849DC8471AEE15F40057D216 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		849DC8471AEE15F40057D216 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				849DC8461AEE15F40057D216 /* libSIALogger.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A54673A51CED954800B90192 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A54673B71CED9A2200B90192 /* SIALogger.h */,
+				A54673B21CED954900B90192 /* SIALogLevels.h */,
+				A54673AE1CED954900B90192 /* SIALogChecks.h */,
+				A54673AF1CED954900B90192 /* SIALogContracts.h */,
+				A54673A61CED954800B90192 /* LogOutput */,
+				A54673B11CED954900B90192 /* SIALogger.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A54673A61CED954800B90192 /* LogOutput */ = {
+			isa = PBXGroup;
+			children = (
+				A54673AD1CED954900B90192 /* SIAILoggerOutput.h */,
+				A54673A91CED954800B90192 /* SIAConsoleOutput.h */,
+				A54673AA1CED954800B90192 /* SIAConsoleOutput.m */,
+				A54673AB1CED954800B90192 /* SIADocumentsFileOutput.h */,
+				A54673AC1CED954900B90192 /* SIADocumentsFileOutput.m */,
+				A54673A71CED954800B90192 /* SIACrashlyticsLoggerOuput.h */,
+				A54673A81CED954800B90192 /* SIACrashlyticsLoggerOuput.m */,
+			);
+			path = LogOutput;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		849DC8451AEE15F40057D216 /* SIALogger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 849DC85A1AEE15F40057D216 /* Build configuration list for PBXNativeTarget "SIALogger" */;
+			buildPhases = (
+				849DC8421AEE15F40057D216 /* Sources */,
+				849DC8431AEE15F40057D216 /* Frameworks */,
+				849DC8441AEE15F40057D216 /* CopyFiles */,
+				A5FF461C1CEDBB5D005D9F45 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SIALogger;
+			productName = MSTLogger;
+			productReference = 849DC8461AEE15F40057D216 /* libSIALogger.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		849DC83E1AEE15F40057D216 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = MSteam;
+				TargetAttributes = {
+					849DC8451AEE15F40057D216 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+				};
+			};
+			buildConfigurationList = 849DC8411AEE15F40057D216 /* Build configuration list for PBXProject "SIALogger" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 849DC83D1AEE15F40057D216;
+			productRefGroup = 849DC8471AEE15F40057D216 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				849DC8451AEE15F40057D216 /* SIALogger */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		849DC8421AEE15F40057D216 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A54673B41CED954900B90192 /* SIAConsoleOutput.m in Sources */,
+				A54673B31CED954900B90192 /* SIACrashlyticsLoggerOuput.m in Sources */,
+				A54673B51CED954900B90192 /* SIADocumentsFileOutput.m in Sources */,
+				A54673B61CED954900B90192 /* SIALogger.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		849DC8581AEE15F40057D216 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
+			};
+			name = Debug;
+		};
+		849DC8591AEE15F40057D216 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
+			};
+			name = Release;
+		};
+		849DC85B1AEE15F40057D216 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = SIALogger;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
+			};
+			name = Debug;
+		};
+		849DC85C1AEE15F40057D216 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = SIALogger;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		849DC8411AEE15F40057D216 /* Build configuration list for PBXProject "SIALogger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				849DC8581AEE15F40057D216 /* Debug */,
+				849DC8591AEE15F40057D216 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		849DC85A1AEE15F40057D216 /* Build configuration list for PBXNativeTarget "SIALogger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				849DC85B1AEE15F40057D216 /* Debug */,
+				849DC85C1AEE15F40057D216 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 849DC83E1AEE15F40057D216 /* Project object */;
+}
