@@ -137,7 +137,7 @@
 			dependencies = (
 			);
 			name = SIALogger;
-			productName = MSTLogger;
+			productName = SIALogger;
 			productReference = 849DC8461AEE15F40057D216 /* libSIALogger.a */;
 			productType = "com.apple.product-type.library.static";
 		};
@@ -148,7 +148,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = MSteam;
+				ORGANIZATIONNAME = SIA;
 				TargetAttributes = {
 					849DC8451AEE15F40057D216 = {
 						CreatedOnToolsVersion = 6.3;
