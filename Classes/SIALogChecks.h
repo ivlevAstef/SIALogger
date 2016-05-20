@@ -1,6 +1,9 @@
 //
 //  SIALogChecks.h
+//  SIALogger
+//
 //  Created by Ivlev  Alexander (Stef) on 4/15/15.
+//  Copyright (c) 2016 Ivlev Alexander. All rights reserved.
 //
 
 #ifndef __SIA_LOG_CHECKS_H__
