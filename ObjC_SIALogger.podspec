@@ -40,8 +40,8 @@ Pod::Spec.new do |s|
 
   s.source       = { :hg => "https://github.com/ivlevAstef/SIALogger" }
 
-  s.source_files  = "Classes/**/*.{h,m}"
-  s.public_header_files = "Classes/*/*.h"
+  s.source_files  = "ObjC/SIALogger/SIALogger/**/*.{h,m}"
+  s.public_header_files = "ObjC/SIALogger/SIALogger/Headers/**/*.h"
 
   s.requires_arc = true
 
