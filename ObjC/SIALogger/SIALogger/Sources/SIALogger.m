@@ -71,7 +71,11 @@ SIALoggerFormatFunction defaultFormatFunction() {
 }
 
 - (void)log:(const SIALogLevel)level Line:(const SIALineNumber)line File:(NSString* const)file Msg:(NSString* const)msg {
-  SIARequiresArrayInterval(0, level, SIALogLevel_End);
+#define SIA_LOG_LEVEL_COUNTER(NAME) 1 +
+  static size_t const logLevelsCount = SIA_LOG_LEVELS(SIA_LOG_LEVEL_COUNTER) 0;
+#undef SIA_LOG_LEVEL_COUNTER
+  
+  SIARequiresArrayInterval(0, level, logLevelsCount);
   SIARequiresType(file, NSString);
   SIARequiresType(msg, NSString);
   
@@ -79,13 +83,11 @@ SIALoggerFormatFunction defaultFormatFunction() {
     return;
   }
   
+#define SIA_LOG_LEVEL_STRING(NAME) @#NAME,
   static NSString* const logLevelsString[] = {
-    @"Fatal",
-    @"Error",
-    @"Warning",
-    @"Info",
-    @"Trace",
+    SIA_LOG_LEVELS(SIA_LOG_LEVEL_STRING)
   };
+#undef SIA_LOG_LEVEL_STRING  
 
   [self executeLog:self.currentFormatFunction(logLevelsString[level], [file lastPathComponent], line, msg)];
 }

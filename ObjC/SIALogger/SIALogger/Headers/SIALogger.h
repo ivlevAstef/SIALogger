@@ -9,14 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "SIAILoggerOutput.h"
 
+#define SIA_LOG_LEVELS(X) \
+  X(Fatal) \
+  X(Error) \
+  X(Warning) \
+  X(Info) \
+  X(Trace) \
+
+#define SIA_LOG_LEVEL_ENUM(NAME) SIALogLevel_##NAME,
 typedef NS_ENUM(NSUInteger, SIALogLevel) {
-  SIALogLevel_Fatal,
-  SIALogLevel_Error,
-  SIALogLevel_Warning,
-  SIALogLevel_Info,
-  SIALogLevel_Trace,
-  SIALogLevel_End
+  SIA_LOG_LEVELS(SIA_LOG_LEVEL_ENUM)
 };
+#undef SIA_LOG_LEVEL_ENUM
 
 typedef unsigned long long int SIALineNumber;
 typedef NSString* (^SIALoggerFormatFunction)(NSString* const level, NSString* const file, const SIALineNumber line, NSString* const msg);
