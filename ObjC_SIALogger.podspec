@@ -7,23 +7,24 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
   					SIALogger - library for simplify log and assertion.
   					Supported five log level: {Fatal, Error, Warning, Info, Trace}
-            Fatal level abort program.
+            Fatal level abort
+            program.
 
   					for setting use: [SIALogger sharedInstance]
 
-  					for log use: SIALog{LEVEL}(MSG, ...) etc. SIALogDebug(@"Debug message");
-            also support logIf: SIALogIf{LEVEL}(CONDITION, MSG) etc. SIALogIfWarning(nil == model, @"Model is nil");
-            and logRetIf: SIALogRetIf{LEVEL}(CONDITION, RET_VALUE, MSG) etc. SIALogRetIfInfo(nil == model, nil, @"Model is nil");
+  					for log use: SIALog{LEVEL}(MSG, ...) For example. SIALogTrace(@"Trace message with value:%@", value);
+            also support logIf: SIALogIf{LEVEL}(CONDITION, MSG, ...) For example. SIALogIfWarning(nil == model, @"Model is nil");
+            and logRetIf: SIALogRetIf{LEVEL}(CONDITION, RET_VALUE, MSG, ...) For example. SIALogRetIfInfo(nil == model, nil, @"Model is nil");
 
-            for assert use: SIALogAssertMsg(CONDITION, MSG) or SIALogAssert(CONDITION) etc. SIALogAssert(nil != model);
+            for assert use: SIALogAssertMsg(CONDITION, MSG, ...) or SIALogAssert(CONDITION) For example. SIALogAssert(nil != model);
 
             for contract requires use: 
               SIARequires(CONDITION) 
-              SIARequiresType(VALUE, TYPE) etc. SIARequiresType(model, Model)
-              SIARequiresProtocol(VALUE, PROTOCOL) etc. SIARequiresProtocol(model, ModelProtocol)
-              SIARequiresSelector(VALUE, SELECTOR) etc. SIARequiresSelector(model, @selector(method))
-              SIARequiresNotNil(VALUE) etc. SIARequiresNotNil(model)
-              SIARequiresArrayInterval(BEGIN, VALUE, END) etc. SIARequiresArrayInterval(0, model.value, 100)
+              SIARequiresType(VALUE, TYPE) For example. SIARequiresType(model, Model)
+              SIARequiresProtocol(VALUE, PROTOCOL) For example. SIARequiresProtocol(model, ModelProtocol)
+              SIARequiresSelector(VALUE, SELECTOR) For example. SIARequiresSelector(model, @selector(method))
+              SIARequiresNotNil(VALUE) For example. SIARequiresNotNil(model)
+              SIARequiresArrayInterval(BEGIN, VALUE, END) For example. SIARequiresArrayInterval(0, model.value, 100)
 
             also have: SIANotImplemented() SIALogCheck(CONDITION)
 
