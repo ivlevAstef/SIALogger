@@ -84,7 +84,7 @@ SIALoggerFormatFunction defaultFormatFunction() {
   }
   
 #define SIA_LOG_LEVEL_STRING(NAME) @#NAME,
-  static NSString* const logLevelsString[] = {
+  static NSString* const logLevelsString[logLevelsCount] = {
     SIA_LOG_LEVELS(SIA_LOG_LEVEL_STRING)
   };
 #undef SIA_LOG_LEVEL_STRING  
