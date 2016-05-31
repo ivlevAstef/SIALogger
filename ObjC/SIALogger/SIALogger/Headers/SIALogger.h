@@ -41,3 +41,9 @@ typedef NSString* (^SIALoggerFormatFunction)(NSString* const level, NSString* co
 #include "SIALogLevels.h"
 #include "SIALogChecks.h"
 #include "SIALogContracts.h"
+
+//! Project version number for SIALogger.
+FOUNDATION_EXPORT double SIALoggerVersionNumber;
+
+//! Project version string for SIALogger.
+FOUNDATION_EXPORT const unsigned char SIALoggerVersionString[];

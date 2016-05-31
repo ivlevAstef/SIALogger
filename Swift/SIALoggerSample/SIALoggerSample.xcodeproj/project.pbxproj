@@ -360,6 +360,7 @@
 				A55E022E1CFDBB36005F8997 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
