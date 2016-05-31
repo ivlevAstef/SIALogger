@@ -9,5 +9,5 @@
 public struct Config {
   public static var maxLogLevel = Level.Info
   public static var outputs : [SIALoggerOutputProtocol] = [SIAConsoleOutput()]
-  public static var formatFunction = { (level: String, file: String, line: Int, msg: String) in " "+level+" {"+file+":"+String(line)+"}: "+msg }
+  public static var formatFunction = { (level: String, file: String, line: UInt, msg: String) in " "+level+" {"+file+":"+String(line)+"}: "+msg }
 }
