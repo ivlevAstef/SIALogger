@@ -88,7 +88,7 @@ public final class Log {
       return
     }
     
-    let message = Config.formatFunction(level.toString(), file, line, msg)
+    let message = Config.formatFunction(level.toString(), (file as NSString).lastPathComponent, line, msg)
     for output in Config.outputs {
       output.log(message)
     }
