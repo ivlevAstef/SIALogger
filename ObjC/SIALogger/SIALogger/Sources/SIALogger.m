@@ -42,7 +42,12 @@ SIALoggerFormatFunction defaultFormatFunction() {
   if (self) {
     self.monitor = [[NSObject alloc] init];
     
-    self.maxLogLevel = SIA_MAX_LOG_LEVEL;
+#ifdef DEBUG
+  self.maxLogLevel = SIALogLevel_Info;
+#else
+  self.maxLogLevel = SIALogLevel_Warning;
+#endif
+    
     self.outputArray = @[ [[SIAConsoleOutput alloc] init] ];
     
     self.currentFormatFunction = defaultFormatFunction();
@@ -79,7 +84,7 @@ SIALoggerFormatFunction defaultFormatFunction() {
   SIARequiresType(file, NSString);
   SIARequiresType(msg, NSString);
   
-  if (self.maxLogLevel <= level) {
+  if (self.maxLogLevel < level) {
     return;
   }
   

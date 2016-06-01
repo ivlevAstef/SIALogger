@@ -46,10 +46,10 @@
     return RET_VALUE;                                         \
   }
 
-#define SIALogRetIfError(CONDITION, RET_VALUE, MSG, ...)   SIALogIfRet(CONDITION, Error  , RET_VALUE, MSG, ##__VA_ARGS__)
-#define SIALogRetIfWarning(CONDITION, RET_VALUE, MSG, ...) SIALogIfRet(CONDITION, Warning, RET_VALUE, MSG, ##__VA_ARGS__)
-#define SIALogRetIfInfo(CONDITION, RET_VALUE, MSG, ...)    SIALogIfRet(CONDITION, Info   , RET_VALUE, MSG, ##__VA_ARGS__)
-#define SIALogRetIfTrace(CONDITION, RET_VALUE, MSG, ...)   SIALogIfRet(CONDITION, Trace  , RET_VALUE, MSG, ##__VA_ARGS__)
+#define SIALogRetIfError(CONDITION, RET_VALUE, MSG, ...)   SIALogRetIf(CONDITION, Error  , RET_VALUE, MSG, ##__VA_ARGS__)
+#define SIALogRetIfWarning(CONDITION, RET_VALUE, MSG, ...) SIALogRetIf(CONDITION, Warning, RET_VALUE, MSG, ##__VA_ARGS__)
+#define SIALogRetIfInfo(CONDITION, RET_VALUE, MSG, ...)    SIALogRetIf(CONDITION, Info   , RET_VALUE, MSG, ##__VA_ARGS__)
+#define SIALogRetIfTrace(CONDITION, RET_VALUE, MSG, ...)   SIALogRetIf(CONDITION, Trace  , RET_VALUE, MSG, ##__VA_ARGS__)
 
 #endif /* __SIA_LOG_CHECKS_H__ */
 
