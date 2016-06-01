@@ -18,16 +18,16 @@ library for simplify log and assertion
 
 # Using
 ## Settings
-For changes settings get 'SIALogger' class instance use method 'sharedInstance'.
+For changes settings get 'SIALogConfig' class instance use method 'sharedInstance'.
 List settings:
 * Max log level - Writing only if log level less the variable.
-* Outputs - Classes implementation protocol 'SIAILoggerOutput' for show log messages. For example: Console, File, Crashlytics.
-* Format functions - Method for generating string by level, file, line, msg.
+* Outputs - Classes implementation protocol 'SIALogOutputProtocol' for show log messages. For example: Console, File, Crashlytics.
+* Format function - Method for generating string by level, file, line, msg.
 
 ## Logs
 For log use Macros SIALog{LEVEL}(MSG, ...). For example: SIALogTrace(@"Trace message with value:%@", value);
-If you needs log by condition use Macros SIALogIf{LEVEL}(CONDITION, MSG, ...). For example: SIALogIfWarning(nil == model, @"Model is nil");
-If you needs log by condition and return from function use Macros SIALogRetIf{LEVEL}(CONDITION, RET_VALUE, MSG, ...). For example: SIALogRetIfInfo(nil == model, nil, @"Model is nil");
+If you needs log by condition use Macros SIALog{LEVEL}If(CONDITION, MSG, ...). For example: SIALogWarningIf(nil == model, @"Model is nil");
+If you needs log by condition and return from function use Macros SIALogRet{LEVEL}If(CONDITION, RET_VALUE, MSG, ...). For example: SIALogRetInfoIf(nil == model, nil, @"Model is nil");
 
 ##Assertion
 Assertion abort program only debug mode, but always logs.
