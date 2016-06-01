@@ -13,6 +13,11 @@ library for simplify log and assertion
 3. Log by condition (LogIf)
 4. Settings
 
+## Install
+Via CocoaPods.  
+`pod 'SIALogger'` Objective-C  
+`pod 'SIALoggerSwift'` Swift (iOS8+) also need write in your PodFile `use_frameworks!`
+
 ## Documentation
 ### SIALogger Objective-C
 The documentation can be found at [SIALogger Objective-C](https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Objective-C)
