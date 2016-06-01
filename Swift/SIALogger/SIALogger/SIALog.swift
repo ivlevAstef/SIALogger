@@ -83,14 +83,18 @@ public extension SIALog {
 }
 
 public final class SIALog {
+  private static let monitor = NSObject()
   private static func log(level: SIALogLevel, msg: String, file: StaticString = #file, line: UInt = #line) {
     guard level.rawValue <= SIALogConfig.maxLogLevel.rawValue else {
       return
     }
     
     let message = SIALogConfig.formatFunction(level.toString(), (String(file) as NSString).lastPathComponent, line, msg)
+    
+    objc_sync_enter(monitor)
     for output in SIALogConfig.outputs {
       output.log(message)
     }
+    objc_sync_exit(monitor)
   }
 }
