@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:ObjC"
+      name = "ObjC">
+      <FileRef
+         location = "group:SIALogger/SIALogger.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:SIALoggerSample/SIALoggerSample.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:SIALoggerTests/SIALoggerTests.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Swift"
+      name = "Swift">
+      <FileRef
+         location = "group:SIALogger/SIALogger.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:SIALoggerSample/SIALoggerSample.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:SIALoggerTests/SIALoggerTests.xcodeproj">
+      </FileRef>
+   </Group>
+</Workspace>
