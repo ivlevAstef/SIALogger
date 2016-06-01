@@ -12,7 +12,7 @@
 @interface SIALogger ()
 
 @property (nonatomic, strong) NSObject* monitor;
-@property (nonatomic, strong) NSArray<id<SIAILoggerOutput>>* outputArray;
+@property (nonatomic, strong) NSArray<id<SIALoggerOutputProtocol>>* outputArray;
 
 @property (atomic, copy) SIALoggerFormatFunction currentFormatFunction;
 
@@ -51,10 +51,10 @@ SIALoggerFormatFunction defaultFormatFunction() {
   return self;
 }
 
-- (void)setOutputArray:(NSArray<id<SIAILoggerOutput>>*)outputArray {
+- (void)setOutputArray:(NSArray<id<SIALoggerOutputProtocol>>*)outputArray {
   SIARequiresType(outputArray, NSArray);
-  for (id<SIAILoggerOutput> output in outputArray) {
-    SIARequiresProtocol(output, SIAILoggerOutput);
+  for (id<SIALoggerOutputProtocol> output in outputArray) {
+    SIARequiresProtocol(output, SIALoggerOutputProtocol);
   }
   
   @synchronized(self.monitor) {
@@ -94,7 +94,7 @@ SIALoggerFormatFunction defaultFormatFunction() {
 
 - (void)executeLog:(NSString*)log {
   @synchronized(self.monitor) {
-    for (id<SIAILoggerOutput> output in self.outputArray) {
+    for (id<SIALoggerOutputProtocol> output in self.outputArray) {
       [output log:log];
     }
   }

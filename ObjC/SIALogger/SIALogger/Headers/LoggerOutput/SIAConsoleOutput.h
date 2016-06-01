@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SIAILoggerOutput.h"
+#import "SIALoggerOutputProtocol.h"
 
-@interface SIAConsoleOutput : NSObject <SIAILoggerOutput>
+@interface SIAConsoleOutput : NSObject <SIALoggerOutputProtocol>
 
 @end

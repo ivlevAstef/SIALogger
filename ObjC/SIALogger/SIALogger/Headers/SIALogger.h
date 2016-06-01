@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SIAILoggerOutput.h"
+#import "SIALoggerOutputProtocol.h"
 
 #define SIA_LOG_LEVELS(X) \
   X(Fatal) \
@@ -33,7 +33,7 @@ typedef NSString* (^SIALoggerFormatFunction)(NSString* const level, NSString* co
 
 @property (atomic, assign) SIALogLevel maxLogLevel;
 
-- (void)setOutputArray:(NSArray<id<SIAILoggerOutput>>*)outputArray;
+- (void)setOutputArray:(NSArray<id<SIALoggerOutputProtocol>>*)outputArray;
 - (void)setFormatFunction:(SIALoggerFormatFunction)formatFunction;
 
 @end

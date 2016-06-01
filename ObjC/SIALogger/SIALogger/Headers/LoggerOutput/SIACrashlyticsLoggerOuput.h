@@ -9,9 +9,9 @@
 #ifdef SIA_LOGGER_CRASHLYTICS
 
 #import <Foundation/Foundation.h>
-#import "SIAILoggerOutput.h"
+#import "SIALoggerOutputProtocol.h"
 
-@interface SIACrashlyticsLoggerOuput : NSObject <SIAILoggerOutput>
+@interface SIACrashlyticsLoggerOuput : NSObject <SIALoggerOutputProtocol>
 
 @end
 

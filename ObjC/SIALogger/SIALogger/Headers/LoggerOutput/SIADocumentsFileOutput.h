@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SIAILoggerOutput.h"
+#import "SIALoggerOutputProtocol.h"
 
-@interface SIADocumentsFileOutput : NSObject <SIAILoggerOutput>
+@interface SIADocumentsFileOutput : NSObject <SIALoggerOutputProtocol>
 
 - (id)init __attribute__((unavailable("Used initWithFileName:joinDate: instead.")));
 - (instancetype)initWithFileName:(NSString*)fileName joinDate:(BOOL)join;
