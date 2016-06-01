@@ -1,5 +1,5 @@
 //
-//  SIACrashlyticsLoggerOuput.m
+//  SIALogCrashlyticsOuput.m
 //  SIALogger
 //
 //  Created by Ivlev  Alexander (Stef) on 4/15/15.
@@ -8,10 +8,10 @@
 
 #ifdef SIA_LOGGER_CRASHLYTICS
 
-#import "SIACrashlyticsLoggerOuput.h"
+#import "SIALogCrashlyticsOuput.h"
 #import <Crashlytics/Crashlytics.h>
 
-@implementation CrashlyticsLoggerOuput
+@implementation SIALogCrashlyticsOuput
 
 - (void)log:(NSString*)logString {
   if (nil != logString) {

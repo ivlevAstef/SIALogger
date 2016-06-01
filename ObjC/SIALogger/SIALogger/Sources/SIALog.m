@@ -25,7 +25,8 @@
   };
 #undef SIA_LOG_LEVEL_STRING  
 
-  [self executeLog:[SIALogConfig sharedInstance].formatFunction(logLevelsString[level], [file lastPathComponent], line, msg)];
+  SIALogFormatFunction function = [SIALogConfig sharedInstance].formatFunction ?: [SIALogConfig sharedInstance].defaultFormatFunction;
+  [self executeLog:function(logLevelsString[level], [file lastPathComponent], line, msg)];
 }
 
 + (void)executeLog:(NSString*)log {
@@ -36,7 +37,7 @@
   });
   
   @synchronized (monitor) {
-    for (id<SIALoggerOutputProtocol> output in [SIALogConfig sharedInstance].outputArray) {
+    for (id<SIALogOutputProtocol> output in [SIALogConfig sharedInstance].outputs) {
       [output log:log];
     }
   }

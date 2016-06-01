@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A55E028E1CFDC446005F8997 /* SIAConsoleOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = A55E02801CFDC446005F8997 /* SIAConsoleOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A55E028F1CFDC446005F8997 /* SIACrashlyticsLoggerOuput.h in Headers */ = {isa = PBXBuildFile; fileRef = A55E02811CFDC446005F8997 /* SIACrashlyticsLoggerOuput.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A55E02901CFDC446005F8997 /* SIADocumentsFileOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = A55E02821CFDC446005F8997 /* SIADocumentsFileOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A55E02911CFDC446005F8997 /* SIALoggerOutputProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A55E02831CFDC446005F8997 /* SIALoggerOutputProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A55E028E1CFDC446005F8997 /* SIALogConsoleOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = A55E02801CFDC446005F8997 /* SIALogConsoleOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A55E028F1CFDC446005F8997 /* SIALogCrashlyticsOuput.h in Headers */ = {isa = PBXBuildFile; fileRef = A55E02811CFDC446005F8997 /* SIALogCrashlyticsOuput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A55E02901CFDC446005F8997 /* SIALogDocumentsFileOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = A55E02821CFDC446005F8997 /* SIALogDocumentsFileOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A55E02911CFDC446005F8997 /* SIALogOutputProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A55E02831CFDC446005F8997 /* SIALogOutputProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A55E02941CFDC446005F8997 /* SIALog.h in Headers */ = {isa = PBXBuildFile; fileRef = A55E02861CFDC446005F8997 /* SIALog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A55E02951CFDC446005F8997 /* SIALogLevels.h in Headers */ = {isa = PBXBuildFile; fileRef = A55E02871CFDC446005F8997 /* SIALogLevels.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A55E02961CFDC446005F8997 /* SIAConsoleOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = A55E028A1CFDC446005F8997 /* SIAConsoleOutput.m */; };
-		A55E02971CFDC446005F8997 /* SIACrashlyticsLoggerOuput.m in Sources */ = {isa = PBXBuildFile; fileRef = A55E028B1CFDC446005F8997 /* SIACrashlyticsLoggerOuput.m */; };
-		A55E02981CFDC446005F8997 /* SIADocumentsFileOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = A55E028C1CFDC446005F8997 /* SIADocumentsFileOutput.m */; };
+		A55E02961CFDC446005F8997 /* SIALogConsoleOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = A55E028A1CFDC446005F8997 /* SIALogConsoleOutput.m */; };
+		A55E02971CFDC446005F8997 /* SIALogCrashlyticsOuput.m in Sources */ = {isa = PBXBuildFile; fileRef = A55E028B1CFDC446005F8997 /* SIALogCrashlyticsOuput.m */; };
+		A55E02981CFDC446005F8997 /* SIALogDocumentsFileOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = A55E028C1CFDC446005F8997 /* SIALogDocumentsFileOutput.m */; };
 		A55E02991CFDC446005F8997 /* SIALog.m in Sources */ = {isa = PBXBuildFile; fileRef = A55E028D1CFDC446005F8997 /* SIALog.m */; };
 		A56A71241CFECB5700952FE7 /* SIALogChecks.h in Headers */ = {isa = PBXBuildFile; fileRef = A56A71211CFECB5700952FE7 /* SIALogChecks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A56A71251CFECB5700952FE7 /* SIALogContracts.h in Headers */ = {isa = PBXBuildFile; fileRef = A56A71221CFECB5700952FE7 /* SIALogContracts.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,15 +28,15 @@
 /* Begin PBXFileReference section */
 		A55E02731CFDC42D005F8997 /* SIALogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SIALogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55E02781CFDC42D005F8997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A55E02801CFDC446005F8997 /* SIAConsoleOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIAConsoleOutput.h; sourceTree = "<group>"; };
-		A55E02811CFDC446005F8997 /* SIACrashlyticsLoggerOuput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIACrashlyticsLoggerOuput.h; sourceTree = "<group>"; };
-		A55E02821CFDC446005F8997 /* SIADocumentsFileOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIADocumentsFileOutput.h; sourceTree = "<group>"; };
-		A55E02831CFDC446005F8997 /* SIALoggerOutputProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALoggerOutputProtocol.h; sourceTree = "<group>"; };
+		A55E02801CFDC446005F8997 /* SIALogConsoleOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALogConsoleOutput.h; sourceTree = "<group>"; };
+		A55E02811CFDC446005F8997 /* SIALogCrashlyticsOuput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALogCrashlyticsOuput.h; sourceTree = "<group>"; };
+		A55E02821CFDC446005F8997 /* SIALogDocumentsFileOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALogDocumentsFileOutput.h; sourceTree = "<group>"; };
+		A55E02831CFDC446005F8997 /* SIALogOutputProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALogOutputProtocol.h; sourceTree = "<group>"; };
 		A55E02861CFDC446005F8997 /* SIALog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALog.h; sourceTree = "<group>"; };
 		A55E02871CFDC446005F8997 /* SIALogLevels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALogLevels.h; sourceTree = "<group>"; };
-		A55E028A1CFDC446005F8997 /* SIAConsoleOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIAConsoleOutput.m; sourceTree = "<group>"; };
-		A55E028B1CFDC446005F8997 /* SIACrashlyticsLoggerOuput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIACrashlyticsLoggerOuput.m; sourceTree = "<group>"; };
-		A55E028C1CFDC446005F8997 /* SIADocumentsFileOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIADocumentsFileOutput.m; sourceTree = "<group>"; };
+		A55E028A1CFDC446005F8997 /* SIALogConsoleOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIALogConsoleOutput.m; sourceTree = "<group>"; };
+		A55E028B1CFDC446005F8997 /* SIALogCrashlyticsOuput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIALogCrashlyticsOuput.m; sourceTree = "<group>"; };
+		A55E028C1CFDC446005F8997 /* SIALogDocumentsFileOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIALogDocumentsFileOutput.m; sourceTree = "<group>"; };
 		A55E028D1CFDC446005F8997 /* SIALog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIALog.m; sourceTree = "<group>"; };
 		A56A711E1CFEC9E200952FE7 /* SIALogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SIALogger.h; sourceTree = "<group>"; };
 		A56A71211CFECB5700952FE7 /* SIALogChecks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALogChecks.h; sourceTree = "<group>"; };
@@ -99,10 +99,10 @@
 		A55E027F1CFDC446005F8997 /* LoggerOutput */ = {
 			isa = PBXGroup;
 			children = (
-				A55E02831CFDC446005F8997 /* SIALoggerOutputProtocol.h */,
-				A55E02801CFDC446005F8997 /* SIAConsoleOutput.h */,
-				A55E02811CFDC446005F8997 /* SIACrashlyticsLoggerOuput.h */,
-				A55E02821CFDC446005F8997 /* SIADocumentsFileOutput.h */,
+				A55E02831CFDC446005F8997 /* SIALogOutputProtocol.h */,
+				A55E02801CFDC446005F8997 /* SIALogConsoleOutput.h */,
+				A55E02811CFDC446005F8997 /* SIALogCrashlyticsOuput.h */,
+				A55E02821CFDC446005F8997 /* SIALogDocumentsFileOutput.h */,
 			);
 			path = LoggerOutput;
 			sourceTree = "<group>";
@@ -120,9 +120,9 @@
 		A55E02891CFDC446005F8997 /* LoggerOutput */ = {
 			isa = PBXGroup;
 			children = (
-				A55E028A1CFDC446005F8997 /* SIAConsoleOutput.m */,
-				A55E028B1CFDC446005F8997 /* SIACrashlyticsLoggerOuput.m */,
-				A55E028C1CFDC446005F8997 /* SIADocumentsFileOutput.m */,
+				A55E028A1CFDC446005F8997 /* SIALogConsoleOutput.m */,
+				A55E028B1CFDC446005F8997 /* SIALogCrashlyticsOuput.m */,
+				A55E028C1CFDC446005F8997 /* SIALogDocumentsFileOutput.m */,
 			);
 			path = LoggerOutput;
 			sourceTree = "<group>";
@@ -151,10 +151,10 @@
 				A56A71261CFECB5700952FE7 /* SIALogMessages.h in Headers */,
 				A56A71241CFECB5700952FE7 /* SIALogChecks.h in Headers */,
 				A56A71251CFECB5700952FE7 /* SIALogContracts.h in Headers */,
-				A55E02911CFDC446005F8997 /* SIALoggerOutputProtocol.h in Headers */,
-				A55E028E1CFDC446005F8997 /* SIAConsoleOutput.h in Headers */,
-				A55E02901CFDC446005F8997 /* SIADocumentsFileOutput.h in Headers */,
-				A55E028F1CFDC446005F8997 /* SIACrashlyticsLoggerOuput.h in Headers */,
+				A55E02911CFDC446005F8997 /* SIALogOutputProtocol.h in Headers */,
+				A55E028E1CFDC446005F8997 /* SIALogConsoleOutput.h in Headers */,
+				A55E02901CFDC446005F8997 /* SIALogDocumentsFileOutput.h in Headers */,
+				A55E028F1CFDC446005F8997 /* SIALogCrashlyticsOuput.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,9 +225,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A55E02961CFDC446005F8997 /* SIAConsoleOutput.m in Sources */,
-				A55E02971CFDC446005F8997 /* SIACrashlyticsLoggerOuput.m in Sources */,
-				A55E02981CFDC446005F8997 /* SIADocumentsFileOutput.m in Sources */,
+				A55E02961CFDC446005F8997 /* SIALogConsoleOutput.m in Sources */,
+				A55E02971CFDC446005F8997 /* SIALogCrashlyticsOuput.m in Sources */,
+				A55E02981CFDC446005F8997 /* SIALogDocumentsFileOutput.m in Sources */,
 				A56A712C1CFECE8100952FE7 /* SIALogConfig.m in Sources */,
 				A55E02991CFDC446005F8997 /* SIALog.m in Sources */,
 			);

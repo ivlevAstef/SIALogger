@@ -8,19 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "SIALogLevels.h"
-#import "SIALoggerOutputProtocol.h"
+#import "SIALogOutputProtocol.h"
 
 typedef unsigned long long int SIALineNumber;
-typedef NSString* (^SIALoggerFormatFunction)(NSString* const level, NSString* const file, const SIALineNumber line, NSString* const msg);
+typedef NSString* (^SIALogFormatFunction)(NSString* const level, NSString* const file, const SIALineNumber line, NSString* const msg);
 
 @interface SIALogConfig : NSObject
 
 + (instancetype)sharedInstance;
 
 @property (atomic, assign) SIALogLevel maxLogLevel;
-@property (atomic, copy) NSArray<id<SIALoggerOutputProtocol>>* outputArray;
-@property (atomic, copy) SIALoggerFormatFunction formatFunction;
+@property (atomic, copy) NSArray<id<SIALogOutputProtocol>>* outputs;
+@property (atomic, copy) SIALogFormatFunction formatFunction;
 
-@property (nonatomic, readonly) SIALoggerFormatFunction defaultFormatFunction;
+@property (nonatomic, readonly) SIALogFormatFunction defaultFormatFunction;
 
 @end

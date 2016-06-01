@@ -1,5 +1,5 @@
 //
-//  SIAConsoleOutput.swift
+//  SIALogConsoleOutput.swift
 //  SIALogger
 //
 //  Created by Alexander Ivlev on 31/05/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SIAConsoleOutput : SIALoggerOutputProtocol {
+public class SIALogConsoleOutput : SIALogOutputProtocol {
   public func log(message: String) {
     print(currentTime()+message)
   }

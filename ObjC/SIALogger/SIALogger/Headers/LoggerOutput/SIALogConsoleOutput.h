@@ -1,5 +1,5 @@
 //
-//  SIALoggerOutputProtocol.h
+//  SIALogConsoleOutput.h
 //  SIALogger
 //
 //  Created by Ivlev  Alexander (Stef) on 4/15/15.
@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SIALogOutputProtocol.h"
 
-@protocol SIALoggerOutputProtocol <NSObject>
-
-- (void)log:(NSString*)logString;
+@interface SIALogConsoleOutput : NSObject <SIALogOutputProtocol>
 
 @end

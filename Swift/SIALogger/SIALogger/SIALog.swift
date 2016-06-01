@@ -1,5 +1,5 @@
 //
-//  SIALogger.swift
+//  SIALog.swift
 //  SIALogger
 //
 //  Created by Alexander Ivlev on 30/05/16.
@@ -7,35 +7,35 @@
 //
 
 //Log Levels
-public extension Log {
+public extension SIALog {
   public static func Fatal(msg: String, file: StaticString = #file, line: UInt = #line) {
-    log(Level.Fatal, msg: msg, file: file, line: line)
+    log(SIALogLevel.Fatal, msg: msg, file: file, line: line)
     abort()
   }
   
   public static func Error(msg: String, file: StaticString = #file, line: UInt = #line) {
-    log(Level.Error, msg: msg, file: file, line: line)
+    log(SIALogLevel.Error, msg: msg, file: file, line: line)
   }
   
   public static func Warning(msg: String, file: StaticString = #file, line: UInt = #line) {
-    log(Level.Warning, msg: msg, file: file, line: line)
+    log(SIALogLevel.Warning, msg: msg, file: file, line: line)
   }
   
   public static func Info(msg: String, file: StaticString = #file, line: UInt = #line) {
-    log(Level.Info, msg: msg, file: file, line: line)
+    log(SIALogLevel.Info, msg: msg, file: file, line: line)
   }
   
   public static func Trace(msg: String, file: StaticString = #file, line: UInt = #line) {
-    log(Level.Trace, msg: msg, file: file, line: line)
+    log(SIALogLevel.Trace, msg: msg, file: file, line: line)
   }
 }
 
 //Assertions
-public extension Log {
+public extension SIALog {
   public static func Assert(condition: Bool, msg: String = "", file: StaticString = #file, line: UInt = #line) {
     guard condition else {
       let message = "Activate assert with message: " + msg
-      log(Level.Fatal, msg: message, file: file, line: line)
+      log(SIALogLevel.Fatal, msg: message, file: file, line: line)
       assert(condition, message, file: file, line: line)
       return
     }
@@ -53,7 +53,7 @@ public extension Log {
 }
 
 //Log if
-public extension Log {
+public extension SIALog {
   public static func FatalIf(condition: Bool, msg: String, file: StaticString = #file, line: UInt = #line) -> Bool {
     return If(condition, method: Fatal, msg: msg, file: file, line: line)
   }
@@ -82,14 +82,14 @@ public extension Log {
   }
 }
 
-public final class Log {
-  private static func log(level: Level, msg: String, file: StaticString = #file, line: UInt = #line) {
-    guard level.rawValue <= Config.maxLogLevel.rawValue else {
+public final class SIALog {
+  private static func log(level: SIALogLevel, msg: String, file: StaticString = #file, line: UInt = #line) {
+    guard level.rawValue <= SIALogConfig.maxLogLevel.rawValue else {
       return
     }
     
-    let message = Config.formatFunction(level.toString(), (String(file) as NSString).lastPathComponent, line, msg)
-    for output in Config.outputs {
+    let message = SIALogConfig.formatFunction(level.toString(), (String(file) as NSString).lastPathComponent, line, msg)
+    for output in SIALogConfig.outputs {
       output.log(message)
     }
   }

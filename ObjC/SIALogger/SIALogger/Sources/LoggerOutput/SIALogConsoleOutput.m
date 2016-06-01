@@ -1,21 +1,21 @@
 //
-//  SIAConsoleOutput.m
+//  SIALogConsoleOutput.m
 //  SIALogger
 //
 //  Created by Ivlev  Alexander (Stef) on 4/15/15.
 //  Copyright (c) 2016 Ivlev Alexander. All rights reserved.
 //
 
-#import "SIAConsoleOutput.h"
+#import "SIALogConsoleOutput.h"
 
-@interface SIAConsoleOutput ()
+@interface SIALogConsoleOutput ()
 
 @property (nonatomic, strong) NSDate* startDate;
 @property (nonatomic, strong) NSFileHandle* output;
 
 @end
 
-@implementation SIAConsoleOutput
+@implementation SIALogConsoleOutput
 
 - (instancetype)init {
   self = [super init];

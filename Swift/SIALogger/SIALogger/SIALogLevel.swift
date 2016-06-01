@@ -1,12 +1,12 @@
 //
-//  Level.swift
+//  SIALogLevel.swift
 //  SIALogger
 //
 //  Created by Alexander Ivlev on 31/05/16.
 //  Copyright © 2016 Alexander Ivlev. All rights reserved.
 //
 
-public enum Level : Int {
+public enum SIALogLevel : Int {
   case Fatal = 0
   case Error
   case Warning

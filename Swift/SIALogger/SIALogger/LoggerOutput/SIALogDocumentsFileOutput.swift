@@ -1,5 +1,5 @@
 //
-//  SIADocumentsFileOutput.swift
+//  SIALogDocumentsFileOutput.swift
 //  SIALogger
 //
 //  Created by Alexander Ivlev on 31/05/16.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class SIADocumentsFileOutput : SIALoggerOutputProtocol {
+public class SIALogDocumentsFileOutput : SIALogOutputProtocol {
   public required init?(fileName: String, joinDate: Bool = true) {
-    guard let filePath = SIADocumentsFileOutput.createFilePath(fileName, joinDate: joinDate) else {
+    guard let filePath = SIALogDocumentsFileOutput.createFilePath(fileName, joinDate: joinDate) else {
       return nil
     }
     
@@ -42,7 +42,7 @@ public class SIADocumentsFileOutput : SIALoggerOutputProtocol {
   }
   
   private static func createFilePath(fileName: String, joinDate: Bool) -> String? {
-    guard let documentDirectory = SIADocumentsFileOutput.documentsDirectory() else {
+    guard let documentDirectory = SIALogDocumentsFileOutput.documentsDirectory() else {
       return nil
     }
     

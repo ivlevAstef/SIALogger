@@ -1,20 +1,20 @@
 //
-//  SIADocumentsFileOutput.m
+//  SIALogDocumentsFileOutput.m
 //  SIALogger
 //
 //  Created by Ivlev  Alexander (Stef) on 4/15/15.
 //  Copyright (c) 2016 Ivlev Alexander. All rights reserved.
 //
 
-#import "SIADocumentsFileOutput.h"
+#import "SIALogDocumentsFileOutput.h"
 
-@interface SIADocumentsFileOutput ()
+@interface SIALogDocumentsFileOutput ()
 
 @property (nonatomic, strong) NSFileHandle* output;
 
 @end
 
-@implementation SIADocumentsFileOutput
+@implementation SIALogDocumentsFileOutput
 
 + (NSString*)documentsDirectory {
   NSArray<NSString*>* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -41,8 +41,8 @@
   self = [super init];
   if (self) {
     NSString* filePath = join ?
-      [SIADocumentsFileOutput pathWithDateAndFileName:fileName] :
-      [SIADocumentsFileOutput pathWithFileName:fileName];
+      [SIALogDocumentsFileOutput pathWithDateAndFileName:fileName] :
+      [SIALogDocumentsFileOutput pathWithFileName:fileName];
 
     [[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil];
     self.output = [NSFileHandle fileHandleForWritingAtPath:filePath];

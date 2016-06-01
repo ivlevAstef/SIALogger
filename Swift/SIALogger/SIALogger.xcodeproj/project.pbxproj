@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		A55E01D11CFD6557005F8997 /* SIALogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A55E01D01CFD6557005F8997 /* SIALogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A55E01D91CFD6582005F8997 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01D81CFD6582005F8997 /* Log.swift */; };
-		A55E01DF1CFD8D68005F8997 /* SIALoggerOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01DE1CFD8D68005F8997 /* SIALoggerOutputProtocol.swift */; };
-		A55E01E11CFD8D88005F8997 /* SIAConsoleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01E01CFD8D88005F8997 /* SIAConsoleOutput.swift */; };
-		A55E01E31CFDA695005F8997 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01E21CFDA695005F8997 /* Level.swift */; };
-		A55E01E51CFDA6F9005F8997 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01E41CFDA6F9005F8997 /* Config.swift */; };
-		A55E01E71CFDAC7C005F8997 /* SIADocumentsFileOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01E61CFDAC7C005F8997 /* SIADocumentsFileOutput.swift */; };
+		A55E01D91CFD6582005F8997 /* SIALog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01D81CFD6582005F8997 /* SIALog.swift */; };
+		A55E01DF1CFD8D68005F8997 /* SIALogOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01DE1CFD8D68005F8997 /* SIALogOutputProtocol.swift */; };
+		A55E01E11CFD8D88005F8997 /* SIALogConsoleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01E01CFD8D88005F8997 /* SIALogConsoleOutput.swift */; };
+		A55E01E31CFDA695005F8997 /* SIALogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01E21CFDA695005F8997 /* SIALogLevel.swift */; };
+		A55E01E51CFDA6F9005F8997 /* SIALogConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01E41CFDA6F9005F8997 /* SIALogConfig.swift */; };
+		A55E01E71CFDAC7C005F8997 /* SIALogDocumentsFileOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01E61CFDAC7C005F8997 /* SIALogDocumentsFileOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A55E01CD1CFD6557005F8997 /* SIALogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SIALogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55E01D01CFD6557005F8997 /* SIALogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SIALogger.h; sourceTree = "<group>"; };
 		A55E01D21CFD6557005F8997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A55E01D81CFD6582005F8997 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		A55E01DE1CFD8D68005F8997 /* SIALoggerOutputProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALoggerOutputProtocol.swift; sourceTree = "<group>"; };
-		A55E01E01CFD8D88005F8997 /* SIAConsoleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIAConsoleOutput.swift; sourceTree = "<group>"; };
-		A55E01E21CFDA695005F8997 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
-		A55E01E41CFDA6F9005F8997 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		A55E01E61CFDAC7C005F8997 /* SIADocumentsFileOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIADocumentsFileOutput.swift; sourceTree = "<group>"; };
+		A55E01D81CFD6582005F8997 /* SIALog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALog.swift; sourceTree = "<group>"; };
+		A55E01DE1CFD8D68005F8997 /* SIALogOutputProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogOutputProtocol.swift; sourceTree = "<group>"; };
+		A55E01E01CFD8D88005F8997 /* SIALogConsoleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogConsoleOutput.swift; sourceTree = "<group>"; };
+		A55E01E21CFDA695005F8997 /* SIALogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogLevel.swift; sourceTree = "<group>"; };
+		A55E01E41CFDA6F9005F8997 /* SIALogConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogConfig.swift; sourceTree = "<group>"; };
+		A55E01E61CFDAC7C005F8997 /* SIALogDocumentsFileOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogDocumentsFileOutput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				A55E01DD1CFD8D68005F8997 /* LoggerOutput */,
-				A55E01D81CFD6582005F8997 /* Log.swift */,
-				A55E01E21CFDA695005F8997 /* Level.swift */,
-				A55E01E41CFDA6F9005F8997 /* Config.swift */,
+				A55E01D81CFD6582005F8997 /* SIALog.swift */,
+				A55E01E21CFDA695005F8997 /* SIALogLevel.swift */,
+				A55E01E41CFDA6F9005F8997 /* SIALogConfig.swift */,
 				A55E01D01CFD6557005F8997 /* SIALogger.h */,
 				A55E01D21CFD6557005F8997 /* Info.plist */,
 			);
@@ -71,9 +71,9 @@
 		A55E01DD1CFD8D68005F8997 /* LoggerOutput */ = {
 			isa = PBXGroup;
 			children = (
-				A55E01DE1CFD8D68005F8997 /* SIALoggerOutputProtocol.swift */,
-				A55E01E01CFD8D88005F8997 /* SIAConsoleOutput.swift */,
-				A55E01E61CFDAC7C005F8997 /* SIADocumentsFileOutput.swift */,
+				A55E01DE1CFD8D68005F8997 /* SIALogOutputProtocol.swift */,
+				A55E01E01CFD8D88005F8997 /* SIALogConsoleOutput.swift */,
+				A55E01E61CFDAC7C005F8997 /* SIALogDocumentsFileOutput.swift */,
 			);
 			path = LoggerOutput;
 			sourceTree = "<group>";
@@ -156,12 +156,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A55E01DF1CFD8D68005F8997 /* SIALoggerOutputProtocol.swift in Sources */,
-				A55E01E11CFD8D88005F8997 /* SIAConsoleOutput.swift in Sources */,
-				A55E01E71CFDAC7C005F8997 /* SIADocumentsFileOutput.swift in Sources */,
-				A55E01E51CFDA6F9005F8997 /* Config.swift in Sources */,
-				A55E01E31CFDA695005F8997 /* Level.swift in Sources */,
-				A55E01D91CFD6582005F8997 /* Log.swift in Sources */,
+				A55E01DF1CFD8D68005F8997 /* SIALogOutputProtocol.swift in Sources */,
+				A55E01E11CFD8D88005F8997 /* SIALogConsoleOutput.swift in Sources */,
+				A55E01E71CFDAC7C005F8997 /* SIALogDocumentsFileOutput.swift in Sources */,
+				A55E01E51CFDA6F9005F8997 /* SIALogConfig.swift in Sources */,
+				A55E01E31CFDA695005F8997 /* SIALogLevel.swift in Sources */,
+				A55E01D91CFD6582005F8997 /* SIALog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +269,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SIALogger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sia.SIALogger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -289,6 +290,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SIALogger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sia.SIALogger;
 				PRODUCT_NAME = "$(TARGET_NAME)";

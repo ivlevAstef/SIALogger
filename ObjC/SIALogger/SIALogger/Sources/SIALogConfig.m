@@ -7,7 +7,7 @@
 //
 
 #import "SIALogConfig.h"
-#import "SIAConsoleOutput.h"
+#import "SIALogConsoleOutput.h"
 
 @implementation SIALogConfig
 
@@ -31,14 +31,14 @@
     self.maxLogLevel = SIALogLevel_Warning;
 #endif
     
-    self.outputArray = @[ [[SIAConsoleOutput alloc] init] ];
+    self.outputs = @[ [[SIALogConsoleOutput alloc] init] ];
     self.formatFunction = self.defaultFormatFunction;
   }
   
   return self;
 }
 
-- (SIALoggerFormatFunction)defaultFormatFunction {
+- (SIALogFormatFunction)defaultFormatFunction {
   return ^NSString*(NSString* const level, NSString* const file, const SIALineNumber line, NSString* const msg) {
     return [NSString stringWithFormat:@"%@ {%@:%lld}: %@", level, file, line, msg];
   };

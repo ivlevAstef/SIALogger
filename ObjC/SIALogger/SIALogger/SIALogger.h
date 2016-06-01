@@ -19,9 +19,9 @@
 #import "SIALogChecks.h"
 #import "SIALogContracts.h"
 
-#import "SIAConsoleOutput.h"
-#import "SIADocumentsFileOutput.h"
-#import "SIACrashlyticsLoggerOuput.h"
+#import "SIALogConsoleOutput.h"
+#import "SIALogDocumentsFileOutput.h"
+#import "SIALogCrashlyticsOuput.h"
 
 //! Project version number for SIALogger.
 FOUNDATION_EXPORT double SIALoggerVersionNumber;

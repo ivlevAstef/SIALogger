@@ -1,5 +1,5 @@
 //
-//  SIADocumentsFileOutput.h
+//  SIALogDocumentsFileOutput.h
 //  SIALogger
 //
 //  Created by Ivlev  Alexander (Stef) on 4/15/15.
@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SIALoggerOutputProtocol.h"
+#import "SIALogOutputProtocol.h"
 
-@interface SIADocumentsFileOutput : NSObject <SIALoggerOutputProtocol>
+@interface SIALogDocumentsFileOutput : NSObject <SIALogOutputProtocol>
 
 - (id)init __attribute__((unavailable("Used initWithFileName:joinDate: instead.")));
 - (instancetype)initWithFileName:(NSString*)fileName joinDate:(BOOL)join;

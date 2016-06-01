@@ -14,62 +14,52 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    Config.maxLogLevel = Level.Info
-    Log.Trace("1 trace no show")
-    Log.Info("1 info")
-    Log.Warning("1 warning")
-    Log.Error("1 error")
+    SIALogConfig.maxLogLevel = SIALogLevel.Info
+    SIALog.Trace("1 trace no show")
+    SIALog.Info("1 info")
+    SIALog.Warning("1 warning")
+    SIALog.Error("1 error")
     
-    Config.maxLogLevel = Level.Error
-    Log.Trace("2 trace no show")
-    Log.Info("2 info no show")
-    Log.Warning("2 warning no show")
-    Log.Error("2 error")
+    SIALogConfig.maxLogLevel = SIALogLevel.Error
+    SIALog.Trace("2 trace no show")
+    SIALog.Info("2 info no show")
+    SIALog.Warning("2 warning no show")
+    SIALog.Error("2 error")
     
-    Config.maxLogLevel = Level.Trace
-    Log.Trace("3 trace")
+    SIALogConfig.maxLogLevel = SIALogLevel.Trace
+    SIALog.Trace("3 trace")
     
-    Config.formatFunction = { (level, file, line, msg) in " ["+level.uppercaseString+"] {"+file+":"+String(line)+"}: "+msg }
+    SIALogConfig.formatFunction = { (level, file, line, msg) in " ["+level.uppercaseString+"] {"+file+":"+String(line)+"}: "+msg }
     
-    Log.Trace("4 trace")
-    Log.Info("4 info")
-    Log.Warning("4 warning")
-    Log.Error("4 error")
+    SIALog.Trace("4 trace")
+    SIALog.Info("4 info")
+    SIALog.Warning("4 warning")
+    SIALog.Error("4 error")
     
     
-    Log.TraceIf(true, msg: "Trace if")
-    Log.InfoIf(false, msg: "Info if no show")
-    Log.WarningIf(true, msg: "Warning if")
-    Log.ErrorIf(false, msg: "Error if no show")
+    SIALog.TraceIf(true, msg: "Trace if")
+    SIALog.InfoIf(false, msg: "Info if no show")
+    SIALog.WarningIf(true, msg: "Warning if")
+    SIALog.ErrorIf(false, msg: "Error if no show")
     
-    if (Log.TraceIf(false, msg: "Trace if no show")) {
-      Log.Info("By trace no show")
+    if (SIALog.TraceIf(false, msg: "Trace if no show")) {
+      SIALog.Info("By trace no show")
     }
     
-    if (Log.InfoIf(true, msg: "Info if")) {
-      Log.Info("By info")
+    if (SIALog.InfoIf(true, msg: "Info if")) {
+      SIALog.Info("By info")
     }
     
-    if (Log.WarningIf(false, msg: "Warning if no show")) {
-      Log.Info("By warning no show")
+    if (SIALog.WarningIf(false, msg: "Warning if no show")) {
+      SIALog.Info("By warning no show")
     }
     
-    if (Log.ErrorIf(true, msg: "Error if")) {
-      Log.Info("By error")
+    if (SIALog.ErrorIf(true, msg: "Error if")) {
+      SIALog.Info("By error")
     }
     
-    Log.Assert(true, msg: "no show")
-    
-    Log.Assert(false, msg: "assert")
-    
-    // Do any additional setup after loading the view, typically from a nib.
+    SIALog.Assert(true, msg: "no show")
+    SIALog.Assert(false, msg: "assert")
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
-
 }
 

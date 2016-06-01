@@ -1,5 +1,5 @@
 //
-//  SIACrashlyticsLoggerOuput.h
+//  SIALogCrashlyticsOuput.h
 //  SIALogger
 //
 //  Created by Ivlev  Alexander (Stef) on 4/15/15.
@@ -9,9 +9,9 @@
 #ifdef SIA_LOGGER_CRASHLYTICS
 
 #import <Foundation/Foundation.h>
-#import "SIALoggerOutputProtocol.h"
+#import "SIALogOutputProtocol.h"
 
-@interface SIACrashlyticsLoggerOuput : NSObject <SIALoggerOutputProtocol>
+@interface SIALogCrashlyticsOuput : NSObject <SIALogOutputProtocol>
 
 @end
 
