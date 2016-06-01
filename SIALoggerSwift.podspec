@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name         = 'SIALogger'
+  s.name         = 'SIALoggerSwift'
   s.version      = '1.0.0'
   s.summary      = 'SIALogger - library for simplify log.'
 
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.documentation_url = 'https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Swift'
 
   s.author       = { 'Alexander.Ivlev' => 'ivlev.stef@gmail.com' }
-  s.source       = { :git => 'https://github.com/ivlevAstef/SIALogger.git', :tag => 'v#{s.version}' }
+  s.source       = { :git => 'https://github.com/ivlevAstef/SIALogger.git', :tag => "v#{s.version}" }
   s.requires_arc = true
 
   s.ios.deployment_target = '8.0'
