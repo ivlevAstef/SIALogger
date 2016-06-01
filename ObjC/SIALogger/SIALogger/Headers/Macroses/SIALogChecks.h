@@ -12,14 +12,14 @@
 //LogAssert
 #define SIALogAssertMsg(CONDITION, MSG, ...)       \
   if (!(CONDITION)) {                              \
-    SIALog(SIALogLevel_Fatal, MSG, ##__VA_ARGS__); \
+    SIALogMsg(SIALogLevel_Fatal, MSG, ##__VA_ARGS__); \
     NSAssert(false, MSG);                          \
   }
 
 #define SIALogAssert(CONDITION) SIALogAssertMsg(CONDITION, @"Activation assert: " @#CONDITION)
 
 //Not Implemented
-#define SIANotImplemented() do { SIALog(SIALogLevel_Fatal, [NSString stringWithFormat:@"Not Implemented:%s", __PRETTY_FUNCTION__]); NSAssert(false, MSG); } while(0)
+#define SIANotImplemented() do { SIALogMsg(SIALogLevel_Fatal, [NSString stringWithFormat:@"Not Implemented:%s", __PRETTY_FUNCTION__]); NSAssert(false, MSG); } while(0)
 
 //LogCheck
 #define SIALogCheck(CONDITION)                     \

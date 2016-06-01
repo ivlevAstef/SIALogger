@@ -9,12 +9,17 @@
 #ifndef __SIA_LOG_LEVELS_H__
 #define __SIA_LOG_LEVELS_H__
 
-#define SIALog(LEVEL, MSG, ...) [[SIALogger sharedInstance] log:(LEVEL) Line:__LINE__ File:@__FILE__ Msg:[NSString stringWithFormat:MSG, ##__VA_ARGS__]]
+#define SIA_LOG_LEVELS(X) \
+  X(Fatal) \
+  X(Error) \
+  X(Warning) \
+  X(Info) \
+  X(Trace)
 
-#define SIALogFatal(MSG, ...) do { SIALog(SIALogLevel_Fatal   , MSG, ##__VA_ARGS__); abort(); } while (0)
-#define SIALogError(MSG, ...)      SIALog(SIALogLevel_Error   , MSG, ##__VA_ARGS__)
-#define SIALogWarning(MSG, ...)    SIALog(SIALogLevel_Warning , MSG, ##__VA_ARGS__)
-#define SIALogInfo(MSG, ...)       SIALog(SIALogLevel_Info    , MSG, ##__VA_ARGS__)
-#define SIALogTrace(MSG, ...)      SIALog(SIALogLevel_Trace   , MSG, ##__VA_ARGS__)
+#define SIA_LOG_LEVEL_ENUM(NAME) SIALogLevel_##NAME,
+typedef NS_ENUM(NSUInteger, SIALogLevel) {
+  SIA_LOG_LEVELS(SIA_LOG_LEVEL_ENUM)
+};
+#undef SIA_LOG_LEVEL_ENUM
 
 #endif /* __SIA_LOG_LEVELS_H__ */

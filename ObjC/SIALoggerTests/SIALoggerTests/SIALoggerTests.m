@@ -8,8 +8,6 @@
 
 #import <XCTest/XCTest.h>
 #import <SIALogger/SIALogger.h>
-#import <SIALogger/SIAConsoleOutput.h>
-#import <SIALogger/SIADocumentsFileOutput.h>
 //#include <signal.h>
 
 @interface SIALoggerTestOutput : NSObject<SIALoggerOutputProtocol>
@@ -37,7 +35,7 @@
 @implementation SIALoggerTests
 
 - (void)test_00_Config_FormatOutput {
-  [[SIALogger sharedInstance] setFormatFunction:^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
+  [[SIALogConfig sharedInstance] setFormatFunction:^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
     return level;
   }];
   
@@ -45,7 +43,7 @@
   XCTAssertEqualObjects(@"Info", self.logOutput.lastLog);
 
   
-  [[SIALogger sharedInstance] setFormatFunction:^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
+  [[SIALogConfig sharedInstance] setFormatFunction:^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
     return msg;
   }];
   
@@ -53,7 +51,7 @@
   XCTAssertEqualObjects(@"test", self.logOutput.lastLog);
   
   
-  [[SIALogger sharedInstance] setFormatFunction:^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
+  [[SIALogConfig sharedInstance] setFormatFunction:^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
     return file;
   }];
   
@@ -61,7 +59,7 @@
   XCTAssertEqualObjects(file, self.logOutput.lastLog);
   
   
-  [[SIALogger sharedInstance] setFormatFunction:^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
+  [[SIALogConfig sharedInstance] setFormatFunction:^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
     return [@(line) stringValue];
   }];
   
@@ -246,7 +244,7 @@
 }
 
 - (void)test_11_Config_MaxLogLevel_Trace {
-  [[SIALogger sharedInstance] setMaxLogLevel:SIALogLevel_Trace];
+  [[SIALogConfig sharedInstance] setMaxLogLevel:SIALogLevel_Trace];
   self.logOutput.lastLog = nil;
   
   SIALogTrace(@"description");
@@ -263,7 +261,7 @@
 }
 
 - (void)test_12_Config_MaxLogLevel_Info {
-  [[SIALogger sharedInstance] setMaxLogLevel:SIALogLevel_Info];
+  [[SIALogConfig sharedInstance] setMaxLogLevel:SIALogLevel_Info];
   self.logOutput.lastLog = nil;
   
   SIALogTrace(@"description");
@@ -280,7 +278,7 @@
 }
 
 - (void)test_13_Config_MaxLogLevel_Warning {
-  [[SIALogger sharedInstance] setMaxLogLevel:SIALogLevel_Warning];
+  [[SIALogConfig sharedInstance] setMaxLogLevel:SIALogLevel_Warning];
   self.logOutput.lastLog = nil;
   
   SIALogTrace(@"description");
@@ -297,7 +295,7 @@
 }
 
 - (void)test_14_Config_MaxLogLevel_Error {
-  [[SIALogger sharedInstance] setMaxLogLevel:SIALogLevel_Error];
+  [[SIALogConfig sharedInstance] setMaxLogLevel:SIALogLevel_Error];
   self.logOutput.lastLog = nil;
   
   SIALogTrace(@"description");
@@ -314,7 +312,7 @@
 }
 
 - (void)test_15_Config_MaxLogLevel_Fatal {
-  [[SIALogger sharedInstance] setMaxLogLevel:SIALogLevel_Fatal];
+  [[SIALogConfig sharedInstance] setMaxLogLevel:SIALogLevel_Fatal];
   self.logOutput.lastLog = nil;
   
   SIALogTrace(@"description");
@@ -340,7 +338,7 @@
 }
 
 - (void)test_99_Performance_Disable_Log {
-  [[SIALogger sharedInstance] setMaxLogLevel:SIALogLevel_Fatal];
+  [[SIALogConfig sharedInstance] setMaxLogLevel:SIALogLevel_Fatal];
   
   [self measureBlock:^{
     for(size_t i =0; i < TEST_PERFORMANCE_OPERATION_COUNT; i++) {
@@ -351,7 +349,7 @@
 
 #define TEST_PERFORMANCE_CONSOLE_DOCUMENTS_COUNT 20000
 - (void)test_99_Performance_Document {
-  [[SIALogger sharedInstance] setOutputArray: @[ [[SIADocumentsFileOutput alloc] initWithFileName:@"TEST" joinDate:YES] ]];
+  [[SIALogConfig sharedInstance] setOutputArray: @[ [[SIADocumentsFileOutput alloc] initWithFileName:@"TEST" joinDate:YES] ]];
   
   [self measureBlock:^{
     for(size_t i =0; i < TEST_PERFORMANCE_CONSOLE_DOCUMENTS_COUNT; i++) {
@@ -362,7 +360,7 @@
 
 #define TEST_PERFORMANCE_CONSOLE_OPERATION_COUNT 2500
 - (void)test_99_Performance_Console {
-  [[SIALogger sharedInstance] setOutputArray: @[ [[SIAConsoleOutput alloc] init] ]];
+  [[SIALogConfig sharedInstance] setOutputArray: @[ [[SIAConsoleOutput alloc] init] ]];
   
   [self measureBlock:^{
     for(size_t i =0; i < TEST_PERFORMANCE_CONSOLE_OPERATION_COUNT; i++) {
@@ -376,13 +374,13 @@
   [super setUp];
   
   self.logOutput = [SIALoggerTestOutput new];
-  [[SIALogger sharedInstance] setOutputArray: @[self.logOutput]];
+  [[SIALogConfig sharedInstance] setOutputArray: @[self.logOutput]];
   
-  [[SIALogger sharedInstance] setFormatFunction:^NSString*(NSString* const level, NSString* const file, const SIALineNumber line, NSString* const msg) {
+  [[SIALogConfig sharedInstance] setFormatFunction:^NSString*(NSString* const level, NSString* const file, const SIALineNumber line, NSString* const msg) {
     return loggerFormatFunction(level, msg);
   }];
   
-  [[SIALogger sharedInstance] setMaxLogLevel:SIALogLevel_Trace];
+  [[SIALogConfig sharedInstance] setMaxLogLevel:SIALogLevel_Trace];
 }
 
 //Support
