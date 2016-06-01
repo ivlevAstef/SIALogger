@@ -1,0 +1,318 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A56A71561CFEDBB500952FE7 /* SIALoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56A71541CFEDBB500952FE7 /* SIALoggerTests.swift */; };
+		A56A715F1CFEDC0200952FE7 /* SIALogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A56A715C1CFEDBC800952FE7 /* SIALogger.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A56A715B1CFEDBC800952FE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A56A71571CFEDBC800952FE7 /* SIALogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A55E01CD1CFD6557005F8997;
+			remoteInfo = SIALogger;
+		};
+		A56A715D1CFEDBFD00952FE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A56A71571CFEDBC800952FE7 /* SIALogger.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A55E01CC1CFD6557005F8997;
+			remoteInfo = SIALogger;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A56A71421CFEDB5700952FE7 /* SIALoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SIALoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A56A71531CFEDBB500952FE7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A56A71541CFEDBB500952FE7 /* SIALoggerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALoggerTests.swift; sourceTree = "<group>"; };
+		A56A71571CFEDBC800952FE7 /* SIALogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SIALogger.xcodeproj; path = ../SIALogger/SIALogger.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A56A713F1CFEDB5700952FE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A56A715F1CFEDC0200952FE7 /* SIALogger.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A56A712E1CFEDB5700952FE7 = {
+			isa = PBXGroup;
+			children = (
+				A56A71571CFEDBC800952FE7 /* SIALogger.xcodeproj */,
+				A56A71521CFEDBB500952FE7 /* SIALoggerTests */,
+				A56A71391CFEDB5700952FE7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A56A71391CFEDB5700952FE7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A56A71421CFEDB5700952FE7 /* SIALoggerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A56A71521CFEDBB500952FE7 /* SIALoggerTests */ = {
+			isa = PBXGroup;
+			children = (
+				A56A71531CFEDBB500952FE7 /* Info.plist */,
+				A56A71541CFEDBB500952FE7 /* SIALoggerTests.swift */,
+			);
+			path = SIALoggerTests;
+			sourceTree = "<group>";
+		};
+		A56A71581CFEDBC800952FE7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A56A715C1CFEDBC800952FE7 /* SIALogger.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A56A71411CFEDB5700952FE7 /* SIALoggerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A56A714F1CFEDB5700952FE7 /* Build configuration list for PBXNativeTarget "SIALoggerTests" */;
+			buildPhases = (
+				A56A713E1CFEDB5700952FE7 /* Sources */,
+				A56A713F1CFEDB5700952FE7 /* Frameworks */,
+				A56A71401CFEDB5700952FE7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A56A715E1CFEDBFD00952FE7 /* PBXTargetDependency */,
+			);
+			name = SIALoggerTests;
+			productName = SIALoggerTestsTests;
+			productReference = A56A71421CFEDB5700952FE7 /* SIALoggerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A56A712F1CFEDB5700952FE7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Alexander Ivlev";
+				TargetAttributes = {
+					A56A71411CFEDB5700952FE7 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = A56A71321CFEDB5700952FE7 /* Build configuration list for PBXProject "SIALoggerTests" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A56A712E1CFEDB5700952FE7;
+			productRefGroup = A56A71391CFEDB5700952FE7 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A56A71581CFEDBC800952FE7 /* Products */;
+					ProjectRef = A56A71571CFEDBC800952FE7 /* SIALogger.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				A56A71411CFEDB5700952FE7 /* SIALoggerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A56A715C1CFEDBC800952FE7 /* SIALogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SIALogger.framework;
+			remoteRef = A56A715B1CFEDBC800952FE7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A56A71401CFEDB5700952FE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A56A713E1CFEDB5700952FE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A56A71561CFEDBB500952FE7 /* SIALoggerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A56A715E1CFEDBFD00952FE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SIALogger;
+			targetProxy = A56A715D1CFEDBFD00952FE7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A56A714A1CFEDB5700952FE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A56A714B1CFEDB5700952FE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A56A71501CFEDB5700952FE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SIALoggerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sia.SIALoggerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A56A71511CFEDB5700952FE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SIALoggerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sia.SIALoggerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A56A71321CFEDB5700952FE7 /* Build configuration list for PBXProject "SIALoggerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A56A714A1CFEDB5700952FE7 /* Debug */,
+				A56A714B1CFEDB5700952FE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A56A714F1CFEDB5700952FE7 /* Build configuration list for PBXNativeTarget "SIALoggerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A56A71501CFEDB5700952FE7 /* Debug */,
+				A56A71511CFEDB5700952FE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A56A712F1CFEDB5700952FE7 /* Project object */;
+}

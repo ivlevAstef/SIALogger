@@ -9,17 +9,23 @@
 import Foundation
 
 public class SIALogConsoleOutput : SIALogOutputProtocol {
+  public init() {
+  }
+  
   public func log(message: String) {
-    print(currentTime()+message)
+    print(currentTime()+" "+message)
   }
   
   private let startDate = NSDate()
+  private let dateFormatter = { () -> NSDateFormatter in
+    let result = NSDateFormatter()
+    
+    result.dateFormat = "HH:mm:ss:SSS"
+    result.timeZone = NSTimeZone(name: "UTC")
+    return result
+  }()
+  
   private func currentTime() -> String {
-    let dateFormatter = NSDateFormatter()
-    
-    dateFormatter.dateFormat = "HH:mm:ss:SSS"
-    dateFormatter.timeZone = NSTimeZone(name: "UTC")
-    
     return dateFormatter.stringFromDate(NSDate(timeInterval: 0, sinceDate: startDate))
   }
 }

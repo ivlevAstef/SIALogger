@@ -13,7 +13,7 @@ public enum SIALogLevel : Int {
   case Info
   case Trace
   
-  internal func toString() -> String {
+  public func toString() -> String {
     switch self {
     case .Fatal:
       return "Fatal"

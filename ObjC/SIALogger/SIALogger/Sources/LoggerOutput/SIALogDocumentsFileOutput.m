@@ -55,7 +55,7 @@
 
 - (void)log:(NSString*)logString {
   if (nil != logString) {
-    NSString* log = [NSString stringWithFormat:@"%@ %@\n", [self currentTime], logString];
+    NSString* log = [NSString stringWithFormat:@"%@ %@\r\n", [self currentTime], logString];
     [self.output writeData:[log dataUsingEncoding:NSUTF8StringEncoding]];
   }
 }
