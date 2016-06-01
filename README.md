@@ -15,7 +15,7 @@ library for simplify log and assertion
 
 ## Documentation
 ### SIALogger Objective-C
-The documentation can be found at https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Objective-C
+The documentation can be found at [SIALogger Objective-C](https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Objective-C)
 
 ### SIALogger Swift
-The documentation can be found at https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Swift
+The documentation can be found at [SIALogger Swift](https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Swift)
