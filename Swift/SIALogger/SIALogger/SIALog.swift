@@ -54,8 +54,8 @@ public extension SIALog {
 
 //Log if
 public extension SIALog {
-  public static func FatalIf(condition: Bool, msg: String, file: StaticString = #file, line: UInt = #line) -> Bool {
-    return If(condition, method: Fatal, msg: msg, file: file, line: line)
+  public static func FatalIf(condition: Bool, msg: String, file: StaticString = #file, line: UInt = #line) {
+    If(condition, method: Fatal, msg: msg, file: file, line: line)
   }
   
   public static func ErrorIf(condition: Bool, msg: String, file: StaticString = #file, line: UInt = #line) -> Bool {

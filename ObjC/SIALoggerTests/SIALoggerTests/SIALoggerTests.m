@@ -154,74 +154,50 @@
 }
 
 - (void)test_08_LogIfRet_NoShow {
-  __block BOOL status = false;
-  
   self.logOutput.lastLog = nil;
-  status = false;
-  ^{
-    SIALogRetErrorIf(false, , @"no return");
-    status = true;
-  }();
-  XCTAssertTrue(status);
+  if (SIALogErrorIf(false, @"no show")) {
+    XCTAssertTrue(false);
+  }
   XCTAssertEqualObjects(nil, self.logOutput.lastLog);
   
   self.logOutput.lastLog = nil;
-  status = false;
-  ^{
-    SIALogRetWarningIf(false, , @"no return");
-    status = true;
-  }();
-  XCTAssertTrue(status);
+  if (SIALogWarningIf(false, @"no show")) {
+    XCTAssertTrue(false);
+  }
   XCTAssertEqualObjects(nil, self.logOutput.lastLog);
   
   self.logOutput.lastLog = nil;
-  status = false;
-  ^{
-    SIALogRetInfoIf(false, , @"no return");
-    status = true;
-  }();
-  XCTAssertTrue(status);
+  if (SIALogInfoIf(false, @"no show")) {
+    XCTAssertTrue(false);
+  }
   XCTAssertEqualObjects(nil, self.logOutput.lastLog);
   
   self.logOutput.lastLog = nil;
-  status = false;
-  ^{
-    SIALogRetTraceIf(false, , @"no return");
-    status = true;
-  }();
-  XCTAssertTrue(status);
+  if (SIALogTraceIf(false, @"no show")) {
+    XCTAssertTrue(false);
+  }
   XCTAssertEqualObjects(nil, self.logOutput.lastLog);
 }
 
 - (void)test_09_LogIfRet_Show {
-  int code = 0;
-  
-  code = ^int{
-    SIALogRetErrorIf(true, 1, @"log if true");
-    return 0;
-  }();
-  XCTAssertEqual(code, 1);
+  if (SIALogErrorIf(true, @"log if true")) { } else {
+    XCTAssertTrue(false);
+  }
   XCTAssertEqualObjects(loggerFormatFunction(@"Error", @"log if true"), self.logOutput.lastLog);
   
-  code = ^int{
-    SIALogRetWarningIf(true, 2, @"log if true");
-    return 0;
-  }();
-  XCTAssertEqual(code, 2);
+  if (SIALogWarningIf(true, @"log if true")) { } else {
+    XCTAssertTrue(false);
+  }
   XCTAssertEqualObjects(loggerFormatFunction(@"Warning", @"log if true"), self.logOutput.lastLog);
   
-  code = ^int{
-    SIALogRetInfoIf(true, 3, @"log if true");
-    return 0;
-  }();
-  XCTAssertEqual(code, 3);
+  if (SIALogInfoIf(true, @"log if true")) { } else {
+    XCTAssertTrue(false);
+  }
   XCTAssertEqualObjects(loggerFormatFunction(@"Info", @"log if true"), self.logOutput.lastLog);
   
-  code = ^int{
-    SIALogRetTraceIf(true, 4, @"log if true");
-    return 0;
-  }();
-  XCTAssertEqual(code, 4);
+  if (SIALogTraceIf(true, @"log if true")) { } else {
+    XCTAssertTrue(false);
+  }
   XCTAssertEqualObjects(loggerFormatFunction(@"Trace", @"log if true"), self.logOutput.lastLog);
 }
 

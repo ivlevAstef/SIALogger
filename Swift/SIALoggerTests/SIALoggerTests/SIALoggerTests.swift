@@ -107,39 +107,62 @@ class SIALoggerTests: XCTestCase {
   }
   
   func test_07_LogIfRet_NoShow() {
-    //only Obj-C
+    logOutput.lastLog = nil
+    if (SIALog.ErrorIf(false, msg: "no show")) {
+      XCTAssertTrue(false)
+    }
+    XCTAssertEqual(nil, logOutput.lastLog)
+    
+    logOutput.lastLog = nil
+    if (SIALog.WarningIf(false, msg: "no show")) {
+      XCTAssertTrue(false)
+    }
+    XCTAssertEqual(nil, logOutput.lastLog)
+    
+    logOutput.lastLog = nil
+    if (SIALog.InfoIf(false, msg: "no show")) {
+      XCTAssertTrue(false)
+    }
+    XCTAssertEqual(nil, logOutput.lastLog)
+    
+    logOutput.lastLog = nil
+    if (SIALog.TraceIf(false, msg: "no show")) {
+      XCTAssertTrue(false)
+    }
+    XCTAssertEqual(nil, logOutput.lastLog)
+
   }
   
   func test_09_LogIfRet_Show() {
     repeat {
       guard SIALog.ErrorIf(true, msg: "log if true") else {
+        XCTAssertTrue(false)
         break
       }
-      XCTAssertTrue(true)
     }while(false)
     XCTAssertEqual(formatFunction(level: SIALogLevel.Error, msg: "log if true"), logOutput.lastLog)
     
     repeat {
       guard SIALog.WarningIf(true, msg: "log if true") else {
+        XCTAssertTrue(false)
         break
       }
-      XCTAssertTrue(true)
     }while(false)
     XCTAssertEqual(formatFunction(level: SIALogLevel.Warning, msg: "log if true"), logOutput.lastLog)
     
     repeat {
       guard SIALog.InfoIf(true, msg: "log if true") else {
+        XCTAssertTrue(false)
         break
       }
-      XCTAssertTrue(true)
     }while(false)
     XCTAssertEqual(formatFunction(level: SIALogLevel.Info, msg: "log if true"), logOutput.lastLog)
     
     repeat {
       guard SIALog.TraceIf(true, msg: "log if true") else {
+        XCTAssertTrue(false)
         break
       }
-      XCTAssertTrue(true)
     }while(false)
     XCTAssertEqual(formatFunction(level: SIALogLevel.Trace, msg: "log if true"), logOutput.lastLog)
   }

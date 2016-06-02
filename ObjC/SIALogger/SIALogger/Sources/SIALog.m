@@ -43,4 +43,11 @@
   }
 }
 
++ (BOOL)logIf:(const BOOL)condition Level:(const SIALogLevel)level Line:(const SIALineNumber)line File:(NSString* const)file Msg:(NSString* const)msg {
+  if (condition) {
+    [self log:level Line:line File:file Msg:msg];
+  }
+  return condition;
+}
+
 @end

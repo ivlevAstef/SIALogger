@@ -49,25 +49,21 @@
   SIALogWarningIf(true, @"Warning if");
   SIALogErrorIf(false, @"Error if no show");
   
-  ^{
-    SIALogRetTraceIf(false, ,@"Trace if no show");
-    SIALogInfo(@"It's show");
-  }();
+  if (SIALogTraceIf(false, @"Trace if no show")) {
+    SIALogInfo(@"By trace no show");
+  }
   
-  ^{
-    SIALogRetInfoIf(true, ,@"Info if");
-    SIALogInfo(@"no show");
-  }();
+  if (SIALogInfoIf(true, @"Info if")) {
+    SIALogInfo(@"By info");
+  }
   
-  ^{
-    SIALogRetWarningIf(false, ,@"Warning if no show");
-    SIALogInfo(@"It's show");
-  }();
+  if (SIALogWarningIf(false, @"Warning if no show")) {
+    SIALogInfo(@"By warning no show");
+  }
   
-  ^{
-    SIALogRetErrorIf(true, ,@"Error if");
-    SIALogInfo(@"no show");
-  }();
+  if (SIALogErrorIf(true, @"Error if")) {
+    SIALogInfo(@"By error");
+  }
   
   SIALogAssertMsg(true, @"no show");
   SIALogAssertMsg(false, @"assert");

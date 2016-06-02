@@ -17,18 +17,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A50B7F3C1CFFF80000E8E799 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A55E022F1CFDBB48005F8997 /* SIALogger.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A55E01CC1CFD6557005F8997;
+			remoteInfo = SIALogger;
+		};
 		A55E02331CFDBB48005F8997 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A55E022F1CFDBB48005F8997 /* SIALogger.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A55E01CD1CFD6557005F8997;
-			remoteInfo = SIALogger;
-		};
-		A55E02371CFDBB58005F8997 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A55E022F1CFDBB48005F8997 /* SIALogger.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A55E01CC1CFD6557005F8997;
 			remoteInfo = SIALogger;
 		};
 /* End PBXContainerItemProxy section */
@@ -123,7 +123,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A55E02381CFDBB58005F8997 /* PBXTargetDependency */,
+				A50B7F3D1CFFF80000E8E799 /* PBXTargetDependency */,
 			);
 			name = SIALoggerSample;
 			productName = SIALoggerSample;
@@ -205,10 +205,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A55E02381CFDBB58005F8997 /* PBXTargetDependency */ = {
+		A50B7F3D1CFFF80000E8E799 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SIALogger;
-			targetProxy = A55E02371CFDBB58005F8997 /* PBXContainerItemProxy */;
+			targetProxy = A50B7F3C1CFFF80000E8E799 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

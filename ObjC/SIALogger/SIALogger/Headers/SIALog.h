@@ -13,5 +13,6 @@
 @interface SIALog : NSObject
 
 + (void)log:(const SIALogLevel)level Line:(const SIALineNumber)line File:(NSString* const)file Msg:(NSString* const)msg;
++ (BOOL)logIf:(const BOOL)condition Level:(const SIALogLevel)level Line:(const SIALineNumber)line File:(NSString* const)file Msg:(NSString* const)msg;
 
 @end
