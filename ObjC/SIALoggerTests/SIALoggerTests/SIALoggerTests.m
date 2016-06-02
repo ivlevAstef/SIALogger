@@ -12,7 +12,7 @@
 
 @interface SIALogTestOutput : NSObject<SIALogOutputProtocol>
 
-- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message; /*overrride*/
+- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message AndEventData:(NSDictionary*)eventInfo; /*overrride*/
 
 @property (nonatomic, strong) NSString* lastLog;
 
@@ -20,7 +20,7 @@
 
 @implementation SIALogTestOutput
 
-- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message {
+- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message AndEventData:(NSDictionary*)eventInfo {
   self.lastLog = message;
 }
 

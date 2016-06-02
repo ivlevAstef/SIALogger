@@ -15,4 +15,6 @@
 + (void)log:(SIALogLevel*)level Line:(SIALineNumber)line File:(NSString*)file Msg:(NSString*)msg;
 + (BOOL)logIf:(BOOL)condition Level:(SIALogLevel*)level Line:(SIALineNumber)line File:(NSString*)file Msg:(NSString*)msg;
 
++ (void)event:(NSString*)name WithData:(NSDictionary*)eventData;
+
 @end

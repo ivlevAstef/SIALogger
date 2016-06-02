@@ -10,6 +10,8 @@
 
 @protocol SIALogOutputProtocol <NSObject>
 
+@optional
 - (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message;
+- (void)event:(NSString*)name WithData:(NSDictionary*)data;
 
 @end

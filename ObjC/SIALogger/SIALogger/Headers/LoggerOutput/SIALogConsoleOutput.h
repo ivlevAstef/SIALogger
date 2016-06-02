@@ -6,7 +6,6 @@
 //  Copyright (c) 2016 Ivlev Alexander. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "SIALogOutputProtocol.h"
 
 @interface SIALogConsoleOutput : NSObject <SIALogOutputProtocol>

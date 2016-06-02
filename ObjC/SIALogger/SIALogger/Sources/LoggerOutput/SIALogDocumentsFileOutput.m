@@ -53,12 +53,20 @@
   return self;
 }
 
-- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message {
+- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message AndEventData:(NSDictionary*)eventInfo {
   if (nil != message) {
     NSString* log = [NSString stringWithFormat:@"%@ %@\r\n", [self currentTime], message];
     [self.output writeData:[log dataUsingEncoding:NSUTF8StringEncoding]];
   }
 }
+
+- (void)event:(NSString*)name WithData:(NSDictionary*)data {
+  if (nil != name) {
+    NSString* log = [NSString stringWithFormat:@"%@ Event:%@\r\n", [self currentTime], name];
+    [self.output writeData:[log dataUsingEncoding:NSUTF8StringEncoding]];
+  }
+}
+
 
 - (NSString*)currentTime {
   static dispatch_once_t once;

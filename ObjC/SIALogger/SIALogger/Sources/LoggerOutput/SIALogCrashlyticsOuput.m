@@ -13,7 +13,7 @@
 
 @implementation SIALogCrashlyticsOuput
 
-- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message {
+- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message AndEventData:(NSDictionary*)eventInfo {
   if (nil != message) {
     CLSLog(@"%@", message);
   }

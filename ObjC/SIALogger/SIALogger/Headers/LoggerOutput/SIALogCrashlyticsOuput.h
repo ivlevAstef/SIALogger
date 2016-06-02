@@ -8,7 +8,6 @@
 
 #ifdef SIA_LOGGER_CRASHLYTICS
 
-#import <Foundation/Foundation.h>
 #import "SIALogOutputProtocol.h"
 
 @interface SIALogCrashlyticsOuput : NSObject <SIALogOutputProtocol>

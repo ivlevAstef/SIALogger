@@ -18,6 +18,7 @@
 #import "SIALogMessages.h"
 #import "SIALogChecks.h"
 #import "SIALogContracts.h"
+#import "SIALogEvent.h"
 
 #import "SIALogConsoleOutput.h"
 #import "SIALogDocumentsFileOutput.h"

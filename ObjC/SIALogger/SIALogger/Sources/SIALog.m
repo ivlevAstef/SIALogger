@@ -7,6 +7,7 @@
 //
 
 #import "SIALog.h"
+#import "SIALogLevels.h"
 
 @implementation SIALog
 
@@ -26,7 +27,30 @@
   
   @synchronized (self.monitor) {
     for (id<SIALogOutputProtocol> output in SIALogConfig.outputs) {
-      [output logLevel:level AndMessage:message];
+      if ([output respondsToSelector:@selector(logLevel:AndMessage:)]) {
+        [output logLevel:level AndMessage:message];
+      }
+    }
+  }
+}
+
++ (BOOL)logIf:(const BOOL)condition Level:(SIALogLevel* const)level Line:(const SIALineNumber)line File:(NSString* const)file Msg:(NSString* const)msg {
+  if (condition) {
+    [self log:level Line:line File:file Msg:msg];
+  }
+  return condition;
+}
+
++ (void)event:(NSString*)name WithData:(NSDictionary*)eventData {
+  if (nil == name) {
+    return;
+  }
+  
+  @synchronized (self.monitor) {
+    for (id<SIALogOutputProtocol> output in SIALogConfig.outputs) {
+      if ([output respondsToSelector:@selector(event:WithData:)]) {
+        [output event:name WithData:eventData];
+      }
     }
   }
 }
@@ -39,13 +63,6 @@
   });
   
   return monitor;
-}
-
-+ (BOOL)logIf:(const BOOL)condition Level:(SIALogLevel* const)level Line:(const SIALineNumber)line File:(NSString* const)file Msg:(NSString* const)msg {
-  if (condition) {
-    [self log:level Line:line File:file Msg:msg];
-  }
-  return condition;
 }
 
 @end
