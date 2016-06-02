@@ -9,12 +9,12 @@
 #ifndef __SIA_LOG_MESSAGES_H__
 #define __SIA_LOG_MESSAGES_H__
 
-#define SIALogMsg(LEVEL, MSG, ...) [SIALog log:LEVEL Line:__LINE__ File:@__FILE__ Msg:[NSString stringWithFormat:MSG, ##__VA_ARGS__]]
+#define SIALogLevel(LEVEL, MSG, ...) [SIALog log:SIALogLevels.LEVEL Line:__LINE__ File:@__FILE__ Msg:[NSString stringWithFormat:MSG, ##__VA_ARGS__]]
 
-#define SIALogFatal(MSG, ...) do { SIALogMsg(SIALogLevel_Fatal   , MSG, ##__VA_ARGS__); abort(); } while (0)
-#define SIALogError(MSG, ...)      SIALogMsg(SIALogLevel_Error   , MSG, ##__VA_ARGS__)
-#define SIALogWarning(MSG, ...)    SIALogMsg(SIALogLevel_Warning , MSG, ##__VA_ARGS__)
-#define SIALogInfo(MSG, ...)       SIALogMsg(SIALogLevel_Info    , MSG, ##__VA_ARGS__)
-#define SIALogTrace(MSG, ...)      SIALogMsg(SIALogLevel_Trace   , MSG, ##__VA_ARGS__)
+#define SIALogFatal(MSG, ...) do { SIALogLevel(Fatal   , MSG, ##__VA_ARGS__); abort(); } while (0)
+#define SIALogError(MSG, ...)      SIALogLevel(Error   , MSG, ##__VA_ARGS__)
+#define SIALogWarning(MSG, ...)    SIALogLevel(Warning , MSG, ##__VA_ARGS__)
+#define SIALogInfo(MSG, ...)       SIALogLevel(Info    , MSG, ##__VA_ARGS__)
+#define SIALogTrace(MSG, ...)      SIALogLevel(Trace   , MSG, ##__VA_ARGS__)
 
 #endif /* __SIA_LOG_MESSAGES_H__ */

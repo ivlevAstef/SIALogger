@@ -13,9 +13,9 @@
 
 @implementation SIALogCrashlyticsOuput
 
-- (void)log:(NSString*)logString {
-  if (nil != logString) {
-    CLSLog(@"%@", logString);
+- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message {
+  if (nil != message) {
+    CLSLog(@"%@", message);
   }
 }
 

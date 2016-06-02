@@ -10,16 +10,16 @@
 #define __SIA_LOG_CHECKS_H__
 
 //LogAssert
-#define SIALogAssertMsg(CONDITION, MSG, ...)          \
-  if (!(CONDITION)) {                                 \
-    SIALogMsg(SIALogLevel_Fatal, MSG, ##__VA_ARGS__); \
-    NSAssert(false, MSG);                             \
+#define SIALogAssertMsg(CONDITION, MSG, ...)\
+  if (!(CONDITION)) {                       \
+    SIALogLevel(Fatal, MSG, ##__VA_ARGS__); \
+    NSAssert(false, MSG);                   \
   }
 
 #define SIALogAssert(CONDITION) SIALogAssertMsg(CONDITION, @"Activation assert: " @#CONDITION)
 
 //Not Implemented
-#define SIANotImplemented() do { SIALogMsg(SIALogLevel_Fatal, [NSString stringWithFormat:@"Not Implemented:%s", __PRETTY_FUNCTION__]); NSAssert(false, MSG); } while(0)
+#define SIANotImplemented() do { SIALogLevel(Fatal, [NSString stringWithFormat:@"Not Implemented:%s", __PRETTY_FUNCTION__]); NSAssert(false, MSG); } while(0)
 
 //LogCheck
 #define SIALogCheck(CONDITION)                     \
@@ -28,7 +28,7 @@
   }
 
 //LogIf
-#define SIALogIf(CONDITION, SEVERITY, MSG, ...) [SIALog logIf:CONDITION Level:SIALogLevel_##SEVERITY Line:__LINE__ File:@__FILE__ Msg:[NSString stringWithFormat:MSG, ##__VA_ARGS__]]
+#define SIALogIf(CONDITION, LEVEL, MSG, ...) [SIALog logIf:CONDITION Level:SIALogLevels.LEVEL Line:__LINE__ File:@__FILE__ Msg:[NSString stringWithFormat:MSG, ##__VA_ARGS__]]
 
 #define SIALogFatalIf(CONDITION, MSG, ...)   do { if (SIALogIf(CONDITION, Fatal, MSG, ##__VA_ARGS__)) { abort(); } } while (0)
 #define SIALogErrorIf(CONDITION, MSG, ...)   SIALogIf(CONDITION, Error  , MSG, ##__VA_ARGS__)

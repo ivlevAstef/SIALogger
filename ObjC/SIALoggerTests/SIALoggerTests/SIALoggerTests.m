@@ -12,7 +12,7 @@
 
 @interface SIALogTestOutput : NSObject<SIALogOutputProtocol>
 
-- (void)log:(NSString*)logString; /*overrride*/
+- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message; /*overrride*/
 
 @property (nonatomic, strong) NSString* lastLog;
 
@@ -20,8 +20,8 @@
 
 @implementation SIALogTestOutput
 
-- (void)log:(NSString*)logString {
-  self.lastLog = logString;
+- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message {
+  self.lastLog = message;
 }
 
 @end
@@ -35,33 +35,33 @@
 @implementation SIALoggerTests
 
 - (void)test_00_Config_FormatOutput {
-  [SIALogConfig sharedInstance].formatFunction = ^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
-    return level;
-  };
+  [SIALogConfig setFormatFunction: ^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
+    return level.name;
+  }];
   
   SIALogInfo(@"test");
-  XCTAssertEqualObjects(@"Info", self.logOutput.lastLog);
+  XCTAssertEqualObjects(SIALogLevels.Info.name, self.logOutput.lastLog);
 
   
-  [SIALogConfig sharedInstance].formatFunction = ^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
+  [SIALogConfig setFormatFunction: ^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
     return msg;
-  };
+  }];
   
   SIALogInfo(@"test");
   XCTAssertEqualObjects(@"test", self.logOutput.lastLog);
   
   
-  [SIALogConfig sharedInstance].formatFunction = ^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
+  [SIALogConfig setFormatFunction: ^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
     return file;
-  };
+  }];
   
   SIALogInfo(@"test"); NSString* file = [@__FILE__ lastPathComponent];
   XCTAssertEqualObjects(file, self.logOutput.lastLog);
   
   
-  [SIALogConfig sharedInstance].formatFunction = ^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
+  [SIALogConfig setFormatFunction: ^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
     return [@(line) stringValue];
-  };
+  }];
   
   SIALogInfo(@"test"); NSString* line = [@(__LINE__) stringValue];
   XCTAssertEqualObjects(line, self.logOutput.lastLog);
@@ -82,39 +82,39 @@
 //  
 //  SIALogFatal(@"description");
 //  
-//  XCTAssertEqualObjects(loggerFormatFunction(@"Fatal", @"description"), self.logOutput.lastLog);
+//  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Fatal, @"description"), self.logOutput.lastLog);
 //}
 
 - (void)test_02_Error {
   SIALogError(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Error", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Error, @"description"), self.logOutput.lastLog);
   
   SIALogError(@"description %d", 2);
-  XCTAssertEqualObjects(loggerFormatFunction(@"Error", @"description 2"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Error, @"description 2"), self.logOutput.lastLog);
 }
 
 - (void)test_03_Warning {
   SIALogWarning(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Warning", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Warning, @"description"), self.logOutput.lastLog);
   
   SIALogWarning(@"description %d", 3);
-  XCTAssertEqualObjects(loggerFormatFunction(@"Warning", @"description 3"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Warning, @"description 3"), self.logOutput.lastLog);
 }
 
 - (void)test_04_Info {
   SIALogInfo(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Info", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Info, @"description"), self.logOutput.lastLog);
   
   SIALogInfo(@"description %d", 4);
-  XCTAssertEqualObjects(loggerFormatFunction(@"Info", @"description 4"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Info, @"description 4"), self.logOutput.lastLog);
 }
 
 - (void)test_05_Trace {
   SIALogTrace(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Trace", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Trace, @"description"), self.logOutput.lastLog);
   
   SIALogTrace(@"description %d", 5);
-  XCTAssertEqualObjects(loggerFormatFunction(@"Trace", @"description 5"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Trace, @"description 5"), self.logOutput.lastLog);
 }
 
 - (void)test_06_LogIf_NoShow {
@@ -141,16 +141,16 @@
 
 - (void)test_07_LogIf_Show {
   SIALogErrorIf(true, @"log if true");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Error", @"log if true"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Error, @"log if true"), self.logOutput.lastLog);
   
   SIALogWarningIf(true, @"log if true");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Warning", @"log if true"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Warning, @"log if true"), self.logOutput.lastLog);
   
   SIALogInfoIf(true, @"log if true");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Info", @"log if true"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Info, @"log if true"), self.logOutput.lastLog);
   
   SIALogTraceIf(true, @"log if true");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Trace", @"log if true"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Trace, @"log if true"), self.logOutput.lastLog);
 }
 
 - (void)test_08_LogIfRet_NoShow {
@@ -183,22 +183,22 @@
   if (SIALogErrorIf(true, @"log if true")) { } else {
     XCTAssertTrue(false);
   }
-  XCTAssertEqualObjects(loggerFormatFunction(@"Error", @"log if true"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Error, @"log if true"), self.logOutput.lastLog);
   
   if (SIALogWarningIf(true, @"log if true")) { } else {
     XCTAssertTrue(false);
   }
-  XCTAssertEqualObjects(loggerFormatFunction(@"Warning", @"log if true"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Warning, @"log if true"), self.logOutput.lastLog);
   
   if (SIALogInfoIf(true, @"log if true")) { } else {
     XCTAssertTrue(false);
   }
-  XCTAssertEqualObjects(loggerFormatFunction(@"Info", @"log if true"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Info, @"log if true"), self.logOutput.lastLog);
   
   if (SIALogTraceIf(true, @"log if true")) { } else {
     XCTAssertTrue(false);
   }
-  XCTAssertEqualObjects(loggerFormatFunction(@"Trace", @"log if true"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Trace, @"log if true"), self.logOutput.lastLog);
 }
 
 - (void)test_10_AbortMethods {
@@ -220,41 +220,41 @@
 }
 
 - (void)test_11_Config_MaxLogLevel_Trace {
-  [SIALogConfig sharedInstance].maxLogLevel = SIALogLevel_Trace;
+  [SIALogConfig setMaxLogLevel: SIALogLevels.Trace];
   self.logOutput.lastLog = nil;
   
   SIALogTrace(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Trace", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Trace, @"description"), self.logOutput.lastLog);
   
   SIALogInfo(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Info", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Info, @"description"), self.logOutput.lastLog);
   
   SIALogWarning(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Warning", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Warning, @"description"), self.logOutput.lastLog);
   
   SIALogError(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Error", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Error, @"description"), self.logOutput.lastLog);
 }
 
 - (void)test_12_Config_MaxLogLevel_Info {
-  [SIALogConfig sharedInstance].maxLogLevel = SIALogLevel_Info;
+  [SIALogConfig setMaxLogLevel: SIALogLevels.Info];
   self.logOutput.lastLog = nil;
   
   SIALogTrace(@"description");
   XCTAssertEqualObjects(nil, self.logOutput.lastLog);
   
   SIALogInfo(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Info", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Info, @"description"), self.logOutput.lastLog);
   
   SIALogWarning(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Warning", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Warning, @"description"), self.logOutput.lastLog);
   
   SIALogError(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Error", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Error, @"description"), self.logOutput.lastLog);
 }
 
 - (void)test_13_Config_MaxLogLevel_Warning {
-  [SIALogConfig sharedInstance].maxLogLevel = SIALogLevel_Warning;
+  [SIALogConfig setMaxLogLevel: SIALogLevels.Warning];
   self.logOutput.lastLog = nil;
   
   SIALogTrace(@"description");
@@ -264,14 +264,14 @@
   XCTAssertEqualObjects(nil, self.logOutput.lastLog);
   
   SIALogWarning(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Warning", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Warning, @"description"), self.logOutput.lastLog);
   
   SIALogError(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Error", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Error, @"description"), self.logOutput.lastLog);
 }
 
 - (void)test_14_Config_MaxLogLevel_Error {
-  [SIALogConfig sharedInstance].maxLogLevel = SIALogLevel_Error;
+  [SIALogConfig setMaxLogLevel: SIALogLevels.Error];
   self.logOutput.lastLog = nil;
   
   SIALogTrace(@"description");
@@ -284,11 +284,11 @@
   XCTAssertEqualObjects(nil, self.logOutput.lastLog);
   
   SIALogError(@"description");
-  XCTAssertEqualObjects(loggerFormatFunction(@"Error", @"description"), self.logOutput.lastLog);
+  XCTAssertEqualObjects(loggerFormatFunction(SIALogLevels.Error, @"description"), self.logOutput.lastLog);
 }
 
 - (void)test_15_Config_MaxLogLevel_Fatal {
-  [SIALogConfig sharedInstance].maxLogLevel = SIALogLevel_Fatal;
+  [SIALogConfig setMaxLogLevel: SIALogLevels.Fatal];
   self.logOutput.lastLog = nil;
   
   SIALogTrace(@"description");
@@ -314,7 +314,7 @@
 }
 
 - (void)test_99_Performance_Disable_Log {
-  [SIALogConfig sharedInstance].maxLogLevel = SIALogLevel_Fatal;
+  [SIALogConfig setMaxLogLevel: SIALogLevels.Fatal];
   
   [self measureBlock:^{
     for(size_t i =0; i < TEST_PERFORMANCE_OPERATION_COUNT; i++) {
@@ -325,7 +325,7 @@
 
 #define TEST_PERFORMANCE_CONSOLE_DOCUMENTS_COUNT 20000
 - (void)test_99_Performance_Document {
-  [SIALogConfig sharedInstance].outputs = @[ [[SIALogDocumentsFileOutput alloc] initWithFileName:@"TEST" joinDate:YES] ];
+  [SIALogConfig setOutputs: @[ [[SIALogDocumentsFileOutput alloc] initWithFileName:@"TEST" joinDate:YES] ]];
   
   [self measureBlock:^{
     for(size_t i =0; i < TEST_PERFORMANCE_CONSOLE_DOCUMENTS_COUNT; i++) {
@@ -336,7 +336,7 @@
 
 #define TEST_PERFORMANCE_CONSOLE_OPERATION_COUNT 2500
 - (void)test_99_Performance_Console {
-  [SIALogConfig sharedInstance].outputs = @[ [[SIALogConsoleOutput alloc] init] ];
+  [SIALogConfig setOutputs: @[ [[SIALogConsoleOutput alloc] init] ]];
   
   [self measureBlock:^{
     for(size_t i =0; i < TEST_PERFORMANCE_CONSOLE_OPERATION_COUNT; i++) {
@@ -350,18 +350,21 @@
   [super setUp];
   
   self.logOutput = [SIALogTestOutput new];
-  [SIALogConfig sharedInstance].outputs = @[self.logOutput];
+  [SIALogConfig setOutputs: @[self.logOutput]];
   
-  [SIALogConfig sharedInstance].formatFunction = ^NSString*(NSString* const level, NSString* const file, const SIALineNumber line, NSString* const msg) {
-    return loggerFormatFunction(level, msg);
-  };
+  [SIALogConfig setFormatFunction: ^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
+    return loggerFormatFunctionStr(level.name, msg);
+  }];
   
-  [SIALogConfig sharedInstance].maxLogLevel = SIALogLevel_Trace;
+  [SIALogConfig setMaxLogLevel: SIALogLevels.Trace];
 }
 
 //Support
-NSString* loggerFormatFunction(NSString* const level, NSString* const msg) {
+NSString* loggerFormatFunctionStr(NSString* level, NSString* msg) {
   return [NSString stringWithFormat:@"[%@]%@", level.uppercaseString, msg];
+}
+NSString* loggerFormatFunction(SIALogLevel* level, NSString* msg) {
+  return loggerFormatFunctionStr(level.name, msg);
 }
 
 @end

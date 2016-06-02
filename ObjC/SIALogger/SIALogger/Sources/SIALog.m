@@ -10,40 +10,38 @@
 
 @implementation SIALog
 
-+ (void)log:(const SIALogLevel)level Line:(const SIALineNumber)line File:(NSString* const)file Msg:(NSString* const)msg {
-#define SIA_LOG_LEVEL_COUNTER(NAME) 1 +
-  static size_t const logLevelsCount = SIA_LOG_LEVELS(SIA_LOG_LEVEL_COUNTER) 0;
-#undef SIA_LOG_LEVEL_COUNTER
-  
-  if (logLevelsCount <= level || [SIALogConfig sharedInstance].maxLogLevel < level) {
++ (void)log:(SIALogLevel* const)level Line:(const SIALineNumber)line File:(NSString* const)file Msg:(NSString* const)msg {
+  if (nil == level || nil == file || nil == msg) {
     return;
   }
   
-#define SIA_LOG_LEVEL_STRING(NAME) @#NAME,
-  static NSString* const logLevelsString[logLevelsCount] = {
-    SIA_LOG_LEVELS(SIA_LOG_LEVEL_STRING)
-  };
-#undef SIA_LOG_LEVEL_STRING  
-
-  SIALogFormatFunction function = [SIALogConfig sharedInstance].formatFunction ?: [SIALogConfig sharedInstance].defaultFormatFunction;
-  [self executeLog:function(logLevelsString[level], [file lastPathComponent], line, msg)];
+  if (SIALogConfig.maxLogLevel.priority < level.priority) {
+    return;
+  }
+  
+  NSString* message = SIALogConfig.formatFunction(level, [file lastPathComponent], line, msg);
+  if (nil == message) {
+    return;
+  }
+  
+  @synchronized (self.monitor) {
+    for (id<SIALogOutputProtocol> output in SIALogConfig.outputs) {
+      [output logLevel:level AndMessage:message];
+    }
+  }
 }
 
-+ (void)executeLog:(NSString*)log {
++ (NSObject*)monitor {
   static NSObject* monitor = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     monitor = [NSObject new];
   });
   
-  @synchronized (monitor) {
-    for (id<SIALogOutputProtocol> output in [SIALogConfig sharedInstance].outputs) {
-      [output log:log];
-    }
-  }
+  return monitor;
 }
 
-+ (BOOL)logIf:(const BOOL)condition Level:(const SIALogLevel)level Line:(const SIALineNumber)line File:(NSString* const)file Msg:(NSString* const)msg {
++ (BOOL)logIf:(const BOOL)condition Level:(SIALogLevel* const)level Line:(const SIALineNumber)line File:(NSString* const)file Msg:(NSString* const)msg {
   if (condition) {
     [self log:level Line:line File:file Msg:msg];
   }

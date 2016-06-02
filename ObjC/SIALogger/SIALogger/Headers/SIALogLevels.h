@@ -2,24 +2,18 @@
 //  SIALogLevels.h
 //  SIALogger
 //
-//  Created by Ivlev  Alexander (Stef) on 4/15/15.
-//  Copyright (c) 2016 Ivlev Alexander. All rights reserved.
+//  Created by Alexander Ivlev on 02/06/16.
+//  Copyright © 2016 Alexander Ivlev. All rights reserved.
 //
 
-#ifndef __SIA_LOG_LEVELS_H__
-#define __SIA_LOG_LEVELS_H__
+#import "SIALogLevel.h"
 
-#define SIA_LOG_LEVELS(X) \
-  X(Fatal) \
-  X(Error) \
-  X(Warning) \
-  X(Info) \
-  X(Trace)
+@interface SIALogLevels : NSObject
 
-#define SIA_LOG_LEVEL_ENUM(NAME) SIALogLevel_##NAME,
-typedef NS_ENUM(NSUInteger, SIALogLevel) {
-  SIA_LOG_LEVELS(SIA_LOG_LEVEL_ENUM)
-};
-#undef SIA_LOG_LEVEL_ENUM
++ (SIALogLevel*)Fatal;
++ (SIALogLevel*)Error;
++ (SIALogLevel*)Warning;
++ (SIALogLevel*)Info;
++ (SIALogLevel*)Trace;
 
-#endif /* __SIA_LOG_LEVELS_H__ */
+@end

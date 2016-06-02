@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SIALogLevels.h"
+#import "SIALogLevel.h"
 #import "SIALogConfig.h"
 
 @interface SIALog : NSObject
 
-+ (void)log:(const SIALogLevel)level Line:(const SIALineNumber)line File:(NSString* const)file Msg:(NSString* const)msg;
-+ (BOOL)logIf:(const BOOL)condition Level:(const SIALogLevel)level Line:(const SIALineNumber)line File:(NSString* const)file Msg:(NSString* const)msg;
++ (void)log:(SIALogLevel*)level Line:(SIALineNumber)line File:(NSString*)file Msg:(NSString*)msg;
++ (BOOL)logIf:(BOOL)condition Level:(SIALogLevel*)level Line:(SIALineNumber)line File:(NSString*)file Msg:(NSString*)msg;
 
 @end

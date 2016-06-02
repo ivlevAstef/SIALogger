@@ -7,20 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SIALogLevels.h"
+#import "SIALogLevel.h"
 #import "SIALogOutputProtocol.h"
 
 typedef unsigned long long int SIALineNumber;
-typedef NSString* (^SIALogFormatFunction)(NSString* const level, NSString* const file, const SIALineNumber line, NSString* const msg);
+typedef NSString* (^SIALogFormatFunction)(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg);
 
 @interface SIALogConfig : NSObject
 
-+ (instancetype)sharedInstance;
++ (SIALogLevel*)maxLogLevel;
++ (void)setMaxLogLevel:(SIALogLevel*)newMaxLogLevel;
 
-@property (atomic, assign) SIALogLevel maxLogLevel;
-@property (atomic, copy) NSArray<id<SIALogOutputProtocol>>* outputs;
-@property (atomic, copy) SIALogFormatFunction formatFunction;
++ (NSArray<id<SIALogOutputProtocol>>*)outputs;
++ (void)setOutputs:(NSArray<id<SIALogOutputProtocol>>*)newOutputs;
 
-@property (nonatomic, readonly) SIALogFormatFunction defaultFormatFunction;
++ (SIALogFormatFunction)formatFunction;
++ (void)setFormatFunction:(SIALogFormatFunction)newFormatFunction;
 
 @end

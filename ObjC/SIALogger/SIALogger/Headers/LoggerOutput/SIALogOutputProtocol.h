@@ -6,10 +6,10 @@
 //  Copyright (c) 2016 Ivlev Alexander. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "SIALogLevel.h"
 
 @protocol SIALogOutputProtocol <NSObject>
 
-- (void)log:(NSString*)logString;
+- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message;
 
 @end

@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  [SIALogConfig sharedInstance].maxLogLevel = SIALogLevel_Info;
+  [SIALogConfig setMaxLogLevel: SIALogLevels.Info];
 
   SIALogTrace(@"1 trace no show");
   
@@ -26,18 +26,18 @@
   SIALogWarning(@"1 warning");
   SIALogError(@"1 error");
   
-  [SIALogConfig sharedInstance].maxLogLevel = SIALogLevel_Error;
+  [SIALogConfig setMaxLogLevel: SIALogLevels.Error];
   SIALogTrace(@"2 trace no show");
   SIALogInfo(@"2 info no show");
   SIALogWarning(@"2 warning no show");
   SIALogError(@"2 error");
   
-  [SIALogConfig sharedInstance].maxLogLevel = SIALogLevel_Trace;
+  [SIALogConfig setMaxLogLevel: SIALogLevels.Trace];
   SIALogTrace(@"3 trace");
   
-  [SIALogConfig sharedInstance].formatFunction = ^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
-    return [NSString stringWithFormat:@"[%@] {%@:%lld}: %@", level.uppercaseString, file, line, msg];
-  };
+  [SIALogConfig setFormatFunction: ^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
+    return [NSString stringWithFormat:@"[%@] {%@:%lld}: %@", level.name.uppercaseString, file, line, msg];
+  }];
   
   SIALogTrace(@"4 trace");
   SIALogInfo(@"4 info");

@@ -28,9 +28,9 @@
   return self;
 }
 
-- (void)log:(NSString*)logString {
-  if (nil != logString) {
-    NSString* log = [NSString stringWithFormat:@"%@ %@\n", [self currentTime], logString];
+- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message {
+  if (nil != message) {
+    NSString* log = [NSString stringWithFormat:@"%@ %@\n", [self currentTime], message];
     [self.output writeData:[log dataUsingEncoding:NSUTF8StringEncoding]];
   }
 }
