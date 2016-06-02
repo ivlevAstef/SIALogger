@@ -26,6 +26,8 @@
   SIALogWarning(@"1 warning");
   SIALogError(@"1 error");
   
+  [SIALogConfig enableXcodeColorsPlugin];
+  
   [SIALogConfig setMaxLogLevel: SIALogLevels.Error];
   SIALogTrace(@"2 trace no show");
   SIALogInfo(@"2 info no show");
@@ -36,13 +38,15 @@
   SIALogTrace(@"3 trace");
   
   [SIALogConfig setFormatFunction: ^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
-    return [NSString stringWithFormat:@"[%@] {%@:%lld}: %@", level.name.uppercaseString, file, line, msg];
+    return [NSString stringWithFormat:@"%@ {%@:%lld}: %@", [level colored:level.name], file, line, msg];
   }];
   
   SIALogTrace(@"4 trace");
   SIALogInfo(@"4 info");
   SIALogWarning(@"4 warning");
   SIALogError(@"4 error");
+  
+  [SIALogConfig setDefaultColorFormatFunction];
   
   SIALogTraceIf(true, @"Trace if");
   SIALogInfoIf(false, @"Info if no show");

@@ -6,8 +6,6 @@
 //  Copyright (c) 2016 Ivlev Alexander. All rights reserved.
 //
 
-#ifdef SIA_LOGGER_CRASHLYTICS
-
 #import "SIALogCrashlyticsOuput.h"
 #import <Crashlytics/Crashlytics.h>
 
@@ -20,5 +18,3 @@
 }
 
 @end
-
-#endif

@@ -7,7 +7,8 @@
 //
 
 #import "SIALogConfig.h"
-#import "SIALogLevels.m"
+#import "SIALogLevels.h"
+
 #import "SIALogConsoleOutput.h"
 
 @interface SIALogConfig()
@@ -34,13 +35,8 @@
   self = [super init];
   
   if (self) {
-#ifdef DEBUG
-    self.maxLogLevel = SIALogLevels.Info;
-#else
-    self.maxLogLevel = SIALogLevels.Warning;
-#endif
-    
-    self.outputs = @[ [[SIALogConsoleOutput alloc] init] ];
+    self.maxLogLevel = [SIALogConfig defaultMaxLogLevel];
+    self.outputs = [SIALogConfig defaultOutputs];
     self.formatFunction = [SIALogConfig defaultFormatFunction];
   }
   
@@ -55,13 +51,17 @@
 
 + (void)setMaxLogLevel:(SIALogLevel*)newMaxLogLevel {
   if (nil == newMaxLogLevel) {
-#ifdef DEBUG
-    newMaxLogLevel = SIALogLevels.Info;
-#else
-    newMaxLogLevel = SIALogLevels.Warning;
-#endif
+    newMaxLogLevel = [self defaultMaxLogLevel];
   }
   [self sharedInstance].maxLogLevel = newMaxLogLevel;
+}
+
++ (SIALogLevel*)defaultMaxLogLevel {
+#ifdef DEBUG
+  return SIALogLevels.Info;
+#else
+  return SIALogLevels.Warning;
+#endif
 }
 
 //Outputs
@@ -72,9 +72,13 @@
 
 + (void)setOutputs:(NSArray<id<SIALogOutputProtocol>>*)newOutputs {
   if (nil == newOutputs) {
-    newOutputs = [NSArray array];
+    newOutputs = [self defaultOutputs];
   }
   [self sharedInstance].outputs = newOutputs;
+}
+
++ (NSArray<id<SIALogOutputProtocol>>*)defaultOutputs {
+  return @[ [[SIALogConsoleOutput alloc] init] ];
 }
 
 //Format Function
@@ -92,10 +96,9 @@
 
 + (SIALogFormatFunction)defaultFormatFunction {
   return ^NSString*(SIALogLevel* const level, NSString* const file, const SIALineNumber line, NSString* const msg) {
-    return [NSString stringWithFormat:@"%@ {%@:%lld}: %@", level.name, file, line, msg];
+    return [NSString stringWithFormat:@"[%@] {%@:%lld}: %@", level.name.uppercaseString, file, line, msg];
   };
 }
-
 
 @end
 

@@ -15,28 +15,31 @@
   static dispatch_once_t onceToken; \
   dispatch_once(&onceToken, ^{ \
     level = [[SIALogLevel alloc] initWithPriority:PRIORITY AndName:NAME]; \
-  }); \
-  \
-  return level
+  })
 
 + (SIALogLevel*)Fatal {
   CREATE_LEVEL(0, @"Fatal");
+  return level;
 }
 
 + (SIALogLevel*)Error {
   CREATE_LEVEL(1, @"Error");
+  return level;
 }
 
 + (SIALogLevel*)Warning {
   CREATE_LEVEL(2, @"Warning");
+  return level;
 }
 
 + (SIALogLevel*)Info {
   CREATE_LEVEL(3, @"Info");
+  return level;
 }
 
 + (SIALogLevel*)Trace {
   CREATE_LEVEL(4, @"Trace");
+  return level;
 }
 
 @end
