@@ -18,13 +18,13 @@
     return;
   }
   
-  NSString* time = [self currentTime];
-  assert(nil != time);
-  
   NSString* file = [filePath lastPathComponent];
   assert(nil != filePath);
   
   @synchronized (self.monitor) {
+    NSString* time = [self currentTime];
+    assert(nil != time);
+    
     assert(nil != SIALogConfig.outputs);
     for (id<SIALogOutputProtocol> output in SIALogConfig.outputs) {
       [output logWithTime:time Level:level File:file Line:line Msg:msg];

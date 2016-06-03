@@ -11,11 +11,8 @@
 //#include <signal.h>
 
 //Support
-NSString* loggerFormatFunctionStr(NSString* level, NSString* msg) {
-  return [NSString stringWithFormat:@"[%@]%@", level.uppercaseString, msg];
-}
 NSString* loggerFormatFunction(SIALogLevel* level, NSString* msg) {
-  return loggerFormatFunctionStr(level.name, msg);
+  return [NSString stringWithFormat:@"[%@]%@", level.name.uppercaseString, msg];
 }
 
 @interface SIALogTestOutput : NSObject<SIALogOutputProtocol>

@@ -61,11 +61,6 @@
     SIALogInfo(@"By error");
   }
   
-  
-  for(size_t i =0; i < 100000; i++) {
-    SIALogInfo(@"message");
-  }
-  
   SIALogAssertMsg(true, @"no show");
   SIALogAssertMsg(false, @"assert");
 }
