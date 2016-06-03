@@ -14,7 +14,6 @@
 #import "SIALogLevels.h"
 #import "SIALog.h"
 #import "SIALogConfig.h"
-#import "SIALogColor.h"
 
 #import "SIALogMessages.h"
 #import "SIALogChecks.h"
@@ -22,6 +21,9 @@
 
 #import "SIALogConsoleOutput.h"
 #import "SIALogDocumentsFileOutput.h"
+
+#import "SIALogColor.h"
+#import "SIALogColoredConsoleOutput.h"
 
 //! Project version number for SIALogger.
 FOUNDATION_EXPORT double SIALoggerVersionNumber;

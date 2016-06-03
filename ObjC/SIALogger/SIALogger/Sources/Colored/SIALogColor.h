@@ -15,21 +15,6 @@ typedef unsigned char ColorComponent;
 
 - (instancetype)initByRed:(ColorComponent)red Green:(ColorComponent)green Blue:(ColorComponent)blue;
 
-@end
-
-@interface SIALogLevel (Colored)
-
-- (void)setForegroundColor:(SIALogColor*)color;
-- (void)setBackgroundColor:(SIALogColor*)color;
-
-- (NSString*)colored:(NSString*)text;
-
-@end
-
-@interface SIALogConfig (Colored)
-
-+ (void)enableXcodeColorsPlugin;
-+ (void)setDefaultColors;
-+ (void)setDefaultColorFormatFunction;
+@property (nonatomic, readonly) NSString* xcodeColor;
 
 @end

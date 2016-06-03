@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
+  [SIALogConfig setOutputs:@[ [SIALogColoredConsoleOutput new] ]];
+  
   [SIALogConfig setMaxLogLevel: SIALogLevels.Info];
 
   SIALogTrace(@"1 trace no show");
@@ -25,8 +27,6 @@
   SIALogInfo(@"1 info");
   SIALogWarning(@"1 warning");
   SIALogError(@"1 error");
-  
-  [SIALogConfig enableXcodeColorsPlugin];
   
   [SIALogConfig setMaxLogLevel: SIALogLevels.Error];
   SIALogTrace(@"2 trace no show");
@@ -41,8 +41,6 @@
   SIALogInfo(@"4 info");
   SIALogWarning(@"4 warning");
   SIALogError(@"4 error");
-  
-  [SIALogConfig setDefaultColorFormatFunction];
   
   SIALogTraceIf(true, @"Trace if");
   SIALogInfoIf(false, @"Info if no show");

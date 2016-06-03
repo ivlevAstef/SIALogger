@@ -320,8 +320,7 @@ NSString* loggerFormatFunction(SIALogLevel* level, NSString* msg) {
 
 #define TEST_PERFORMANCE_CONSOLE_OPERATION_COUNT 2500
 - (void)test_99_Performance_ColorConsole {
-  [SIALogConfig setOutputs: @[ [[SIALogConsoleOutput alloc] init] ]];
-  [SIALogConfig enableXcodeColorsPlugin];
+  [SIALogConfig setOutputs: @[ [[SIALogColoredConsoleOutput alloc] init] ]];
   
   [self measureBlock:^{
     for(size_t i =0; i < TEST_PERFORMANCE_CONSOLE_OPERATION_COUNT; i++) {
