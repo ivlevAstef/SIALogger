@@ -14,6 +14,8 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    SIALogConfig.outputs = [ SIALogColoredConsoleOutput() ]
+    
     SIALogConfig.maxLogLevel = SIALogLevel.Info
     SIALog.Trace("1 trace no show")
     SIALog.Info("1 info")

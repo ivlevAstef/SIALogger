@@ -26,8 +26,8 @@
 		A544C8851D004CDE0001FB7A /* SIALogColor.h in Headers */ = {isa = PBXBuildFile; fileRef = A544C8831D004CDE0001FB7A /* SIALogColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A544C88C1D0051B10001FB7A /* SIALogColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A544C8841D004CDE0001FB7A /* SIALogColor.m */; };
 		A56A712D1CFECF0F00952FE7 /* SIALogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A56A711E1CFEC9E200952FE7 /* SIALogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A5B0B92F1D01912B00B0AFE3 /* SIALogColoredConsoleOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B0B92D1D01912B00B0AFE3 /* SIALogColoredConsoleOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A5B0B9301D01912B00B0AFE3 /* SIALogColoredConsoleOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B0B92E1D01912B00B0AFE3 /* SIALogColoredConsoleOutput.m */; };
+		A5B0B9361D019A3600B0AFE3 /* SIALogColoredConsoleOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B0B9341D019A3600B0AFE3 /* SIALogColoredConsoleOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5B0B9371D019A3600B0AFE3 /* SIALogColoredConsoleOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B0B9351D019A3600B0AFE3 /* SIALogColoredConsoleOutput.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +54,8 @@
 		A55E02731CFDC42D005F8997 /* SIALogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SIALogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55E02781CFDC42D005F8997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A56A711E1CFEC9E200952FE7 /* SIALogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SIALogger.h; sourceTree = "<group>"; };
-		A5B0B92D1D01912B00B0AFE3 /* SIALogColoredConsoleOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALogColoredConsoleOutput.h; sourceTree = "<group>"; };
-		A5B0B92E1D01912B00B0AFE3 /* SIALogColoredConsoleOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIALogColoredConsoleOutput.m; sourceTree = "<group>"; };
+		A5B0B9341D019A3600B0AFE3 /* SIALogColoredConsoleOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIALogColoredConsoleOutput.h; sourceTree = "<group>"; };
+		A5B0B9351D019A3600B0AFE3 /* SIALogColoredConsoleOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIALogColoredConsoleOutput.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,6 @@
 		A544C8431D0049E90001FB7A /* LoggerOutput */ = {
 			isa = PBXGroup;
 			children = (
-				A5B0B92C1D01912B00B0AFE3 /* ColoredConsole */,
 				A544C8871D004DA00001FB7A /* Crashlytics */,
 				A544C8441D0049E90001FB7A /* SIALogConsoleOutput.h */,
 				A544C8451D0049E90001FB7A /* SIALogConsoleOutput.m */,
@@ -130,6 +129,8 @@
 		A544C8821D004CDE0001FB7A /* Colored */ = {
 			isa = PBXGroup;
 			children = (
+				A5B0B9341D019A3600B0AFE3 /* SIALogColoredConsoleOutput.h */,
+				A5B0B9351D019A3600B0AFE3 /* SIALogColoredConsoleOutput.m */,
 				A544C8831D004CDE0001FB7A /* SIALogColor.h */,
 				A544C8841D004CDE0001FB7A /* SIALogColor.m */,
 			);
@@ -171,15 +172,6 @@
 			path = SIALogger;
 			sourceTree = "<group>";
 		};
-		A5B0B92C1D01912B00B0AFE3 /* ColoredConsole */ = {
-			isa = PBXGroup;
-			children = (
-				A5B0B92D1D01912B00B0AFE3 /* SIALogColoredConsoleOutput.h */,
-				A5B0B92E1D01912B00B0AFE3 /* SIALogColoredConsoleOutput.m */,
-			);
-			path = ColoredConsole;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -198,7 +190,7 @@
 				A544C84F1D0049E90001FB7A /* SIALogConfig.h in Headers */,
 				A544C8851D004CDE0001FB7A /* SIALogColor.h in Headers */,
 				A544C8591D0049E90001FB7A /* SIALogOutputProtocol.h in Headers */,
-				A5B0B92F1D01912B00B0AFE3 /* SIALogColoredConsoleOutput.h in Headers */,
+				A5B0B9361D019A3600B0AFE3 /* SIALogColoredConsoleOutput.h in Headers */,
 				A544C8551D0049E90001FB7A /* SIALogConsoleOutput.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,7 +264,7 @@
 			files = (
 				A544C88C1D0051B10001FB7A /* SIALogColor.m in Sources */,
 				A544C8501D0049E90001FB7A /* SIALogConfig.m in Sources */,
-				A5B0B9301D01912B00B0AFE3 /* SIALogColoredConsoleOutput.m in Sources */,
+				A5B0B9371D019A3600B0AFE3 /* SIALogColoredConsoleOutput.m in Sources */,
 				A544C8541D0049E90001FB7A /* SIALogLevels.m in Sources */,
 				A544C8521D0049E90001FB7A /* SIALogLevel.m in Sources */,
 				A544C8561D0049E90001FB7A /* SIALogConsoleOutput.m in Sources */,
