@@ -7,7 +7,7 @@
 //
 
 #ifndef __SIA_LOG_LOGGER_H__
-#define __SIA_LOG_LOGGER_H__
+#define __SIA_LOG_LOGGER_H__ 
 
 #import <Foundation/Foundation.h>
 
@@ -21,7 +21,9 @@
 
 #import "SIALogConsoleOutput.h"
 #import "SIALogDocumentsFileOutput.h"
-#import "SIALogCrashlyticsOuput.h"
+
+#import "SIALogColor.h"
+#import "SIALogColoredConsoleOutput.h"
 
 //! Project version number for SIALogger.
 FOUNDATION_EXPORT double SIALoggerVersionNumber;

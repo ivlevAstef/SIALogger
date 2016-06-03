@@ -292,6 +292,16 @@ class SIALoggerTests: XCTestCase {
     }
   }
   
+  func test_99_Performance_ColorConsole() {
+    SIALogConfig.outputs = [SIALogColoredConsoleOutput()]
+    
+    self.measureBlock {
+      for _ in 0..<self.TEST_PERFORMANCE_CONSOLE_OPERATION_COUNT {
+        SIALog.Info("message")
+      }
+    }
+  }
+  
   override func setUp() {
     super.setUp()
     

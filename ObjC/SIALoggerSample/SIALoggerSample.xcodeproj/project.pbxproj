@@ -14,7 +14,6 @@
 		A55E02541CFDC38C005F8997 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A55E02531CFDC38C005F8997 /* Assets.xcassets */; };
 		A55E02571CFDC38C005F8997 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55E02551CFDC38C005F8997 /* LaunchScreen.storyboard */; };
 		A55E02661CFDC3E6005F8997 /* SIALogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55E02631CFDC3B1005F8997 /* SIALogger.framework */; };
-		A55E029B1CFDC473005F8997 /* SIALogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55E02631CFDC3B1005F8997 /* SIALogger.framework */; };
 		A55E029C1CFDC473005F8997 /* SIALogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A55E02631CFDC3B1005F8997 /* SIALogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -75,7 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A55E029B1CFDC473005F8997 /* SIALogger.framework in Frameworks */,
 				A55E02661CFDC3E6005F8997 /* SIALogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +350,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SIALoggerSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sia.SIALoggerSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -363,6 +362,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SIALoggerSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sia.SIALoggerSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

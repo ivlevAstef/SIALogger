@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
+  [SIALogConfig setOutputs:@[ [SIALogColoredConsoleOutput new] ]];
+  
   [SIALogConfig setMaxLogLevel: SIALogLevels.Info];
 
   SIALogTrace(@"1 trace no show");

@@ -7,7 +7,12 @@
 //
 
 public struct SIALogConfig {
-  public static var maxLogLevel = SIALogLevel.Info
-  public static var outputs : [SIALogOutputProtocol] = [SIALogConsoleOutput()]
-  public static var formatTime = "HH:mm:ss:SSS"
+  public static var maxLogLevel = defaultMaxLogLevel
+  public static var outputs = defaultOutputs
+  public static var formatTime = defaultFormatTime
+  
+  
+  public static let defaultMaxLogLevel = SIALogLevel.Info
+  public static let defaultOutputs : [SIALogOutputProtocol] = [SIALogConsoleOutput()]
+  public static let defaultFormatTime = "HH:mm:ss:SSS"
 }
