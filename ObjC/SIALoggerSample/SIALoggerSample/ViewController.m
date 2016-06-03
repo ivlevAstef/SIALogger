@@ -35,10 +35,6 @@
   [SIALogConfig setMaxLogLevel: SIALogLevels.Trace];
   SIALogTrace(@"3 trace");
   
-  [SIALogConfig setFormatFunction: ^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
-    return [NSString stringWithFormat:@"[%@] {%@:%lld}: %@", level.name.uppercaseString, file, line, msg];
-  }];
-  
   SIALogTrace(@"4 trace");
   SIALogInfo(@"4 info");
   SIALogWarning(@"4 warning");
@@ -63,6 +59,11 @@
   
   if (SIALogErrorIf(true, @"Error if")) {
     SIALogInfo(@"By error");
+  }
+  
+  
+  for(size_t i =0; i < 100000; i++) {
+    SIALogInfo(@"message");
   }
   
   SIALogAssertMsg(true, @"no show");

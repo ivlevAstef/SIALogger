@@ -13,10 +13,10 @@
 
 @implementation SIALogCrashlyticsOuput
 
-- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message {
-  if (nil != message) {
-    CLSLog(@"%@", message);
-  }
+- (void)logWithTime:(NSString*)time Level:(SIALogLevel*)level File:(NSString*)file Line:(NSNumber*)line Msg:(NSString*)msg {
+  assert(nil != time && nil != level && nil != file && nil != line && nil != msg);
+  
+  CLSLog(@"%@ [%@] {%@:%@}: %@", time, level.name.uppercaseString, file, line, msg);
 }
 
 @end

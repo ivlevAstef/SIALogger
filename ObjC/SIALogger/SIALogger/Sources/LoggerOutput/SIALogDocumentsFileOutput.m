@@ -53,24 +53,11 @@
   return self;
 }
 
-- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message {
-  if (nil != message) {
-    NSString* log = [NSString stringWithFormat:@"%@ %@\r\n", [self currentTime], message];
-    [self.output writeData:[log dataUsingEncoding:NSUTF8StringEncoding]];
-  }
-}
-
-- (NSString*)currentTime {
-  static dispatch_once_t once;
-  static NSDateFormatter* dateFormatter = nil;
-
-  dispatch_once(&once, ^{
-    dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"HH:mm:ss:SSS"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
-  });
-
-  return [dateFormatter stringFromDate:[NSDate date]];
+- (void)logWithTime:(NSString*)time Level:(SIALogLevel*)level File:(NSString*)file Line:(NSNumber*)line Msg:(NSString*)msg {
+  assert(nil != time && nil != level && nil != file && nil != line && nil != msg);
+  
+  NSString* log = [NSString stringWithFormat:@"%@ [%@] {%@:%@}: %@\r\n", time, level.name.uppercaseString, file, line, msg];
+  [self.output writeData:[log dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 @end

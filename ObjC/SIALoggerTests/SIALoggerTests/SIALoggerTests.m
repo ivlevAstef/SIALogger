@@ -10,9 +10,17 @@
 #import <SIALogger/SIALogger.h>
 //#include <signal.h>
 
+//Support
+NSString* loggerFormatFunctionStr(NSString* level, NSString* msg) {
+  return [NSString stringWithFormat:@"[%@]%@", level.uppercaseString, msg];
+}
+NSString* loggerFormatFunction(SIALogLevel* level, NSString* msg) {
+  return loggerFormatFunctionStr(level.name, msg);
+}
+
 @interface SIALogTestOutput : NSObject<SIALogOutputProtocol>
 
-- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message; /*overrride*/
+- (void)logWithTime:(NSString*)time Level:(SIALogLevel*)level File:(NSString*)file Line:(NSNumber*)line Msg:(NSString*)msg; /*overrride*/
 
 @property (nonatomic, strong) NSString* lastLog;
 
@@ -20,8 +28,9 @@
 
 @implementation SIALogTestOutput
 
-- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message {
-  self.lastLog = message;
+- (void)logWithTime:(NSString*)time Level:(SIALogLevel*)level File:(NSString*)file Line:(NSNumber*)line Msg:(NSString*)msg {
+  assert(nil != time && nil != level && nil != file && nil != line && nil != msg);
+  self.lastLog = loggerFormatFunction(level, msg);
 }
 
 @end
@@ -33,40 +42,6 @@
 @end
 
 @implementation SIALoggerTests
-
-- (void)test_00_Config_FormatOutput {
-  [SIALogConfig setFormatFunction: ^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
-    return level.name;
-  }];
-  
-  SIALogInfo(@"test");
-  XCTAssertEqualObjects(SIALogLevels.Info.name, self.logOutput.lastLog);
-
-  
-  [SIALogConfig setFormatFunction: ^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
-    return msg;
-  }];
-  
-  SIALogInfo(@"test");
-  XCTAssertEqualObjects(@"test", self.logOutput.lastLog);
-  
-  
-  [SIALogConfig setFormatFunction: ^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
-    return file;
-  }];
-  
-  SIALogInfo(@"test"); NSString* file = [@__FILE__ lastPathComponent];
-  XCTAssertEqualObjects(file, self.logOutput.lastLog);
-  
-  
-  [SIALogConfig setFormatFunction: ^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
-    return [@(line) stringValue];
-  }];
-  
-  SIALogInfo(@"test"); NSString* line = [@(__LINE__) stringValue];
-  XCTAssertEqualObjects(line, self.logOutput.lastLog);
-}
-
 
 // no worked... I can't catch signal.
 //- (void)test_01_Fatal {
@@ -350,21 +325,8 @@
   [super setUp];
   
   self.logOutput = [SIALogTestOutput new];
-  [SIALogConfig setOutputs: @[self.logOutput]];
-  
-  [SIALogConfig setFormatFunction: ^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
-    return loggerFormatFunctionStr(level.name, msg);
-  }];
-  
+  [SIALogConfig setOutputs: @[self.logOutput]];  
   [SIALogConfig setMaxLogLevel: SIALogLevels.Trace];
-}
-
-//Support
-NSString* loggerFormatFunctionStr(NSString* level, NSString* msg) {
-  return [NSString stringWithFormat:@"[%@]%@", level.uppercaseString, msg];
-}
-NSString* loggerFormatFunction(SIALogLevel* level, NSString* msg) {
-  return loggerFormatFunctionStr(level.name, msg);
 }
 
 @end
