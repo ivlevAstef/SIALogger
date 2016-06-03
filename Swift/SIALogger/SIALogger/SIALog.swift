@@ -84,16 +84,25 @@ public extension SIALog {
 
 public final class SIALog {
   private static let monitor = NSObject()
-  private static func log(level: SIALogLevel, msg: String, file: StaticString = #file, line: UInt = #line) {
+  private static let dateFormatter = { () -> NSDateFormatter in
+    let result = NSDateFormatter()
+    result.timeZone = NSTimeZone(name: "UTC")
+    return result
+  }()
+  
+  private static func log(level: SIALogLevel, msg: String, file filePath: StaticString = #file, line: UInt = #line) {
     guard level.rawValue <= SIALogConfig.maxLogLevel.rawValue else {
       return
     }
     
-    let message = SIALogConfig.formatFunction(level.toString(), (String(file) as NSString).lastPathComponent, line, msg)
+    let file = (String(filePath) as NSString).lastPathComponent
     
     objc_sync_enter(monitor)
+    dateFormatter.dateFormat = SIALogConfig.formatTime
+    let time = dateFormatter.stringFromDate(NSDate())
+    
     for output in SIALogConfig.outputs {
-      output.log(message)
+      output.log(time: time, level: level, file: file, line: line, msg: msg)
     }
     objc_sync_exit(monitor)
   }

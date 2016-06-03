@@ -10,6 +10,6 @@
 
 @protocol SIALogOutputProtocol <NSObject>
 
-- (void)logLevel:(SIALogLevel*)level AndMessage:(NSString*)message;
+- (void)logWithTime:(NSString*)time Level:(SIALogLevel*)level File:(NSString*)file Line:(NSNumber*)line Msg:(NSString*)msg;
 
 @end

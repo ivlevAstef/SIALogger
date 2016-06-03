@@ -29,8 +29,6 @@ class ViewController: UIViewController {
     SIALogConfig.maxLogLevel = SIALogLevel.Trace
     SIALog.Trace("3 trace")
     
-    SIALogConfig.formatFunction = { (level, file, line, msg) in " ["+level.uppercaseString+"] {"+file+":"+String(line)+"}: "+msg }
-    
     SIALog.Trace("4 trace")
     SIALog.Info("4 info")
     SIALog.Warning("4 warning")

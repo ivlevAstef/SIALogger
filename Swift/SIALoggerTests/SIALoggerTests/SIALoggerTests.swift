@@ -9,34 +9,20 @@
 import XCTest
 import SIALogger
 
+func formatFunction(level level: SIALogLevel, msg: String) -> String {
+  return "["+level.toString().uppercaseString+"]"+msg
+}
+
 class SIALogTestOutput: SIALogOutputProtocol {
   var lastLog: String? = nil
   
-  func log(message: String) {
-    lastLog = message
+  func log(time time: String, level: SIALogLevel, file: String, line: UInt, msg: String) {
+    lastLog = formatFunction(level: level, msg: msg)
   }
 }
 
 class SIALoggerTests: XCTestCase {
   var logOutput : SIALogTestOutput = SIALogTestOutput()
-  
-  func test_00_Config_FormatOutput() {
-    SIALogConfig.formatFunction = { (level, file, line, msg) in level }
-    SIALog.Info("test")
-    XCTAssertEqual(SIALogLevel.Info.toString(), logOutput.lastLog)
-    
-    SIALogConfig.formatFunction = { (level, file, line, msg) in msg }
-    SIALog.Info("test")
-    XCTAssertEqual("test", logOutput.lastLog)
-    
-    SIALogConfig.formatFunction = { (level, file, line, msg) in file }
-    SIALog.Info("test"); let file = (#file as NSString).lastPathComponent
-    XCTAssertEqual(file, logOutput.lastLog)
-    
-    SIALogConfig.formatFunction = { (level, file, line, msg) in String(line) }
-    SIALog.Info("test"); let line = String(#line)
-    XCTAssertEqual(line, logOutput.lastLog)
-  }
   
   func test_02_Error() {
     SIALog.Error("description")
@@ -311,22 +297,6 @@ class SIALoggerTests: XCTestCase {
     
     logOutput = SIALogTestOutput()
     SIALogConfig.outputs = [logOutput]
-    
-    SIALogConfig.formatFunction = formatFunction
-    
     SIALogConfig.maxLogLevel = SIALogLevel.Trace
   }
-  
-  func formatFunction(level level: String, file: String, line: UInt, msg: String) -> String {
-    return formatFunction(level: level, msg: msg)
-  }
-  
-  func formatFunction(level level: String, msg: String) -> String {
-    return "["+level.uppercaseString+"]"+msg
-  }
-  
-  func formatFunction(level level: SIALogLevel, msg: String) -> String {
-    return formatFunction(level: level.toString(), msg: msg)
-  }
-  
 }

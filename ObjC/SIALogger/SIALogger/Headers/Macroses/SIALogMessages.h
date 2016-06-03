@@ -9,7 +9,7 @@
 #ifndef __SIA_LOG_MESSAGES_H__
 #define __SIA_LOG_MESSAGES_H__
 
-#define SIALogLevel(LEVEL, MSG, ...) [SIALog log:SIALogLevels.LEVEL Line:__LINE__ File:@__FILE__ Msg:[NSString stringWithFormat:MSG, ##__VA_ARGS__]]
+#define SIALogLevel(LEVEL, MSG, ...) [SIALog log:SIALogLevels.LEVEL Line:@__LINE__ File:@__FILE__ Msg:[NSString stringWithFormat:MSG, ##__VA_ARGS__]]
 
 #define SIALogFatal(MSG, ...) do { SIALogLevel(Fatal   , MSG, ##__VA_ARGS__); abort(); } while (0)
 #define SIALogError(MSG, ...)      SIALogLevel(Error   , MSG, ##__VA_ARGS__)

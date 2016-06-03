@@ -22,27 +22,15 @@ public class SIALogDocumentsFileOutput : SIALogOutputProtocol {
     self.outputHandle = outputHandle
   }
   
-  public func log(message: String) {
-    if let data = (currentTime()+" "+message+"\r\n").dataUsingEncoding(NSUTF8StringEncoding) {
+  public func log(time time: String, level: SIALogLevel, file: String, line: UInt, msg: String) {
+    let msg = time+" ["+level.toString().uppercaseString+"] {"+file+":"+String(line)+"}: "+msg
+    if let data = (msg+"\r\n").dataUsingEncoding(NSUTF8StringEncoding) {
       self.outputHandle.writeData(data)
     }
   }
   
   
   private let outputHandle : NSFileHandle
-  private let startDate = NSDate()
-  
-  private let dateFormatter = { () -> NSDateFormatter in
-    let result = NSDateFormatter()
-    
-    result.dateFormat = "HH:mm:ss:SSS"
-    result.timeZone = NSTimeZone(name: "UTC")
-    return result
-  }()
-  
-  private func currentTime() -> String {
-    return dateFormatter.stringFromDate(NSDate(timeInterval: 0, sinceDate: startDate))
-  }
   
   private static func createFilePath(fileName: String, joinDate: Bool) -> String? {
     guard let documentDirectory = SIALogDocumentsFileOutput.documentsDirectory() else {
