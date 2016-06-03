@@ -28,7 +28,7 @@
   }
 
 //LogIf
-#define SIALogIf(CONDITION, LEVEL, MSG, ...) [SIALog logIf:CONDITION Level:SIALogLevels.LEVEL Line:__LINE__ File:@__FILE__ Msg:[NSString stringWithFormat:MSG, ##__VA_ARGS__]]
+#define SIALogIf(CONDITION, LEVEL, MSG, ...) [SIALog logIf:CONDITION Level:SIALogLevels.LEVEL Line:@__LINE__ File:@__FILE__ Msg:[NSString stringWithFormat:MSG, ##__VA_ARGS__]]
 
 #define SIALogFatalIf(CONDITION, MSG, ...)   do { if (SIALogIf(CONDITION, Fatal, MSG, ##__VA_ARGS__)) { abort(); } } while (0)
 #define SIALogErrorIf(CONDITION, MSG, ...)   SIALogIf(CONDITION, Error  , MSG, ##__VA_ARGS__)

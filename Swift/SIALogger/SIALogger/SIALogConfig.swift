@@ -9,5 +9,5 @@
 public struct SIALogConfig {
   public static var maxLogLevel = SIALogLevel.Info
   public static var outputs : [SIALogOutputProtocol] = [SIALogConsoleOutput()]
-  public static var formatFunction = { (level: String, file: String, line: UInt, msg: String) in " "+level+" {"+file+":"+String(line)+"}: "+msg }
+  public static var formatTime = "HH:mm:ss:SSS"
 }

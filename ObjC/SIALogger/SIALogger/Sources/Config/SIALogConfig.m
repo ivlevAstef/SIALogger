@@ -15,7 +15,7 @@
 
 @property (atomic, strong) SIALogLevel* maxLogLevel;
 @property (atomic, copy) NSArray<id<SIALogOutputProtocol>>* outputs;
-@property (atomic, copy) SIALogFormatFunction formatFunction;
+@property (atomic, copy) NSString* formatTime;
 
 @end
 
@@ -37,7 +37,7 @@
   if (self) {
     self.maxLogLevel = [SIALogConfig defaultMaxLogLevel];
     self.outputs = [SIALogConfig defaultOutputs];
-    self.formatFunction = [SIALogConfig defaultFormatFunction];
+    self.formatTime = [SIALogConfig defaultFormatTime];
   }
   
   return self;
@@ -81,23 +81,20 @@
   return @[ [[SIALogConsoleOutput alloc] init] ];
 }
 
-//Format Function
+//Format Time
 
-+ (SIALogFormatFunction)formatFunction {
-  return [self sharedInstance].formatFunction;
++ (NSString*)formatTime {
+  return [self sharedInstance].formatTime;
 }
-
-+ (void)setFormatFunction:(SIALogFormatFunction)newFormatFunction {
-  if (nil == newFormatFunction) {
-    newFormatFunction = [self defaultFormatFunction];
++ (void)setFormatTime:(NSString*)formatTime {
+  if (nil == formatTime) {
+    formatTime = [self defaultFormatTime];
   }
-  [self sharedInstance].formatFunction = newFormatFunction;
+  [self sharedInstance].formatTime = formatTime;
 }
 
-+ (SIALogFormatFunction)defaultFormatFunction {
-  return ^NSString*(SIALogLevel* const level, NSString* const file, const SIALineNumber line, NSString* const msg) {
-    return [NSString stringWithFormat:@"[%@] {%@:%lld}: %@", level.name.uppercaseString, file, line, msg];
-  };
++ (NSString*)defaultFormatTime {
+  return @"HH:mm:ss:SSS";
 }
 
 @end

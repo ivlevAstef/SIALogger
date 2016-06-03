@@ -10,9 +10,6 @@
 #import "SIALogLevel.h"
 #import "SIALogOutputProtocol.h"
 
-typedef unsigned long long int SIALineNumber;
-typedef NSString* (^SIALogFormatFunction)(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg);
-
 @interface SIALogConfig : NSObject
 
 + (SIALogLevel*)maxLogLevel;
@@ -21,7 +18,7 @@ typedef NSString* (^SIALogFormatFunction)(SIALogLevel* level, NSString* file, SI
 + (NSArray<id<SIALogOutputProtocol>>*)outputs;
 + (void)setOutputs:(NSArray<id<SIALogOutputProtocol>>*)newOutputs;
 
-+ (SIALogFormatFunction)formatFunction;
-+ (void)setFormatFunction:(SIALogFormatFunction)newFormatFunction;
++ (NSString*)formatTime;
++ (void)setFormatTime:(NSString*)formatTime;
 
 @end

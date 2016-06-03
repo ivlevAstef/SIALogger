@@ -12,20 +12,7 @@ public class SIALogConsoleOutput : SIALogOutputProtocol {
   public init() {
   }
   
-  public func log(message: String) {
-    print(currentTime()+" "+message)
-  }
-  
-  private let startDate = NSDate()
-  private let dateFormatter = { () -> NSDateFormatter in
-    let result = NSDateFormatter()
-    
-    result.dateFormat = "HH:mm:ss:SSS"
-    result.timeZone = NSTimeZone(name: "UTC")
-    return result
-  }()
-  
-  private func currentTime() -> String {
-    return dateFormatter.stringFromDate(NSDate(timeInterval: 0, sinceDate: startDate))
+  public func log(time time: String, level: SIALogLevel, file: String, line: UInt, msg: String) {
+    print(time+" ["+level.toString().uppercaseString+"] {"+file+":"+String(line)+"}: "+msg)
   }
 }

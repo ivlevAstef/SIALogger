@@ -134,9 +134,9 @@
 #undef SET_BCOLOR
 
 + (void)setDefaultColorFormatFunction {
-  [self setFormatFunction:^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
+  /*[self setFormatFunction:^NSString*(SIALogLevel* level, NSString* file, SIALineNumber line, NSString* msg) {
     return [NSString stringWithFormat:@"%@ {%@:%lld}: %@", [level colored:[NSString stringWithFormat:@"[%@]",level.name.uppercaseString]], file, line, msg];
-  }];
+  }];*/
 }
 
 
