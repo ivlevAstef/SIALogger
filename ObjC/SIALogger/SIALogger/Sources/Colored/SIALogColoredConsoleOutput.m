@@ -8,17 +8,26 @@
 
 #import "SIALogColoredConsoleOutput.h"
 #import "SIALogLevels.h"
+#import "SIALogColoredFormatter.h"
 
 @interface SIALogColoredConsoleOutput ()
 
 @property (nonatomic, strong) NSMapTable* colorForegroundMap;
 @property (nonatomic, strong) NSMapTable* colorBackgroundMap;
 
+@property (nonatomic, strong) SIALogColoredFormatter* formatter;
+
 @end
 
 @implementation SIALogColoredConsoleOutput
 
+static NSString* defaultLogFormat = @"%t %c[%3]%c {%f:%l}: %m";
+
 - (instancetype)init {
+  return [self initWithFormat:defaultLogFormat];
+}
+
+- (instancetype)initWithFormat:(NSString*)format {
   self = [super init];
   if (self) {
     self.colorForegroundMap = [NSMapTable strongToStrongObjectsMapTable];
@@ -26,6 +35,8 @@
     
     [self setDefaultColors];
     [self enableXcodeColorsPlugin];
+    
+    self.formatter = [[SIALogColoredFormatter alloc] initWithFormat:format];
   }
   
   return self;
@@ -35,12 +46,12 @@
   setenv("XcodeColors", "YES", 0);
 }
 
-- (void)logWithTime:(NSString*)time Level:(SIALogLevel*)level File:(NSString*)file Line:(NSNumber*)line Msg:(NSString*)msg {
-  assert(nil != time && nil != level && nil != file && nil != line && nil != msg);
+- (void)log:(SIALogMessage*)msg {
+  NSString* logMsg = [self.formatter toString:msg WithColoredMethod:^NSString*(NSString* string) {
+    return [self colored:string OnLevel:msg.level];
+  }];
   
-  NSString* coloredLevel = [self colored:[NSString stringWithFormat:@"[%@]", level.name.uppercaseString] OnLevel:level];
-  //for faster
-  printf("%s %s {%s:%lld} %s\r\n", [time UTF8String], [coloredLevel UTF8String], [file UTF8String], [line unsignedLongLongValue], [msg UTF8String]);
+  printf("%s\r\n", [logMsg UTF8String]);
 }
 
 - (void)setForegroundColor:(SIALogColor*)color OnLevel:(SIALogLevel*)level {

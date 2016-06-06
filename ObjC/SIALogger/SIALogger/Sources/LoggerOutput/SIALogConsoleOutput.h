@@ -11,4 +11,7 @@
 
 @interface SIALogConsoleOutput : NSObject <SIALogOutputProtocol>
 
+- (instancetype)init;
+- (instancetype)initWithFormat:(NSString*)format;
+
 @end

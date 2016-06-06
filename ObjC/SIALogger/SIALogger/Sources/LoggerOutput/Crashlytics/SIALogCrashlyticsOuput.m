@@ -11,10 +11,8 @@
 
 @implementation SIALogCrashlyticsOuput
 
-- (void)logWithTime:(NSString*)time Level:(SIALogLevel*)level File:(NSString*)file Line:(NSNumber*)line Msg:(NSString*)msg {
-  assert(nil != time && nil != level && nil != file && nil != line && nil != msg);
-  
-  CLSLog(@"%@ [%@] {%@:%@}: %@", time, level.name.uppercaseString, file, line, msg);
+- (void)log:(SIALogMessage*)msg {
+  CLSLog(@"%@ [%@] {%@:%@}: %@", msg.time, msg.level.name.uppercaseString, msg.file, msg.line, msg.text);
 }
 
 @end

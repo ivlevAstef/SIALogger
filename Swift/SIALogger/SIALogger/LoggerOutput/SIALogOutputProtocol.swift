@@ -7,5 +7,5 @@
 //
 
 public protocol SIALogOutputProtocol {
-  func log(time time: String, level: SIALogLevel, file: String, line: UInt, msg: String)
+  func log(msg: SIALogMessage)
 }
