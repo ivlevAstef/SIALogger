@@ -33,7 +33,7 @@ public class SIALogFormatter {
     var index = format.startIndex
     while (index < format.endIndex) {
       if "%" == format[index] {
-        let token = format.substringWithRange(index..<index.advancedBy(2))
+        let token = format.substringWithRange(index..<index.advancedBy(2, limit: format.endIndex))
         if let method = methodByToken(token) {
           appendSubstringIfNeed(&substring, array: &result)
           result.append(method)

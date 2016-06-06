@@ -15,14 +15,67 @@ func formatFunction(level level: SIALogLevel, msg: String) -> String {
 
 class SIALogTestOutput: SIALogOutputProtocol {
   var lastLog: String? = nil
+  var formatter: SIALogFormatter? = nil
   
   func log(msg: SIALogMessage) {
-    lastLog = formatFunction(level: msg.level, msg: msg.text)
+    if let formatter = self.formatter {
+      lastLog = formatter.toString(msg)
+    } else {
+      lastLog = formatFunction(level: msg.level, msg: msg.text)
+    }
   }
 }
 
 class SIALoggerTests: XCTestCase {
   var logOutput : SIALogTestOutput = SIALogTestOutput()
+  
+  func test_01_Formatter() {
+    logOutput.lastLog = nil
+    logOutput.formatter = SIALogFormatter(format: "%t")
+    SIALog.Info("message")
+    
+    XCTAssertNotEqual(nil, logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%L")
+    SIALog.Info("message")
+    XCTAssertEqual(SIALogLevel.Info.toString(), logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%3")
+    SIALog.Info("message")
+    XCTAssertEqual(SIALogLevel.Info.toShortString(), logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%U")
+    SIALog.Info("message")
+    XCTAssertEqual(SIALogLevel.Info.toString().uppercaseString, logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%f")
+    SIALog.Info("message"); let file = (#file as NSString).lastPathComponent
+    XCTAssertEqual(file, logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%l")
+    SIALog.Info("message"); let line = String(#line)
+    XCTAssertEqual(line, logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%m")
+    SIALog.Info("message")
+    XCTAssertEqual("message", logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "")
+    SIALog.Info("message")
+    XCTAssertEqual("", logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%%%%")
+    SIALog.Info("message")
+    XCTAssertEqual("%%%%", logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%%m%%m%%")
+    SIALog.Info("message")
+    XCTAssertEqual("%message%message%%", logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%mU%m3%mf%ml%mL")
+    SIALog.Info("message")
+    XCTAssertEqual("messageUmessage3messagefmessagelmessageL", logOutput.lastLog)
+  }
   
   func test_02_Error() {
     SIALog.Error("description")
