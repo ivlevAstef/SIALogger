@@ -20,13 +20,18 @@ NSString* loggerFormatFunction(SIALogLevel* level, NSString* msg) {
 - (void)log:(SIALogMessage*)msg; /*override*/
 
 @property (nonatomic, strong) NSString* lastLog;
+@property (nonatomic, strong) SIALogFormatter* formatter;
 
 @end
 
 @implementation SIALogTestOutput
 
 - (void)log:(SIALogMessage*)msg {
-  self.lastLog = loggerFormatFunction(msg.level, msg.text);
+  if (nil != self.formatter) {
+    self.lastLog = [self.formatter toString:msg];
+  } else {
+    self.lastLog = loggerFormatFunction(msg.level, msg.text);
+  }
 }
 
 @end
@@ -38,6 +43,55 @@ NSString* loggerFormatFunction(SIALogLevel* level, NSString* msg) {
 @end
 
 @implementation SIALoggerTests
+
+- (void)test_01_Formatter {
+  self.logOutput.lastLog = nil;
+  self.logOutput.formatter = [[SIALogFormatter alloc] initWithFormat:@"%t"];
+  SIALogInfo(@"message");
+  XCTAssertNotEqualObjects(nil, self.logOutput.lastLog);
+  
+  self.logOutput.formatter = [[SIALogFormatter alloc] initWithFormat:@"%L"];
+  SIALogInfo(@"message");
+  XCTAssertEqualObjects(SIALogLevels.Info.name, self.logOutput.lastLog);
+  
+  self.logOutput.formatter = [[SIALogFormatter alloc] initWithFormat:@"%3"];
+  SIALogInfo(@"message");
+  XCTAssertEqualObjects(SIALogLevels.Info.shortName, self.logOutput.lastLog);
+  
+  self.logOutput.formatter = [[SIALogFormatter alloc] initWithFormat:@"%U"];
+  SIALogInfo(@"message");
+  XCTAssertEqualObjects(SIALogLevels.Info.name.uppercaseString, self.logOutput.lastLog);
+  
+  self.logOutput.formatter = [[SIALogFormatter alloc] initWithFormat:@"%f"];
+  SIALogInfo(@"message"); NSString* file = [@__FILE__ lastPathComponent];
+  XCTAssertEqualObjects(file, self.logOutput.lastLog);
+  
+  self.logOutput.formatter = [[SIALogFormatter alloc] initWithFormat:@"%l"];
+  SIALogInfo(@"message"); NSString* line = [@(__LINE__) stringValue];
+  XCTAssertEqualObjects(line, self.logOutput.lastLog);
+  
+  self.logOutput.formatter = [[SIALogFormatter alloc] initWithFormat:@"%m"];
+  SIALogInfo(@"message");
+  XCTAssertEqualObjects(@"message", self.logOutput.lastLog);
+  
+  self.logOutput.formatter = [[SIALogFormatter alloc] initWithFormat:@""];
+  SIALogInfo(@"message");
+  XCTAssertEqualObjects(@"", self.logOutput.lastLog);
+  
+  
+  self.logOutput.formatter = [[SIALogFormatter alloc] initWithFormat:@"%%%%"];
+  SIALogInfo(@"message");
+  XCTAssertEqualObjects(@"%%%%", self.logOutput.lastLog);
+  
+  self.logOutput.formatter = [[SIALogFormatter alloc] initWithFormat:@"%%m%%m%%"];
+  SIALogInfo(@"message");
+  XCTAssertEqualObjects(@"%message%message%%", self.logOutput.lastLog);
+  
+  self.logOutput.formatter = [[SIALogFormatter alloc] initWithFormat:@"%mU%m3%mf%ml%mL"];
+  SIALogInfo(@"message");
+  XCTAssertEqualObjects(@"messageUmessage3messagefmessagelmessageL", self.logOutput.lastLog);
+  
+}
 
 // no worked... I can't catch signal.
 //- (void)test_01_Fatal {

@@ -33,7 +33,6 @@ class SIALoggerTests: XCTestCase {
     logOutput.lastLog = nil
     logOutput.formatter = SIALogFormatter(format: "%t")
     SIALog.Info("message")
-    
     XCTAssertNotEqual(nil, logOutput.lastLog)
     
     logOutput.formatter = SIALogFormatter(format: "%L")
