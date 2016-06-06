@@ -9,10 +9,19 @@
 import Foundation
 
 public class SIALogConsoleOutput : SIALogOutputProtocol {
-  public init() {
+  public static let defaultLogFormat = "%t [%UL] {%f:%l}: %m"
+  
+  public convenience init() {
+    self.init(logFormat: SIALogConsoleOutput.defaultLogFormat)
   }
   
-  public func log(time time: String, level: SIALogLevel, file: String, line: UInt, msg: String) {
-    print(time+" ["+level.toString().uppercaseString+"] {"+file+":"+String(line)+"}: "+msg)
+  public required init(logFormat: String) {
+    formatter = SIALogFormatter(format: logFormat)
   }
+  
+  public func log(msg: SIALogMessage) {
+    print(formatter.toString(msg))
+  }
+  
+  private let formatter: SIALogFormatter
 }

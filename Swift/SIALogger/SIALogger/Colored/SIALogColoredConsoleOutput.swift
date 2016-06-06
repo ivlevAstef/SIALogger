@@ -9,13 +9,19 @@
 import Foundation
 
 public class SIALogColoredConsoleOutput : SIALogOutputProtocol {
-  public init() {
+  public static let defaultLogFormat = "%t %c[%UL]%c {%f:%l}: %m"
+  
+  public convenience init() {
+    self.init(logFormat: SIALogColoredConsoleOutput.defaultLogFormat)
+  }
+  
+  public required init(logFormat: String) {
+    formatter = SIALogColoredFormatter(format: logFormat)
     setDefaultColors()
   }
   
-  public func log(time time: String, level: SIALogLevel, file: String, line: UInt, msg: String) {
-    let coloredLevelName = colored("["+level.toString().uppercaseString+"]", level: level)
-    print(time+" "+coloredLevelName+" {"+file+":"+String(line)+"}: "+msg)
+  public func log(msg: SIALogMessage) {
+    print(formatter.toString(msg, coloredMethod: {self.colored($0, level: msg.level)}))
   }
   
   public func setForegroundColor(color : SIALogColor, level: SIALogLevel) {
@@ -54,6 +60,8 @@ public class SIALogColoredConsoleOutput : SIALogOutputProtocol {
     
     return bgColorStr+fgColorStr+text+SIALogColoredConsoleOutput.RESET
   }
+  
+  private let formatter: SIALogColoredFormatter
   
   private static let ESCAPE = "\u{001b}["
   private static let RESET = "\u{001b}[" + ";"

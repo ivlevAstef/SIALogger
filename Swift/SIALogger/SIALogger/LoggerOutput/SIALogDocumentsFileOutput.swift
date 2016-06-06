@@ -9,7 +9,13 @@
 import Foundation
 
 public class SIALogDocumentsFileOutput : SIALogOutputProtocol {
-  public required init?(fileName: String, joinDate: Bool = true) {
+  public static let defaultLogFormat = "%t [%UL] {%f:%l}: %m"
+  
+  public convenience init?(fileName: String, joinDate: Bool = true) {
+    self.init(logFormat: SIALogDocumentsFileOutput.defaultLogFormat, fileName: fileName, joinDate: joinDate)
+  }
+  
+  public required init?(logFormat: String, fileName: String, joinDate: Bool = true) {
     guard let filePath = SIALogDocumentsFileOutput.createFilePath(fileName, joinDate: joinDate) else {
       return nil
     }
@@ -19,17 +25,20 @@ public class SIALogDocumentsFileOutput : SIALogOutputProtocol {
     guard let outputHandle = NSFileHandle(forWritingAtPath: filePath) else {
       return nil
     }
+    
+    formatter = SIALogFormatter(format: logFormat)
     self.outputHandle = outputHandle
   }
   
-  public func log(time time: String, level: SIALogLevel, file: String, line: UInt, msg: String) {
-    let msg = time+" ["+level.toString().uppercaseString+"] {"+file+":"+String(line)+"}: "+msg
-    if let data = (msg+"\r\n").dataUsingEncoding(NSUTF8StringEncoding) {
+  public func log(msg: SIALogMessage) {
+    let text = formatter.toString(msg)
+    if let data = (text+"\r\n").dataUsingEncoding(NSUTF8StringEncoding) {
       self.outputHandle.writeData(data)
     }
   }
   
   
+  private let formatter: SIALogFormatter
   private let outputHandle : NSFileHandle
   
   private static func createFilePath(fileName: String, joinDate: Bool) -> String? {

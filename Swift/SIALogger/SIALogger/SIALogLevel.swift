@@ -27,4 +27,19 @@ public enum SIALogLevel : Int {
       return "Trace"
     }
   }
+  
+  public func toShortString() -> String {
+    switch self {
+    case .Fatal:
+      return "FTL"
+    case .Error:
+      return "ERR"
+    case .Warning:
+      return "WRN"
+    case .Info:
+      return "INF"
+    case .Trace:
+      return "TRC"
+    }
+  }
 }

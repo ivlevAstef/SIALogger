@@ -95,15 +95,19 @@ public final class SIALog {
       return
     }
     
-    let file = (String(filePath) as NSString).lastPathComponent
-    
-    objc_sync_enter(monitor)
+    objc_sync_enter(monitor) //lock
     dateFormatter.dateFormat = SIALogConfig.formatTime
-    let time = dateFormatter.stringFromDate(NSDate())
+    
+    let logMsg = SIALogMessage(time : dateFormatter.stringFromDate(NSDate()),
+                               level: level,
+                               file: (String(filePath) as NSString).lastPathComponent,
+                               line: line,
+                               text: msg)
     
     for output in SIALogConfig.outputs {
-      output.log(time: time, level: level, file: file, line: line, msg: msg)
+      output.log(logMsg)
     }
-    objc_sync_exit(monitor)
+    
+    objc_sync_exit(monitor) //unlock
   }
 }

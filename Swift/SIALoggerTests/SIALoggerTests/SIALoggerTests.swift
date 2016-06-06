@@ -16,8 +16,8 @@ func formatFunction(level level: SIALogLevel, msg: String) -> String {
 class SIALogTestOutput: SIALogOutputProtocol {
   var lastLog: String? = nil
   
-  func log(time time: String, level: SIALogLevel, file: String, line: UInt, msg: String) {
-    lastLog = formatFunction(level: level, msg: msg)
+  func log(msg: SIALogMessage) {
+    lastLog = formatFunction(level: msg.level, msg: msg.text)
   }
 }
 

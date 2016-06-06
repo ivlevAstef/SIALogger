@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5589B641D054E2300E8C012 /* SIALogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5589B631D054E2300E8C012 /* SIALogFormatter.swift */; };
+		A5589B661D054E8600E8C012 /* SIALogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5589B651D054E8600E8C012 /* SIALogMessage.swift */; };
+		A5589B681D0563A400E8C012 /* SIALogColoredFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5589B671D0563A400E8C012 /* SIALogColoredFormatter.swift */; };
 		A55E01D11CFD6557005F8997 /* SIALogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A55E01D01CFD6557005F8997 /* SIALogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A55E01D91CFD6582005F8997 /* SIALog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01D81CFD6582005F8997 /* SIALog.swift */; };
 		A55E01DF1CFD8D68005F8997 /* SIALogOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01DE1CFD8D68005F8997 /* SIALogOutputProtocol.swift */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5589B631D054E2300E8C012 /* SIALogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogFormatter.swift; sourceTree = "<group>"; };
+		A5589B651D054E8600E8C012 /* SIALogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogMessage.swift; sourceTree = "<group>"; };
+		A5589B671D0563A400E8C012 /* SIALogColoredFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogColoredFormatter.swift; sourceTree = "<group>"; };
 		A55E01CD1CFD6557005F8997 /* SIALogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SIALogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55E01D01CFD6557005F8997 /* SIALogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SIALogger.h; sourceTree = "<group>"; };
 		A55E01D21CFD6557005F8997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5589B621D054E2300E8C012 /* Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				A5589B631D054E2300E8C012 /* SIALogFormatter.swift */,
+			);
+			path = Formatter;
+			sourceTree = "<group>";
+		};
 		A55E01C31CFD6557005F8997 = {
 			isa = PBXGroup;
 			children = (
@@ -62,8 +76,10 @@
 		A55E01CF1CFD6557005F8997 /* SIALogger */ = {
 			isa = PBXGroup;
 			children = (
+				A5589B621D054E2300E8C012 /* Formatter */,
 				A5B0B93C1D019A5700B0AFE3 /* Colored */,
 				A55E01DD1CFD8D68005F8997 /* LoggerOutput */,
+				A5589B651D054E8600E8C012 /* SIALogMessage.swift */,
 				A55E01D81CFD6582005F8997 /* SIALog.swift */,
 				A55E01E21CFDA695005F8997 /* SIALogLevel.swift */,
 				A55E01E41CFDA6F9005F8997 /* SIALogConfig.swift */,
@@ -88,6 +104,7 @@
 			children = (
 				A5B0B93D1D019A5F00B0AFE3 /* SIALogColor.swift */,
 				A5B0B93F1D019AF900B0AFE3 /* SIALogColoredConsoleOutput.swift */,
+				A5589B671D0563A400E8C012 /* SIALogColoredFormatter.swift */,
 			);
 			path = Colored;
 			sourceTree = "<group>";
@@ -170,14 +187,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5589B641D054E2300E8C012 /* SIALogFormatter.swift in Sources */,
 				A55E01DF1CFD8D68005F8997 /* SIALogOutputProtocol.swift in Sources */,
 				A55E01E11CFD8D88005F8997 /* SIALogConsoleOutput.swift in Sources */,
 				A55E01E71CFDAC7C005F8997 /* SIALogDocumentsFileOutput.swift in Sources */,
+				A5589B661D054E8600E8C012 /* SIALogMessage.swift in Sources */,
 				A55E01E51CFDA6F9005F8997 /* SIALogConfig.swift in Sources */,
 				A5B0B9401D019AF900B0AFE3 /* SIALogColoredConsoleOutput.swift in Sources */,
 				A55E01E31CFDA695005F8997 /* SIALogLevel.swift in Sources */,
 				A5B0B93E1D019A5F00B0AFE3 /* SIALogColor.swift in Sources */,
 				A55E01D91CFD6582005F8997 /* SIALog.swift in Sources */,
+				A5589B681D0563A400E8C012 /* SIALogColoredFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
