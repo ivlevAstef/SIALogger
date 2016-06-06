@@ -7,49 +7,77 @@
 //
 
 public class SIALogFormatter {
-  public let format: String
-  
   public required init(format: String) {
-    self.format = format
-    self.ranges = SIALogFormatter.parse(format)
+    self.methodStrings = SIALogFormatter.parse(format)
   }
   
   public func toString(message: SIALogMessage) -> String {
-    var result = self.format
+    var result = ""
     
-    for (range, method) in self.ranges {
-      result.replaceRange(range, with: method(msg: message))
+    for method in self.methodStrings {
+      result += method(msg:message)
     }
     
     return result
   }
   
-  private typealias RangeData = (Range<String.Index>, (msg: SIALogMessage) -> String)
-  private let ranges : [RangeData]
+  private typealias MessageToString = (msg: SIALogMessage) -> String
+  private let methodStrings : [MessageToString]
 
-  private static func parse(format: String) -> [RangeData] {
+  private typealias RangeData = (Range<String.Index>, MessageToString)
+  private static func parse(format: String) -> [MessageToString] {
+    var result : [MessageToString] = []
+    
+    var substring = ""
+    
+    var index = format.startIndex
+    while (index < format.endIndex) {
+      if "%" == format[index] {
+        let token = format.substringWithRange(index..<index.advancedBy(2))
+        if let method = methodByToken(token) {
+          appendSubstringIfNeed(&substring, array: &result)
+          result.append(method)
+          
+          index = index.advancedBy(2)
+          continue
+        }
+      }
+      
+      substring.append(format[index])
+      index = index.successor()
+    }
+    
+    appendSubstringIfNeed(&substring, array: &result)
+    
+    return result
+  }
+  
+  private static func appendSubstringIfNeed(inout substring: String, inout array: [MessageToString]) {
+    if !substring.isEmpty {
+      let str = substring
+      array.append({_ in str})
+      substring = ""
+    }
+  }
+  
+  private static func methodByToken(token: String) -> MessageToString? {
     let tokenToMethod: [String : (msg: SIALogMessage) -> String] = [
       "%t" : {$0.time},
       "%L" : {$0.level.toString()},
-      "%3L": {$0.level.toShortString()},
-      "%UL": {$0.level.toString().uppercaseString},
+      "%3" : {$0.level.toShortString()},
+      "%U" : {$0.level.toString().uppercaseString},
       "%f" : {$0.file},
       "%l" : {String($0.line)},
       "%m" : {$0.text}
     ]
     
-    var result : [RangeData] = []
-    
-    for (token, method) in tokenToMethod {
-      var searchRange = format.startIndex..<format.endIndex
-      
-      while let range = format.rangeOfString(token, options: NSStringCompareOptions.LiteralSearch, range: searchRange, locale: nil) {
-        result.append((range, method))
-        searchRange.startIndex = range.endIndex
+    for (tokenVariant, method) in tokenToMethod {
+      if tokenVariant == token {
+        return method
       }
     }
     
-    return result.sort { $0.0.startIndex > $1.0.startIndex }
+    return nil
   }
   
 }

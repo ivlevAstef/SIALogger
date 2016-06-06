@@ -9,7 +9,7 @@
 import Foundation
 
 public class SIALogConsoleOutput : SIALogOutputProtocol {
-  public static let defaultLogFormat = "%t [%UL] {%f:%l}: %m"
+  public static let defaultLogFormat = "%t [%U] {%f:%l}: %m"
   
   public convenience init() {
     self.init(logFormat: SIALogConsoleOutput.defaultLogFormat)

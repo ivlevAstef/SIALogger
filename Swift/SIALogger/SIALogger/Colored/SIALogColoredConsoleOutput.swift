@@ -9,7 +9,7 @@
 import Foundation
 
 public class SIALogColoredConsoleOutput : SIALogOutputProtocol {
-  public static let defaultLogFormat = "%t %c[%UL]%c {%f:%l}: %m"
+  public static let defaultLogFormat = "%t %c[%3]%c {%f:%l}: %m"
   
   public convenience init() {
     self.init(logFormat: SIALogColoredConsoleOutput.defaultLogFormat)

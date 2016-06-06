@@ -58,6 +58,7 @@ class ViewController: UIViewController {
       SIALog.Info("By error")
     }
     
+    
     SIALog.Assert(true, msg: "no show")
     SIALog.Assert(false, msg: "assert")
   }

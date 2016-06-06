@@ -7,10 +7,7 @@
 //
 
 public class SIALogColoredFormatter {
-  public let format: String
-  
   public required init(format: String) {
-    self.format = format
     self.formatters = SIALogColoredFormatter.parse(format)
   }
   
@@ -25,7 +22,7 @@ public class SIALogColoredFormatter {
         result += coloredMethod(formatter.toString(message))
       }
       
-      index += 1
+      index = index.successor()
     }
     
     return result

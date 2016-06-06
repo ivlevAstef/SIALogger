@@ -266,7 +266,7 @@ class SIALoggerTests: XCTestCase {
     }
   }
   
-  let TEST_PERFORMANCE_CONSOLE_DOCUMENTS_COUNT = 20000
+  let TEST_PERFORMANCE_DOCUMENTS_OPERATION_COUNT = 20000
   func test_99_Performance_Document() {
     guard let docOutput = SIALogDocumentsFileOutput(fileName: "TEST", joinDate: true) else {
       XCTAssertTrue(false)
@@ -275,7 +275,7 @@ class SIALoggerTests: XCTestCase {
     SIALogConfig.outputs = [docOutput]
     
     self.measureBlock {
-      for _ in 0..<self.TEST_PERFORMANCE_CONSOLE_DOCUMENTS_COUNT {
+      for _ in 0..<self.TEST_PERFORMANCE_DOCUMENTS_OPERATION_COUNT {
         SIALog.Info("message")
       }
     }
