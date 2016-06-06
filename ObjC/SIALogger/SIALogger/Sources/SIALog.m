@@ -7,6 +7,7 @@
 //
 
 #import "SIALog.h"
+#import "SIALogMessage.h"
 
 @implementation SIALog
 
@@ -21,9 +22,10 @@
   
   @synchronized (self.monitor) {
     NSString* time = [self currentTime];
+    SIALogMessage* message = [[SIALogMessage alloc] initWithTime:time Level:level File:file Line:line Text:msg];
     
     for (id<SIALogOutputProtocol> output in SIALogConfig.outputs) {
-      [output logWithTime:time Level:level File:file Line:line Msg:msg];
+      [output log:message];
     }
   }
 }

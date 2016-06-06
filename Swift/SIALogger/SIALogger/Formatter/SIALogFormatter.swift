@@ -8,13 +8,13 @@
 
 public class SIALogFormatter {
   public required init(format: String) {
-    self.methodStrings = SIALogFormatter.parse(format)
+    self.messageToStringArray = SIALogFormatter.parse(format)
   }
   
   public func toString(message: SIALogMessage) -> String {
     var result = ""
     
-    for method in self.methodStrings {
+    for method in self.messageToStringArray {
       result += method(msg:message)
     }
     
@@ -22,7 +22,7 @@ public class SIALogFormatter {
   }
   
   private typealias MessageToString = (msg: SIALogMessage) -> String
-  private let methodStrings : [MessageToString]
+  private let messageToStringArray : [MessageToString]
 
   private typealias RangeData = (Range<String.Index>, MessageToString)
   private static func parse(format: String) -> [MessageToString] {
@@ -34,11 +34,12 @@ public class SIALogFormatter {
     while (index < format.endIndex) {
       if "%" == format[index] {
         let token = format.substringWithRange(index..<index.advancedBy(2, limit: format.endIndex))
+        
         if let method = methodByToken(token) {
           appendSubstringIfNeed(&substring, array: &result)
           result.append(method)
           
-          index = index.advancedBy(2)
+          index = index.advancedBy(2)//skip '%' and next character
           continue
         }
       }
@@ -71,10 +72,8 @@ public class SIALogFormatter {
       "%m" : {$0.text}
     ]
     
-    for (tokenVariant, method) in tokenToMethod {
-      if tokenVariant == token {
-        return method
-      }
+    if let method = tokenToMethod[token] {
+      return method
     }
     
     return nil

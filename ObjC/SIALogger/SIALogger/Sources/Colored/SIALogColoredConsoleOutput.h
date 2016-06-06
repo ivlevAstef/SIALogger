@@ -12,6 +12,9 @@
 
 @interface SIALogColoredConsoleOutput : NSObject <SIALogOutputProtocol>
 
+- (instancetype)init;
+- (instancetype)initWithFormat:(NSString*)format;
+
 - (void)setForegroundColor:(SIALogColor*)color OnLevel:(SIALogLevel*)level;
 - (void)setBackgroundColor:(SIALogColor*)color OnLevel:(SIALogLevel*)level;
 - (void)setDefaultColors;

@@ -12,8 +12,9 @@
 
 @property (nonatomic, readonly) NSUInteger priority;
 @property (nonatomic, readonly) NSString* name;
+@property (nonatomic, readonly) NSString* shortName;
 
-- (id)init __attribute__((unavailable("Used initWithPriority:AndName: instead.")));
-- (instancetype)initWithPriority:(NSUInteger)priority AndName:(NSString*)name;
+- (id)init __attribute__((unavailable("Used initWithPriority:Name:ShortName: instead.")));
+- (instancetype)initWithPriority:(NSUInteger)priority Name:(NSString*)name ShortName:(NSString*)shortName;
 
 @end

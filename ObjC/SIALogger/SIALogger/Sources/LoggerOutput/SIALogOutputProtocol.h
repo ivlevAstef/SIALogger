@@ -7,9 +7,10 @@
 //
 
 #import "SIALogLevel.h"
+#import "SIALogMessage.h"
 
 @protocol SIALogOutputProtocol <NSObject>
 
-- (void)logWithTime:(NSString*)time Level:(SIALogLevel*)level File:(NSString*)file Line:(NSNumber*)line Msg:(NSString*)msg;
+- (void)log:(SIALogMessage*)msg;
 
 @end

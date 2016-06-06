@@ -17,7 +17,7 @@ NSString* loggerFormatFunction(SIALogLevel* level, NSString* msg) {
 
 @interface SIALogTestOutput : NSObject<SIALogOutputProtocol>
 
-- (void)logWithTime:(NSString*)time Level:(SIALogLevel*)level File:(NSString*)file Line:(NSNumber*)line Msg:(NSString*)msg; /*overrride*/
+- (void)log:(SIALogMessage*)msg; /*override*/
 
 @property (nonatomic, strong) NSString* lastLog;
 
@@ -25,9 +25,8 @@ NSString* loggerFormatFunction(SIALogLevel* level, NSString* msg) {
 
 @implementation SIALogTestOutput
 
-- (void)logWithTime:(NSString*)time Level:(SIALogLevel*)level File:(NSString*)file Line:(NSNumber*)line Msg:(NSString*)msg {
-  assert(nil != time && nil != level && nil != file && nil != line && nil != msg);
-  self.lastLog = loggerFormatFunction(level, msg);
+- (void)log:(SIALogMessage*)msg {
+  self.lastLog = loggerFormatFunction(msg.level, msg.text);
 }
 
 @end

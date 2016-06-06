@@ -7,14 +7,18 @@
 //
 
 #import "SIALogDocumentsFileOutput.h"
+#import "SIALogFormatter.h"
 
 @interface SIALogDocumentsFileOutput ()
 
 @property (nonatomic, strong) NSFileHandle* output;
+@property (nonatomic, strong) SIALogFormatter* formatter;
 
 @end
 
 @implementation SIALogDocumentsFileOutput
+
+static NSString* defaultLogFormat = @"%t [%3] {%f:%l}: %m";
 
 + (NSString*)documentsDirectory {
   NSArray<NSString*>* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -38,6 +42,10 @@
 }
 
 - (instancetype)initWithFileName:(NSString*)fileName joinDate:(BOOL)join {
+  return [self initWithFormat:defaultLogFormat WithFileName:fileName joinDate:join];
+}
+
+- (instancetype)initWithFormat:(NSString*)format WithFileName:(NSString*)fileName joinDate:(BOOL)join {
   self = [super init];
   if (self) {
     NSString* filePath = join ?
@@ -48,16 +56,15 @@
     self.output = [NSFileHandle fileHandleForWritingAtPath:filePath];
     
     NSAssert(nil != self.output, @"Can't create file handler for path:%@", filePath);
+    
+    self.formatter = [[SIALogFormatter alloc] initWithFormat:format];
   }
 
   return self;
 }
 
-- (void)logWithTime:(NSString*)time Level:(SIALogLevel*)level File:(NSString*)file Line:(NSNumber*)line Msg:(NSString*)msg {
-  assert(nil != time && nil != level && nil != file && nil != line && nil != msg);
-  
-  NSString* log = [NSString stringWithFormat:@"%@ [%@] {%@:%@}: %@\r\n", time, level.name.uppercaseString, file, line, msg];
-  [self.output writeData:[log dataUsingEncoding:NSUTF8StringEncoding]];
+- (void)log:(SIALogMessage*)msg {
+  [self.output writeData:[[self.formatter toString:msg] dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 @end

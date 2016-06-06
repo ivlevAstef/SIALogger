@@ -13,5 +13,6 @@
 
 - (id)init __attribute__((unavailable("Used initWithFileName:joinDate: instead.")));
 - (instancetype)initWithFileName:(NSString*)fileName joinDate:(BOOL)join;
+- (instancetype)initWithFormat:(NSString*)format WithFileName:(NSString*)fileName joinDate:(BOOL)join;
 
 @end

@@ -7,14 +7,35 @@
 //
 
 #import "SIALogConsoleOutput.h"
+#import "SIALogFormatter.h"
+
+@interface SIALogConsoleOutput ()
+
+@property (nonatomic, strong) SIALogFormatter* formatter;
+
+@end
 
 @implementation SIALogConsoleOutput
 
-- (void)logWithTime:(NSString*)time Level:(SIALogLevel*)level File:(NSString*)file Line:(NSNumber*)line Msg:(NSString*)msg {
-  assert(nil != time && nil != level && nil != file && nil != line && nil != msg);
+static NSString* defaultLogFormat = @"%t [%U] {%f:%l}: %m";
+
+- (instancetype)init {
+  return [self initWithFormat:defaultLogFormat];
+}
+
+- (instancetype)initWithFormat:(NSString*)format {
+  assert(nil != format);
+  self = [super init];
   
-  //for faster
-  printf("%s [%s] {%s:%lld} %s\r\n", [time UTF8String], [level.name.uppercaseString UTF8String], [file UTF8String], [line unsignedLongLongValue], [msg UTF8String]);
+  if (self) {
+    self.formatter = [[SIALogFormatter alloc] initWithFormat:format];
+  }
+  
+  return self;
+}
+
+- (void)log:(SIALogMessage*)msg {
+  printf("%s\r\n", [[self.formatter toString:msg] UTF8String]);
 }
 
 @end
