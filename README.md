@@ -28,7 +28,7 @@ Via CocoaPods.
 `pod 'SIALoggerSwift/Colorful'` Swift
 
 ## Documentation
-### v1.1.0
+### v1.1.1 / v1.1.0
 Objective-C documentation can be found at [SIALogger Objective-C](https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Objective-C_v110)  
 Swift documentation can be found at [SIALogger Swift](https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Swift_v110)
 
@@ -43,6 +43,7 @@ Swift documentation can be found at [SIALogger Swift](https://github.com/ivlevAs
 # Changelog
 ## v1.1.0 -> v1.1.1
 * Fixed pod spec bug for Objective-C library. (No include SIALogger.h)
+
 ## v1.0.0 -> v1.1.0
 * Added self log format, and removed old. For example: "%t [%L] {%f:%l}: %m". See more into documentation.
 * Added global date format. Use `NSDateFormatter`.
