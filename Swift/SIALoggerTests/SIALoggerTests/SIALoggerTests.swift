@@ -9,33 +9,71 @@
 import XCTest
 import SIALogger
 
+func formatFunction(level level: SIALogLevel, msg: String) -> String {
+  return "["+level.toString().uppercaseString+"]"+msg
+}
+
 class SIALogTestOutput: SIALogOutputProtocol {
   var lastLog: String? = nil
+  var formatter: SIALogFormatter? = nil
   
-  func log(message: String) {
-    lastLog = message
+  func log(msg: SIALogMessage) {
+    if let formatter = self.formatter {
+      lastLog = formatter.toString(msg)
+    } else {
+      lastLog = formatFunction(level: msg.level, msg: msg.text)
+    }
   }
 }
 
 class SIALoggerTests: XCTestCase {
   var logOutput : SIALogTestOutput = SIALogTestOutput()
   
-  func test_00_Config_FormatOutput() {
-    SIALogConfig.formatFunction = { (level, file, line, msg) in level }
-    SIALog.Info("test")
+  func test_01_Formatter() {
+    logOutput.lastLog = nil
+    logOutput.formatter = SIALogFormatter(format: "%t")
+    SIALog.Info("message")
+    XCTAssertNotEqual(nil, logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%L")
+    SIALog.Info("message")
     XCTAssertEqual(SIALogLevel.Info.toString(), logOutput.lastLog)
     
-    SIALogConfig.formatFunction = { (level, file, line, msg) in msg }
-    SIALog.Info("test")
-    XCTAssertEqual("test", logOutput.lastLog)
+    logOutput.formatter = SIALogFormatter(format: "%3")
+    SIALog.Info("message")
+    XCTAssertEqual(SIALogLevel.Info.toShortString(), logOutput.lastLog)
     
-    SIALogConfig.formatFunction = { (level, file, line, msg) in file }
-    SIALog.Info("test"); let file = (#file as NSString).lastPathComponent
+    logOutput.formatter = SIALogFormatter(format: "%U")
+    SIALog.Info("message")
+    XCTAssertEqual(SIALogLevel.Info.toString().uppercaseString, logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%f")
+    SIALog.Info("message"); let file = (#file as NSString).lastPathComponent
     XCTAssertEqual(file, logOutput.lastLog)
     
-    SIALogConfig.formatFunction = { (level, file, line, msg) in String(line) }
-    SIALog.Info("test"); let line = String(#line)
+    logOutput.formatter = SIALogFormatter(format: "%l")
+    SIALog.Info("message"); let line = String(#line)
     XCTAssertEqual(line, logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%m")
+    SIALog.Info("message")
+    XCTAssertEqual("message", logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "")
+    SIALog.Info("message")
+    XCTAssertEqual("", logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%%%%")
+    SIALog.Info("message")
+    XCTAssertEqual("%%%%", logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%%m%%m%%")
+    SIALog.Info("message")
+    XCTAssertEqual("%message%message%%", logOutput.lastLog)
+    
+    logOutput.formatter = SIALogFormatter(format: "%mU%m3%mf%ml%mL")
+    SIALog.Info("message")
+    XCTAssertEqual("messageUmessage3messagefmessagelmessageL", logOutput.lastLog)
   }
   
   func test_02_Error() {
@@ -107,39 +145,62 @@ class SIALoggerTests: XCTestCase {
   }
   
   func test_07_LogIfRet_NoShow() {
-    //only Obj-C
+    logOutput.lastLog = nil
+    if (SIALog.ErrorIf(false, msg: "no show")) {
+      XCTAssertTrue(false)
+    }
+    XCTAssertEqual(nil, logOutput.lastLog)
+    
+    logOutput.lastLog = nil
+    if (SIALog.WarningIf(false, msg: "no show")) {
+      XCTAssertTrue(false)
+    }
+    XCTAssertEqual(nil, logOutput.lastLog)
+    
+    logOutput.lastLog = nil
+    if (SIALog.InfoIf(false, msg: "no show")) {
+      XCTAssertTrue(false)
+    }
+    XCTAssertEqual(nil, logOutput.lastLog)
+    
+    logOutput.lastLog = nil
+    if (SIALog.TraceIf(false, msg: "no show")) {
+      XCTAssertTrue(false)
+    }
+    XCTAssertEqual(nil, logOutput.lastLog)
+
   }
   
   func test_09_LogIfRet_Show() {
     repeat {
       guard SIALog.ErrorIf(true, msg: "log if true") else {
+        XCTAssertTrue(false)
         break
       }
-      XCTAssertTrue(true)
     }while(false)
     XCTAssertEqual(formatFunction(level: SIALogLevel.Error, msg: "log if true"), logOutput.lastLog)
     
     repeat {
       guard SIALog.WarningIf(true, msg: "log if true") else {
+        XCTAssertTrue(false)
         break
       }
-      XCTAssertTrue(true)
     }while(false)
     XCTAssertEqual(formatFunction(level: SIALogLevel.Warning, msg: "log if true"), logOutput.lastLog)
     
     repeat {
       guard SIALog.InfoIf(true, msg: "log if true") else {
+        XCTAssertTrue(false)
         break
       }
-      XCTAssertTrue(true)
     }while(false)
     XCTAssertEqual(formatFunction(level: SIALogLevel.Info, msg: "log if true"), logOutput.lastLog)
     
     repeat {
       guard SIALog.TraceIf(true, msg: "log if true") else {
+        XCTAssertTrue(false)
         break
       }
-      XCTAssertTrue(true)
     }while(false)
     XCTAssertEqual(formatFunction(level: SIALogLevel.Trace, msg: "log if true"), logOutput.lastLog)
   }
@@ -257,7 +318,7 @@ class SIALoggerTests: XCTestCase {
     }
   }
   
-  let TEST_PERFORMANCE_CONSOLE_DOCUMENTS_COUNT = 20000
+  let TEST_PERFORMANCE_DOCUMENTS_OPERATION_COUNT = 20000
   func test_99_Performance_Document() {
     guard let docOutput = SIALogDocumentsFileOutput(fileName: "TEST", joinDate: true) else {
       XCTAssertTrue(false)
@@ -266,7 +327,7 @@ class SIALoggerTests: XCTestCase {
     SIALogConfig.outputs = [docOutput]
     
     self.measureBlock {
-      for _ in 0..<self.TEST_PERFORMANCE_CONSOLE_DOCUMENTS_COUNT {
+      for _ in 0..<self.TEST_PERFORMANCE_DOCUMENTS_OPERATION_COUNT {
         SIALog.Info("message")
       }
     }
@@ -283,27 +344,21 @@ class SIALoggerTests: XCTestCase {
     }
   }
   
+  func test_99_Performance_ColorConsole() {
+    SIALogConfig.outputs = [SIALogColoredConsoleOutput()]
+    
+    self.measureBlock {
+      for _ in 0..<self.TEST_PERFORMANCE_CONSOLE_OPERATION_COUNT {
+        SIALog.Info("message")
+      }
+    }
+  }
+  
   override func setUp() {
     super.setUp()
     
     logOutput = SIALogTestOutput()
     SIALogConfig.outputs = [logOutput]
-    
-    SIALogConfig.formatFunction = formatFunction
-    
     SIALogConfig.maxLogLevel = SIALogLevel.Trace
   }
-  
-  func formatFunction(level level: String, file: String, line: UInt, msg: String) -> String {
-    return formatFunction(level: level, msg: msg)
-  }
-  
-  func formatFunction(level level: String, msg: String) -> String {
-    return "["+level.uppercaseString+"]"+msg
-  }
-  
-  func formatFunction(level level: SIALogLevel, msg: String) -> String {
-    return formatFunction(level: level.toString(), msg: msg)
-  }
-  
 }

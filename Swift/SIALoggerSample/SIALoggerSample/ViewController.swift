@@ -14,6 +14,8 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    SIALogConfig.outputs = [ SIALogColoredConsoleOutput() ]
+    
     SIALogConfig.maxLogLevel = SIALogLevel.Info
     SIALog.Trace("1 trace no show")
     SIALog.Info("1 info")
@@ -28,8 +30,6 @@ class ViewController: UIViewController {
     
     SIALogConfig.maxLogLevel = SIALogLevel.Trace
     SIALog.Trace("3 trace")
-    
-    SIALogConfig.formatFunction = { (level, file, line, msg) in " ["+level.uppercaseString+"] {"+file+":"+String(line)+"}: "+msg }
     
     SIALog.Trace("4 trace")
     SIALog.Info("4 info")
@@ -57,6 +57,7 @@ class ViewController: UIViewController {
     if (SIALog.ErrorIf(true, msg: "Error if")) {
       SIALog.Info("By error")
     }
+    
     
     SIALog.Assert(true, msg: "no show")
     SIALog.Assert(false, msg: "assert")

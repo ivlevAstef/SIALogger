@@ -2,8 +2,8 @@
 <Workspace
    version = "1.0">
    <Group
-      location = "group:ObjC"
-      name = "ObjC">
+      location = "group:Swift"
+      name = "Swift">
       <FileRef
          location = "group:SIALogger/SIALogger.xcodeproj">
       </FileRef>

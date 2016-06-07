@@ -18,7 +18,9 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  [SIALogConfig sharedInstance].maxLogLevel = SIALogLevel_Info;
+  [SIALogConfig setOutputs:@[ [SIALogColoredConsoleOutput new] ]];
+  
+  [SIALogConfig setMaxLogLevel: SIALogLevels.Info];
 
   SIALogTrace(@"1 trace no show");
   
@@ -26,18 +28,14 @@
   SIALogWarning(@"1 warning");
   SIALogError(@"1 error");
   
-  [SIALogConfig sharedInstance].maxLogLevel = SIALogLevel_Error;
+  [SIALogConfig setMaxLogLevel: SIALogLevels.Error];
   SIALogTrace(@"2 trace no show");
   SIALogInfo(@"2 info no show");
   SIALogWarning(@"2 warning no show");
   SIALogError(@"2 error");
   
-  [SIALogConfig sharedInstance].maxLogLevel = SIALogLevel_Trace;
+  [SIALogConfig setMaxLogLevel: SIALogLevels.Trace];
   SIALogTrace(@"3 trace");
-  
-  [SIALogConfig sharedInstance].formatFunction = ^NSString *(NSString *const level, NSString *const file, const SIALineNumber line, NSString *const msg) {
-    return [NSString stringWithFormat:@"[%@] {%@:%lld}: %@", level.uppercaseString, file, line, msg];
-  };
   
   SIALogTrace(@"4 trace");
   SIALogInfo(@"4 info");
@@ -49,25 +47,21 @@
   SIALogWarningIf(true, @"Warning if");
   SIALogErrorIf(false, @"Error if no show");
   
-  ^{
-    SIALogRetTraceIf(false, ,@"Trace if no show");
-    SIALogInfo(@"It's show");
-  }();
+  if (SIALogTraceIf(false, @"Trace if no show")) {
+    SIALogInfo(@"By trace no show");
+  }
   
-  ^{
-    SIALogRetInfoIf(true, ,@"Info if");
-    SIALogInfo(@"no show");
-  }();
+  if (SIALogInfoIf(true, @"Info if")) {
+    SIALogInfo(@"By info");
+  }
   
-  ^{
-    SIALogRetWarningIf(false, ,@"Warning if no show");
-    SIALogInfo(@"It's show");
-  }();
+  if (SIALogWarningIf(false, @"Warning if no show")) {
+    SIALogInfo(@"By warning no show");
+  }
   
-  ^{
-    SIALogRetErrorIf(true, ,@"Error if");
-    SIALogInfo(@"no show");
-  }();
+  if (SIALogErrorIf(true, @"Error if")) {
+    SIALogInfo(@"By error");
+  }
   
   SIALogAssertMsg(true, @"no show");
   SIALogAssertMsg(false, @"assert");
