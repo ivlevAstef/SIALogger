@@ -1,3 +1,7 @@
+### v1.1.3 
+* Update README.md
+* Sync Version
+
 ### v1.1.2 (Only Objective-C)
 * Supported auto including preprocessor macros: `__SIA_LOG_COLORFUL__`.
 
