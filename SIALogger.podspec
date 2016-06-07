@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Colorful' do |colorful|
-    colorful.xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -__SIA_LOG_COLORFUL__' }
+    colorful.xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -D__SIA_LOG_COLORFUL__' }
     
     colorful.dependency 'SIALogger/Core'
     
