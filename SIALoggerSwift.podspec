@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'SIALoggerSwift'
-  s.version      = '1.0.0'
+  s.version      = '1.1.0'
   s.summary      = 'SIALogger - library for simplify log.'
 
   s.description  = <<-DESC
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = 'https://github.com/ivlevAstef/SIALogger'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
-  s.documentation_url = 'https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Swift'
+  s.documentation_url = 'https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Swift_v110'
 
   s.author       = { 'Alexander.Ivlev' => 'ivlev.stef@gmail.com' }
   s.source       = { :git => 'https://github.com/ivlevAstef/SIALogger.git', :tag => "v#{s.version}" }
@@ -21,8 +21,16 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files  = 'Swift/SIALogger/SIALogger/**/*.swift'
+  s.subspec 'Core' do |core|
+    core.source_files = 'Swift/SIALogger/SIALogger/Core/**/*.swift'
+  end
 
-  s.requires_arc = true
+  s.subspec 'Colorful' do |colorful|
+    colorful.dependency 'SIALoggerSwift/Core'
+
+    colorful.source_files = 'Swift/SIALogger/SIALogger/Colored/**/*.swift'
+  end
+
+  s.default_subspec = 'Core'
 
 end

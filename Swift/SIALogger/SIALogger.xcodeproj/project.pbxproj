@@ -7,33 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A5589B641D054E2300E8C012 /* SIALogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5589B631D054E2300E8C012 /* SIALogFormatter.swift */; };
-		A5589B661D054E8600E8C012 /* SIALogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5589B651D054E8600E8C012 /* SIALogMessage.swift */; };
+		A50A39281D06867100F57E3E /* SIALogConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A391D1D06867100F57E3E /* SIALogConfig.swift */; };
+		A50A39291D06867100F57E3E /* SIALogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A391F1D06867100F57E3E /* SIALogFormatter.swift */; };
+		A50A392A1D06867100F57E3E /* SIALogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A39211D06867100F57E3E /* SIALogLevel.swift */; };
+		A50A392B1D06867100F57E3E /* SIALogConsoleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A39231D06867100F57E3E /* SIALogConsoleOutput.swift */; };
+		A50A392C1D06867100F57E3E /* SIALogDocumentsFileOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A39241D06867100F57E3E /* SIALogDocumentsFileOutput.swift */; };
+		A50A392D1D06867100F57E3E /* SIALogOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A39251D06867100F57E3E /* SIALogOutputProtocol.swift */; };
+		A50A392E1D06867100F57E3E /* SIALog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A39261D06867100F57E3E /* SIALog.swift */; };
+		A50A392F1D06867100F57E3E /* SIALogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50A39271D06867100F57E3E /* SIALogMessage.swift */; };
 		A5589B681D0563A400E8C012 /* SIALogColoredFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5589B671D0563A400E8C012 /* SIALogColoredFormatter.swift */; };
 		A55E01D11CFD6557005F8997 /* SIALogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A55E01D01CFD6557005F8997 /* SIALogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A55E01D91CFD6582005F8997 /* SIALog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01D81CFD6582005F8997 /* SIALog.swift */; };
-		A55E01DF1CFD8D68005F8997 /* SIALogOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01DE1CFD8D68005F8997 /* SIALogOutputProtocol.swift */; };
-		A55E01E11CFD8D88005F8997 /* SIALogConsoleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01E01CFD8D88005F8997 /* SIALogConsoleOutput.swift */; };
-		A55E01E31CFDA695005F8997 /* SIALogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01E21CFDA695005F8997 /* SIALogLevel.swift */; };
-		A55E01E51CFDA6F9005F8997 /* SIALogConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01E41CFDA6F9005F8997 /* SIALogConfig.swift */; };
-		A55E01E71CFDAC7C005F8997 /* SIALogDocumentsFileOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55E01E61CFDAC7C005F8997 /* SIALogDocumentsFileOutput.swift */; };
 		A5B0B93E1D019A5F00B0AFE3 /* SIALogColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0B93D1D019A5F00B0AFE3 /* SIALogColor.swift */; };
 		A5B0B9401D019AF900B0AFE3 /* SIALogColoredConsoleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0B93F1D019AF900B0AFE3 /* SIALogColoredConsoleOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A5589B631D054E2300E8C012 /* SIALogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogFormatter.swift; sourceTree = "<group>"; };
-		A5589B651D054E8600E8C012 /* SIALogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogMessage.swift; sourceTree = "<group>"; };
+		A50A391D1D06867100F57E3E /* SIALogConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogConfig.swift; sourceTree = "<group>"; };
+		A50A391F1D06867100F57E3E /* SIALogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogFormatter.swift; sourceTree = "<group>"; };
+		A50A39211D06867100F57E3E /* SIALogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogLevel.swift; sourceTree = "<group>"; };
+		A50A39231D06867100F57E3E /* SIALogConsoleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogConsoleOutput.swift; sourceTree = "<group>"; };
+		A50A39241D06867100F57E3E /* SIALogDocumentsFileOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogDocumentsFileOutput.swift; sourceTree = "<group>"; };
+		A50A39251D06867100F57E3E /* SIALogOutputProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogOutputProtocol.swift; sourceTree = "<group>"; };
+		A50A39261D06867100F57E3E /* SIALog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALog.swift; sourceTree = "<group>"; };
+		A50A39271D06867100F57E3E /* SIALogMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogMessage.swift; sourceTree = "<group>"; };
 		A5589B671D0563A400E8C012 /* SIALogColoredFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogColoredFormatter.swift; sourceTree = "<group>"; };
 		A55E01CD1CFD6557005F8997 /* SIALogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SIALogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55E01D01CFD6557005F8997 /* SIALogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SIALogger.h; sourceTree = "<group>"; };
 		A55E01D21CFD6557005F8997 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A55E01D81CFD6582005F8997 /* SIALog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALog.swift; sourceTree = "<group>"; };
-		A55E01DE1CFD8D68005F8997 /* SIALogOutputProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogOutputProtocol.swift; sourceTree = "<group>"; };
-		A55E01E01CFD8D88005F8997 /* SIALogConsoleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogConsoleOutput.swift; sourceTree = "<group>"; };
-		A55E01E21CFDA695005F8997 /* SIALogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogLevel.swift; sourceTree = "<group>"; };
-		A55E01E41CFDA6F9005F8997 /* SIALogConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogConfig.swift; sourceTree = "<group>"; };
-		A55E01E61CFDAC7C005F8997 /* SIALogDocumentsFileOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogDocumentsFileOutput.swift; sourceTree = "<group>"; };
 		A5B0B93D1D019A5F00B0AFE3 /* SIALogColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogColor.swift; sourceTree = "<group>"; };
 		A5B0B93F1D019AF900B0AFE3 /* SIALogColoredConsoleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIALogColoredConsoleOutput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,12 +49,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A5589B621D054E2300E8C012 /* Formatter */ = {
+		A50A391B1D06867000F57E3E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A5589B631D054E2300E8C012 /* SIALogFormatter.swift */,
+				A50A391C1D06867100F57E3E /* Config */,
+				A50A391E1D06867100F57E3E /* Formatter */,
+				A50A39201D06867100F57E3E /* Levels */,
+				A50A39221D06867100F57E3E /* LoggerOutput */,
+				A50A39261D06867100F57E3E /* SIALog.swift */,
+				A50A39271D06867100F57E3E /* SIALogMessage.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A50A391C1D06867100F57E3E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				A50A391D1D06867100F57E3E /* SIALogConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		A50A391E1D06867100F57E3E /* Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				A50A391F1D06867100F57E3E /* SIALogFormatter.swift */,
 			);
 			path = Formatter;
+			sourceTree = "<group>";
+		};
+		A50A39201D06867100F57E3E /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				A50A39211D06867100F57E3E /* SIALogLevel.swift */,
+			);
+			path = Levels;
+			sourceTree = "<group>";
+		};
+		A50A39221D06867100F57E3E /* LoggerOutput */ = {
+			isa = PBXGroup;
+			children = (
+				A50A39231D06867100F57E3E /* SIALogConsoleOutput.swift */,
+				A50A39241D06867100F57E3E /* SIALogDocumentsFileOutput.swift */,
+				A50A39251D06867100F57E3E /* SIALogOutputProtocol.swift */,
+			);
+			path = LoggerOutput;
 			sourceTree = "<group>";
 		};
 		A55E01C31CFD6557005F8997 = {
@@ -76,27 +115,12 @@
 		A55E01CF1CFD6557005F8997 /* SIALogger */ = {
 			isa = PBXGroup;
 			children = (
-				A5589B621D054E2300E8C012 /* Formatter */,
+				A50A391B1D06867000F57E3E /* Core */,
 				A5B0B93C1D019A5700B0AFE3 /* Colored */,
-				A55E01DD1CFD8D68005F8997 /* LoggerOutput */,
-				A5589B651D054E8600E8C012 /* SIALogMessage.swift */,
-				A55E01D81CFD6582005F8997 /* SIALog.swift */,
-				A55E01E21CFDA695005F8997 /* SIALogLevel.swift */,
-				A55E01E41CFDA6F9005F8997 /* SIALogConfig.swift */,
 				A55E01D01CFD6557005F8997 /* SIALogger.h */,
 				A55E01D21CFD6557005F8997 /* Info.plist */,
 			);
 			path = SIALogger;
-			sourceTree = "<group>";
-		};
-		A55E01DD1CFD8D68005F8997 /* LoggerOutput */ = {
-			isa = PBXGroup;
-			children = (
-				A55E01DE1CFD8D68005F8997 /* SIALogOutputProtocol.swift */,
-				A55E01E01CFD8D88005F8997 /* SIALogConsoleOutput.swift */,
-				A55E01E61CFDAC7C005F8997 /* SIALogDocumentsFileOutput.swift */,
-			);
-			path = LoggerOutput;
 			sourceTree = "<group>";
 		};
 		A5B0B93C1D019A5700B0AFE3 /* Colored */ = {
@@ -187,17 +211,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5589B641D054E2300E8C012 /* SIALogFormatter.swift in Sources */,
-				A55E01DF1CFD8D68005F8997 /* SIALogOutputProtocol.swift in Sources */,
-				A55E01E11CFD8D88005F8997 /* SIALogConsoleOutput.swift in Sources */,
-				A55E01E71CFDAC7C005F8997 /* SIALogDocumentsFileOutput.swift in Sources */,
-				A5589B661D054E8600E8C012 /* SIALogMessage.swift in Sources */,
-				A55E01E51CFDA6F9005F8997 /* SIALogConfig.swift in Sources */,
+				A50A39291D06867100F57E3E /* SIALogFormatter.swift in Sources */,
 				A5B0B9401D019AF900B0AFE3 /* SIALogColoredConsoleOutput.swift in Sources */,
-				A55E01E31CFDA695005F8997 /* SIALogLevel.swift in Sources */,
 				A5B0B93E1D019A5F00B0AFE3 /* SIALogColor.swift in Sources */,
-				A55E01D91CFD6582005F8997 /* SIALog.swift in Sources */,
+				A50A39281D06867100F57E3E /* SIALogConfig.swift in Sources */,
+				A50A392C1D06867100F57E3E /* SIALogDocumentsFileOutput.swift in Sources */,
+				A50A392D1D06867100F57E3E /* SIALogOutputProtocol.swift in Sources */,
+				A50A392E1D06867100F57E3E /* SIALog.swift in Sources */,
 				A5589B681D0563A400E8C012 /* SIALogColoredFormatter.swift in Sources */,
+				A50A392A1D06867100F57E3E /* SIALogLevel.swift in Sources */,
+				A50A392F1D06867100F57E3E /* SIALogMessage.swift in Sources */,
+				A50A392B1D06867100F57E3E /* SIALogConsoleOutput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,9 +323,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 2;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SIALogger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -320,9 +345,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 2;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SIALogger/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
