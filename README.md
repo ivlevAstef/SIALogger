@@ -41,4 +41,4 @@ Swift documentation can be found at [SIALogger Swift](https://github.com/ivlevAs
 * [KZLinkedConsole](https://github.com/krzysztofzablocki/KZLinkedConsole): Link from a log line directly to the code that produced it 
 
 # Changelog
-See CHANGELOG.md file.
+See [CHANGELOG.md](https://github.com/ivlevAstef/SIALogger/blob/master/CHANGELOG.md) file.
