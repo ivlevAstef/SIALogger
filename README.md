@@ -27,8 +27,81 @@ Via CocoaPods.
 `pod 'SIALogger/Colorful'` Objective-C.
 `pod 'SIALoggerSwift/Colorful'` Swift
 
+## Usage
+#### Objective-C
+```Obj-C
+#import <SIALogger/SIALogger.h>
+
+...
+... {
+ [SIALogConfig setOutputs:@[ [SIALogColoredConsoleOutput new] ]];
+ [SIALogConfig setFormatTime: @"HH:mm:ss:SSS"];
+ [SIALogConfig setMaxLogLevel: SIALogLevels.Info];
+
+ SIALogTrace(@"message");// no print
+ SIALogInfo(@"message");//print
+ SIALogWarning(@"message");//print
+ SIALogError(@"message");//print
+  
+ [SIALogConfig setMaxLogLevel: SIALogLevels.Error];
+ SIALogTrace(@"message");// no print
+ SIALogWarning(@"message");// no print
+ SIALogError(@"message");//print
+  
+ [SIALogConfig setMaxLogLevel: SIALogLevels.Trace];
+ SIALogTraceIf(true, @"message");//print
+  
+  if (SIALogTraceIf(false, @"message")) {//no print
+    SIALogInfo(@"message");//no print
+  }
+  
+  if (SIALogInfoIf(true, @"message")) {//print
+    SIALogInfo(@"message");//print
+  }
+  
+  SIALogAssertMsg(false, @"assert");//print, and abort debug
+  SIALogFatal(@"message");//print, and always abort
+}
+
+```
+#### Swift
+```Swift
+import SIALogger
+
+...
+... {
+ SIALogConfig.outputs = [ SIALogColoredConsoleOutput() ]
+ SIALogConfig.formatTime = "HH:mm:ss:SSS"
+ SIALogConfig.maxLogLevel = SIALogLevel.Info
+
+ SIALog.Trace("message") // no print
+ SIALog.Info("message") //print
+ SIALog.Warning("message") //print
+ SIALog.Error("message") //print
+  
+ SIALogConfig.maxLogLevel = SIALogLevel.Error
+ SIALog.Trace("message") // no print
+ SIALog.Warning("message") // no print
+ SIALog.Error("message") //print
+  
+ SIALogConfig.maxLogLevel = SIALogLevel.Trace
+ SIALog.TraceIf(true, msg: "message") //print
+  
+  if SIALogTraceIf(false, msg: "message" {//no print
+    SIALogInfo("message")//no print
+  }
+  
+  if SIALogInfoIf(true, msg: "message") {//print
+    SIALogInfo("message") //print
+  }
+  
+  SIALog.Assert(false, msg: "assert") //print, and abort debug
+  SIALog.Fatal("message") //print, and always abort
+}
+```
+
 ## Documentation
-#### v1.1.2/ v1.1.1 / v1.1.0
+#### v1.1.2 / v1.1.1 / v1.1.0
 Objective-C documentation can be found at [SIALogger Objective-C](https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Objective-C_v110)  
 Swift documentation can be found at [SIALogger Swift](https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Swift_v110)
 
