@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
 
   s.name         = 'SIALoggerSwift'
-  s.version      = '1.1.0'
+  s.version      = '1.1.1'
   s.summary      = 'SIALogger - library for simplify log.'
 
   s.description  = <<-DESC
   					SIALogger - library for simplify log and assertion, for Swift (If you want to use SIALogger from Objective-C, see the “SIALogger” pod.)
   					Supported five log level: {Fatal, Error, Warning, Info, Trace}
-            For more information see: https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Swift
+            For more information see: https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Swift_v110
 
             DESC
 

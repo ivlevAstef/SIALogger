@@ -24,14 +24,10 @@
 #import "SIALogConsoleOutput.h"
 #import "SIALogDocumentsFileOutput.h"
 
-#import "SIALogColor.h"
-#import "SIALogColoredConsoleOutput.h"
-#import "SIALogColoredFormatter.h"
-
-//! Project version number for SIALogger.
-FOUNDATION_EXPORT double SIALoggerVersionNumber;
-
-//! Project version string for SIALogger.
-FOUNDATION_EXPORT const unsigned char SIALoggerVersionString[];
+#ifdef __SIA_LOG_COLORFUL__
+  #import "SIALogColor.h"
+  #import "SIALogColoredConsoleOutput.h"
+  #import "SIALogColoredFormatter.h"
+#endif
 
 #endif /* __SIA_LOG_LOGGER_H__ */
