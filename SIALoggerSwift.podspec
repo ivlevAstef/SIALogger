@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'SIALoggerSwift'
-  s.version      = '1.1.1'
+  s.version      = '1.1.3'
   s.summary      = 'SIALogger - library for simplify log.'
 
   s.description  = <<-DESC
