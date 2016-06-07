@@ -100,6 +100,9 @@ import SIALogger
 }
 ```
 
+## Result
+![log example](https://cloud.githubusercontent.com/assets/5517599/15848089/800436b6-2cac-11e6-8144-e137a9db9ab2.png)
+
 ## Documentation
 #### v1.1.2 / v1.1.1 / v1.1.0
 Objective-C documentation can be found at [SIALogger Objective-C](https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Objective-C_v110)  
