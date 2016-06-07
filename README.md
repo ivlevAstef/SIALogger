@@ -28,13 +28,17 @@ Via CocoaPods.
 `pod 'SIALoggerSwift/Colorful'` Swift
 
 ## Documentation
-### v1.1.1 / v1.1.0
+#### v1.1.2/ v1.1.1 / v1.1.0
 Objective-C documentation can be found at [SIALogger Objective-C](https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Objective-C_v110)  
 Swift documentation can be found at [SIALogger Swift](https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Swift_v110)
 
-### v1.0.0
+#### v1.0.0
 Objective-C documentation can be found at [SIALogger Objective-C](https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Objective-C)  
 Swift documentation can be found at [SIALogger Swift](https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Swift)
+
+## Requirements
+* Objective-C - iOS 5.0+; ARC; Xcode 5.0
+* Swift - iOS 8.0+; ARC; Xcode 7.0
 
 ## Third Party Tools That Work With XCGLogger
 * [XcodeColors](https://github.com/robbiehanson/XcodeColors): Enable colour in the Xcode console 
