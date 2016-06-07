@@ -46,4 +46,4 @@ Swift documentation can be found at [SIALogger Swift](https://github.com/ivlevAs
 * Added global date format. Use `NSDateFormatter`.
 * Supported XcodeColors plugins for enable colour.
 * Changed `SIALogOutputProtocol` declaration log method to: `log(SIALogMessage)`, for a place: `log(String)`.
-* Removed SIALogRet{Level}If(...). Now SIALog{Level}If(...) return boolean value both Swift version.
+* Removed `SIALogRet{Level}If(...)`. Now `SIALog{Level}If(...)` return boolean value both Swift version.
