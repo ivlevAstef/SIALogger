@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
 
   s.name         = 'SIALogger'
-  s.version      = '1.1.0'
+  s.version      = '1.1.1'
   s.summary      = 'SIALogger - library for simplify log.'
 
   s.description  = <<-DESC
   					SIALogger - library for simplify log and assertion, for Objective-C (If you want to use SIALogger from Swift, see the ”SIALogger” pod.)
             Supported five log level: {Fatal, Error, Warning, Info, Trace}
-            For more information see: https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Objective-C
+            For more information see: https://github.com/ivlevAstef/SIALogger/wiki/SIALogger-Objective-C_v110
 
             DESC
 
@@ -21,12 +21,21 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '5.0'
 
+  s.source_files  = 'ObjC/SIALogger/SIALogger/SIALogger.h'
+  s.public_header_files = 'ObjC/SIALogger/SIALogger/SIALogger.h'
+
   s.subspec 'Core' do |core|
     core.source_files  = 'ObjC/SIALogger/SIALogger/Core/**/*.{h,m}'
     core.public_header_files = 'ObjC/SIALogger/SIALogger/Core/**/*.h'
   end
 
   s.subspec 'Colorful' do |colorful|
+    colorful.prefix_header_contents = <<-EOS
+    #ifndef __SIA_LOG_COLORFUL__
+      #define __SIA_LOG_COLORFUL__
+    #endif
+    EOS
+    
     colorful.dependency 'SIALogger/Core'
     
     colorful.source_files = 'ObjC/SIALogger/SIALogger/Colored/**/*.{h,m}'
