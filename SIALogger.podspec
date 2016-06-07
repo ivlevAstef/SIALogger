@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'SIALogger'
-  s.version      = '1.1.1'
+  s.version      = '1.1.2'
   s.summary      = 'SIALogger - library for simplify log.'
 
   s.description  = <<-DESC
@@ -30,11 +30,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Colorful' do |colorful|
-    colorful.prefix_header_contents = <<-EOS
-    #ifndef __SIA_LOG_COLORFUL__
-      #define __SIA_LOG_COLORFUL__
-    #endif
-    EOS
+    colorful.xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -D__SIA_LOG_COLORFUL__' }
     
     colorful.dependency 'SIALogger/Core'
     
