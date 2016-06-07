@@ -24,7 +24,7 @@ Via CocoaPods.
 `pod 'SIALoggerSwift'` Swift (iOS8+) also need write in your PodFile `use_frameworks!`
 
 ### Colorful (beginning with v1.1.0)
-`pod 'SIALogger/Colorful'` Objective-C. Also Your must add `__SIA_LOG_COLORFUL__` preprocessor macros.
+`pod 'SIALogger/Colorful'` Objective-C. Also Your must add `__SIA_LOG_COLORFUL__` preprocessor macros.  
 `pod 'SIALoggerSwift/Colorful'` Swift
 
 ## Documentation
